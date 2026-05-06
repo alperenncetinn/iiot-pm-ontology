@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>IIoT-PMO: The Knowledge Engineering Magazine</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
     <style>
         :root {
             --bg-color: #fcf9f2;
@@ -23,7 +25,6 @@
             overflow-x: hidden;
         }
 
-        /* Animations */
         @keyframes fadeUp {
             from { opacity: 0; transform: translateY(30px); }
             to { opacity: 1; transform: translateY(0); }
@@ -64,6 +65,24 @@
             animation-delay: 0.5s;
         }
 
+        .lang-switch {
+            position: absolute;
+            top: 30px;
+            right: 5%;
+            background: transparent;
+            border: 1px solid var(--text-color);
+            padding: 5px 15px;
+            font-family: 'Lora', serif;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .lang-switch:hover {
+            background: var(--text-color);
+            color: var(--bg-color);
+        }
+
+        .lang-en { display: none; }
+
         .magazine-issue {
             text-transform: uppercase;
             font-size: 0.8rem;
@@ -95,7 +114,6 @@
             padding: 3rem 2rem;
         }
 
-        /* Magazine Layout Grid */
         .magazine-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -152,13 +170,55 @@
             text-transform: uppercase;
         }
 
+        .sidebar ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .sidebar li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .sidebar li i {
+            font-size: 1.2rem;
+            color: var(--accent-color);
+            margin-right: 15px;
+            min-width: 25px;
+            text-align: center;
+        }
+
+        .diagram-section {
+            grid-column: 1 / 3;
+            margin: 4rem 0;
+            text-align: center;
+            background: #fff;
+            padding: 3rem;
+            border: 1px solid var(--line-color);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+        }
+        
+        .diagram-section h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            color: var(--accent-color);
+            margin-bottom: 2rem;
+        }
+
+        .mermaid {
+            display: flex;
+            justify-content: center;
+        }
+
         .quote-block {
+            grid-column: 1 / 3;
             font-family: 'Playfair Display', serif;
             font-size: 2rem;
             font-style: italic;
             text-align: center;
             color: var(--accent-color);
-            margin: 4rem 0;
+            margin: 2rem 0;
             padding: 2rem;
             border-top: 1px solid var(--line-color);
             border-bottom: 1px solid var(--line-color);
@@ -169,7 +229,7 @@
             display: flex;
             flex-wrap: wrap;
             gap: 10px;
-            margin-top: 1rem;
+            margin-top: 2rem;
         }
 
         .tag {
@@ -182,71 +242,164 @@
             border-radius: 20px;
             animation: slideInRight 0.8s backwards;
         }
+        
+        .footer-action {
+            grid-column: 1 / 3;
+            text-align: center;
+            margin-top: 2rem;
+            margin-bottom: 4rem;
+        }
+        
+        .github-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--text-color);
+            color: var(--bg-color);
+            padding: 15px 40px;
+            text-decoration: none;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            border: 1px solid var(--text-color);
+            transition: all 0.3s ease;
+        }
+        
+        .github-btn:hover {
+            background: transparent;
+            color: var(--text-color);
+        }
 
         @media (max-width: 768px) {
             h1 { font-size: 3rem; }
             .magazine-grid { grid-template-columns: 1fr; }
             .column-content { column-count: 1; }
-            .article-main { grid-column: 1 / 2; }
+            .article-main, .diagram-section, .quote-block, .footer-action { grid-column: 1 / 2; }
+            .lang-switch { top: 10px; right: 10px; }
         }
     </style>
 </head>
 <body>
 
+    <button class="lang-switch" onclick="toggleLanguage()">EN / TR</button>
+
     <header class="animate-up">
-        <div class="magazine-issue">Vol. 1 — Knowledge Engineering Edition</div>
+        <div class="magazine-issue lang-tr">Vol. 1 — Bilgi Mühendisliği Sayısı</div>
+        <div class="magazine-issue lang-en">Vol. 1 — Knowledge Engineering Edition</div>
+        
         <h1>IIoT-PMO</h1>
-        <div class="subtitle">Ölçeklenebilir Kestirimci Bakım Ontolojisinin Doğuşu</div>
+        
+        <div class="subtitle lang-tr">Ölçeklenebilir Kestirimci Bakım Ontolojisinin Doğuşu</div>
+        <div class="subtitle lang-en">The Dawn of Scalable Predictive Maintenance Ontology</div>
     </header>
 
     <div class="container">
         
         <!-- Main Article -->
         <article class="article-main animate-up delay-1">
-            <h2>Makinelerin Sessiz Dilini Çözmek</h2>
-            <div class="column-content">
+            <h2 class="lang-tr">Makinelerin Sessiz Dilini Çözmek</h2>
+            <h2 class="lang-en">Deciphering the Silent Language of Machines</h2>
+            
+            <div class="column-content lang-tr">
                 <p class="drop-cap">E
                 ndüstriyel otomasyonun kalbinde, fabrikaların devasa ve yorulmak bilmez makineleri her saniye gigabaytlarca veri üretir. Ancak veri, bir bağlama sahip olmadığı sürece yalnızca bir gürültüdür. IIoT-PMO (Industrial IoT & Predictive Maintenance Ontology), işte bu karmaşaya anlamsal bir düzen getirmek için doğdu. Bir motordan veya pompadan gelen titreşim sinyali, tek başına bir sıcaklık uyarısı değil, bütünü görünür kılan bir "Bilgi Grafiği" (Knowledge Graph) parçasıdır.</p>
                 <p>METHONTOLOGY prensipleri ile inşa edilen bu mimari; Asset, Sensor, Measurement, ve Alert kavramlarını OWL ve RDF standartlarıyla birbirine dokuyor. Motor-01 gibi somut kurulumlardan, GRU-RNN tabanlı yapay zeka modellerinin ürettiği öngörülere kadar her şey, makinelerin dillerini anlamsal bir yapıya kavuşturmak içindir.</p>
+            </div>
+            
+            <div class="column-content lang-en">
+                <p class="drop-cap">A
+                t the heart of industrial automation, the massive and tireless machines of factories produce gigabytes of data every second. However, data without context is merely noise. IIoT-PMO (Industrial IoT & Predictive Maintenance Ontology) was born to bring semantic order to this chaos. A vibration signal from a motor or a pump is not just a standalone temperature warning; it is a piece of a "Knowledge Graph" that makes the whole visible.</p>
+                <p>Constructed with METHONTOLOGY principles, this architecture intertwines concepts like Asset, Sensor, Measurement, and Alert with OWL and RDF standards. Everything from concrete installations like Motor-01 to predictions generated by GRU-RNN based AI models exists to bring semantic structure to the languages of machines.</p>
             </div>
         </article>
 
         <!-- Dynamic Layout: Image/Sidebar and Text -->
         <div class="magazine-grid">
             <div class="story animate-up delay-2">
-                <h3 style="font-family: 'Playfair Display', serif; font-size: 2.2rem;">Derin Öğrenme ve LLM Entegrasyonu</h3>
-                <p>Ontolojinin sadece statik verileri değil, metin madencilikten gelen operasyon günlüklerini de kapsadığını düşünün. İkinci fazıyla (v2) hayat bulan "LLMExtractionTask" yapısı, bakımların sisteme girdiği amorf ve derme çatma metinleri, yapısal "MaintenanceLog" verisine çeviriyor. </p>
-                <p>Büyük Dil Modelleri (LLM), yapılandırılmamış sensör günlüklerinden gizli bağlamları çıkartırken; GRU-RNN modelleri "Predicted Failure" sınıfları üreterek gelecekteki olası rulman aşınmalarını saatler öncesinden fısıldıyor.</p>
+                <h3 class="lang-tr" style="font-family: 'Playfair Display', serif; font-size: 2.2rem;">Derin Öğrenme ve LLM Entegrasyonu</h3>
+                <h3 class="lang-en" style="font-family: 'Playfair Display', serif; font-size: 2.2rem;">Deep Learning & LLM Integration</h3>
+                
+                <div class="lang-tr">
+                    <p>Ontolojinin sadece statik verileri değil, metin madencilikten gelen operasyon günlüklerini de kapsadığını düşünün. İkinci fazıyla (v2) hayat bulan "LLMExtractionTask" yapısı, bakımların sisteme girdiği amorf ve derme çatma metinleri, yapısal "MaintenanceLog" verisine çeviriyor.</p>
+                    <p>Büyük Dil Modelleri (LLM), yapılandırılmamış sensör günlüklerinden gizli bağlamları çıkartırken; GRU-RNN modelleri "Predicted Failure" sınıfları üreterek gelecekteki olası rulman aşınmalarını saatler öncesinden fısıldıyor.</p>
+                </div>
+                
+                <div class="lang-en">
+                    <p>Imagine an ontology encompassing not just static data, but also operational logs derived from text mining. The "LLMExtractionTask" structure, brought to life in its second phase (v2), transforms amorphous and rudimentary texts into structured "MaintenanceLog" data.</p>
+                    <p>Large Language Models (LLM) extract hidden contexts from unstructured sensor logs, while GRU-RNN models generate "Predicted Failure" classes, whispering of potential future bearing wear hours in advance.</p>
+                </div>
             </div>
 
             <aside class="sidebar animate-up delay-3">
-                <h3>Ontolojik Bileşenler</h3>
-                <ul style="list-style: none; padding-left: 0;">
-                    <li style="margin-bottom: 10px;"><strong>⚙️ Equipment:</strong> Motorlar, Pompalar (Dönen Aksamlar)</li>
-                    <li style="margin-bottom: 10px;"><strong>📡 Sensor:</strong> Titreşim, Sıcaklık, Basınç Sensörleri</li>
-                    <li style="margin-bottom: 10px;"><strong>⏱️ Observation:</strong> Zaman damgalı anlık ölçümler</li>
-                    <li style="margin-bottom: 10px;"><strong>⚠️ Alert:</strong> Kritik Eşik Aşımları</li>
-                    <li style="margin-bottom: 10px;"><strong>🧠 Model:</strong> GRU-RNN Tahminleyici Modelleri</li>
+                <h3 class="lang-tr">Ontolojik Bileşenler</h3>
+                <h3 class="lang-en">Ontological Components</h3>
+                
+                <ul>
+                    <li><i class="fa-solid fa-gears"></i> <span class="lang-tr"><strong>Equipment:</strong> Motorlar, Pompalar (Dönen Aksamlar)</span><span class="lang-en"><strong>Equipment:</strong> Motors, Pumps (Rotating Assets)</span></li>
+                    <li><i class="fa-solid fa-tower-cell"></i> <span class="lang-tr"><strong>Sensor:</strong> Titreşim, Sıcaklık, Basınç</span><span class="lang-en"><strong>Sensor:</strong> Vibration, Temperature, Pressure</span></li>
+                    <li><i class="fa-solid fa-stopwatch"></i> <span class="lang-tr"><strong>Observation:</strong> Zaman damgalı anlık ölçümler</span><span class="lang-en"><strong>Observation:</strong> Timestamped snapshot metrics</span></li>
+                    <li><i class="fa-solid fa-triangle-exclamation"></i> <span class="lang-tr"><strong>Alert:</strong> Kritik Eşik Aşımları</span><span class="lang-en"><strong>Alert:</strong> Critical Threshold Breaches</span></li>
+                    <li><i class="fa-solid fa-brain"></i> <span class="lang-tr"><strong>Model:</strong> GRU-RNN Tahminleyici Modelleri</span><span class="lang-en"><strong>Model:</strong> GRU-RNN Predictive Models</span></li>
                 </ul>
                 <div class="tech-tags">
                     <span class="tag" style="animation-delay: 1.0s">OWL / RDF</span>
                     <span class="tag" style="animation-delay: 1.1s">Protègè</span>
-                    <span class="tag" style="animation-delay: 1.2s">Yapay Zeka</span>
-                    <span class="tag" style="animation-delay: 1.3s">Endüstri 4.0</span>
+                    <span class="tag" style="animation-delay: 1.2s">AI / LLM</span>
+                    <span class="tag" style="animation-delay: 1.3s">Industry 4.0</span>
                 </div>
             </aside>
-        </div>
+            
+            <!-- Ontology Visualizer Section -->
+            <div class="diagram-section animate-up">
+                <h3 class="lang-tr">Graf Görünümü: Sınıf ve İlişki Mimarisi</h3>
+                <h3 class="lang-en">Graph View: Domain Architecture</h3>
+                <div class="mermaid">
+                    graph TD
+                    Eq[Equipment]
+                    S[Sensor]
+                    Obs[Observation]
+                    Al[Alert]
+                    FM[Failure Mode]
+                    Maint[Maintenance Event]
+                    PF[Predicted Failure]
+                    ML[ML Model]
 
-        <!-- Pull Quote -->
-        <div class="quote-block animate-up">
-            "We don't just collect data from the factory floor; we give the factory a vocabulary to describe its own future."
+                    Eq -- "hasSensor" --> S
+                    Eq -- "hasMaintenanceEvent" --> Maint
+                    Eq -- "hasPredictedFailure" --> PF
+                    S -- "monitors" --> Eq
+                    S -- "hasObservation" --> Obs
+                    Obs -- "generatesAlert" --> Al
+                    Al -- "indicatesFailureMode" --> FM
+                    PF -- "indicatesFailureMode" --> FM
+                    PF -- "predictedBy" --> ML
+                    
+                    classDef orange fill:#f4eee1,stroke:#8b2635,stroke-width:2px,color:#2c2c2c;
+                    class Eq,S,Obs,Al,FM,Maint,PF,ML orange;
+                </div>
+            </div>
+
+            <!-- Pull Quote -->
+            <div class="quote-block animate-up">
+                "We don't just collect data from the factory floor; we give the factory a vocabulary to describe its own future."
+            </div>
+            
+            <!-- GitHub Button -->
+            <div class="footer-action animate-up">
+                <a href="https://github.com/alperenncetinn/iiot-pm-ontology.git" target="_blank" class="github-btn">
+                    <i class="fa-brands fa-github"></i> 
+                    <span class="lang-tr">Projeyi GitHub'da İnceleyin</span>
+                    <span class="lang-en">View Project on GitHub</span>
+                </a>
+            </div>
+
         </div>
 
     </div>
 
     <script>
-        // Basit scroll animasyon kontrolü
         document.addEventListener("DOMContentLoaded", function() {
+            mermaid.initialize({ startOnLoad: true, theme: 'neutral', fontFamily: 'Lora' });
+            
             const elements = document.querySelectorAll('.animate-up');
             
             const observer = new IntersectionObserver((entries) => {
@@ -258,10 +411,25 @@
             });
 
             elements.forEach(el => {
-                el.style.animationPlayState = 'paused'; // Scroll öncesi beklet
+                el.style.animationPlayState = 'paused';
                 observer.observe(el);
             });
         });
+
+        let currentLang = 'tr';
+        function toggleLanguage() {
+            currentLang = currentLang === 'tr' ? 'en' : 'tr';
+            const trElements = document.querySelectorAll('.lang-tr');
+            const enElements = document.querySelectorAll('.lang-en');
+            
+            if (currentLang === 'en') {
+                trElements.forEach(el => el.style.display = 'none');
+                enElements.forEach(el => el.style.display = el.tagName === 'SPAN' ? 'inline' : 'block');
+            } else {
+                enElements.forEach(el => el.style.display = 'none');
+                trElements.forEach(el => el.style.display = el.tagName === 'SPAN' ? 'inline' : 'block');
+            }
+        }
     </script>
 </body>
 </html>
