@@ -4,32 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>IIoT-PMO v2 | Interactive Presentation</title>
-    <!-- Reveal.js styles -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.1.0/reveal.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.1.0/theme/black.min.css">
-    <!-- FontAwesome icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     
     <style>
         :root {
-            --bg: #11110f;
-            --panel: #191a17;
-            --panel-2: #20211d;
-            --line: #3a3d34;
-            --text: #f3f0e8;
-            --muted: #b7b2a3;
-            --green: #5ee083;
-            --amber: #f4b74a;
-            --red: #ff6b5c;
-            --cyan: #6ad7d8;
+            --bg: #0e0c0a;
+            --panel: #1a1714;
+            --panel-2: #231f1b;
+            --line: #3d3529;
+            --text: #f5efe6;
+            --muted: #a89e8f;
+            --green: #c8a96e;
+            --amber: #e8a44a;
+            --red: #d46a5e;
+            --cyan: #8bb8c4;
+            --violet: #9b7ec8;
+            --rose: #c47878;
         }
 
         body {
             background-color: var(--bg) !important;
-            background-image: radial-gradient(rgba(94, 224, 131, 0.05) 1px, transparent 0), radial-gradient(rgba(106, 215, 216, 0.05) 1px, transparent 0);
-            background-size: 40px 40px;
-            background-position: 0 0, 20px 20px;
-            font-family: Inter, sans-serif !important;
+            background-image:
+                radial-gradient(ellipse 600px 400px at 15% 20%, rgba(200,169,110,0.06), transparent),
+                radial-gradient(ellipse 500px 500px at 85% 70%, rgba(155,126,200,0.05), transparent);
+            font-family: 'Inter', sans-serif !important;
         }
 
         .reveal {
@@ -38,8 +39,9 @@
 
         .reveal h1, .reveal h2, .reveal h3, .reveal h4 {
             color: var(--text) !important;
+            font-family: 'Playfair Display', serif !important;
             font-weight: 700 !important;
-            letter-spacing: -0.02em !important;
+            letter-spacing: -0.01em !important;
             text-transform: none !important;
         }
 
@@ -50,9 +52,9 @@
         }
 
         .reveal h2 {
-            font-size: 1.4em !important;
+            font-size: 1.5em !important;
             margin-bottom: 20px !important;
-            border-bottom: 2px solid rgba(255, 255, 255, 0.08);
+            border-bottom: 2px solid rgba(200, 169, 110, 0.25);
             padding-bottom: 12px;
             display: inline-block;
         }
@@ -78,13 +80,13 @@
             font-size: 0.85em !important;
         }
 
-        /* Active high-tech glowing state */
+        /* Active bohemian glowing state */
         .active-highlight {
             border: 1px solid var(--green) !important;
-            background: rgba(94, 224, 131, 0.08) !important;
-            box-shadow: 0 0 20px rgba(94, 224, 131, 0.15) !important;
+            background: rgba(200, 169, 110, 0.08) !important;
+            box-shadow: 0 0 25px rgba(200, 169, 110, 0.12), inset 0 0 20px rgba(200, 169, 110, 0.03) !important;
             transform: translateX(10px);
-            transition: all 0.5s ease;
+            transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
         }
 
         /* Laser pointer target dot inside fragment */
@@ -97,7 +99,7 @@
             height: 10px;
             background: var(--green);
             border-radius: 50%;
-            box-shadow: 0 0 14px 6px var(--green), 0 0 24px 10px rgba(94, 224, 131, 0.5);
+            box-shadow: 0 0 14px 6px var(--green), 0 0 24px 10px rgba(200, 169, 110, 0.4);
             pointer-events: none;
             z-index: 9999;
             animation: pulse-laser 1.5s infinite alternate;
@@ -207,51 +209,83 @@
             50% { color: var(--green) }
         }
 
-        /* Slide 3 visual pan */
+        /* Slide 3 deep visual pan */
         .auto-pan-container {
             position: relative;
             width: 100%;
-            height: 400px;
+            height: 420px;
             overflow: hidden;
             border-radius: 12px;
-            border: 1px solid rgba(255,255,255,0.1);
+            border: 1px solid rgba(200,169,110,0.2);
             background: var(--panel);
+            box-shadow: 0 4px 30px rgba(0,0,0,0.4);
         }
         .auto-pan-iframe {
             width: 100%;
-            height: 140%;
+            height: 300%;
             border: none;
             transform-origin: top center;
-            animation: panIframe 20s ease-in-out infinite alternate;
+            animation: panIframe 25s ease-in-out infinite alternate;
         }
         @keyframes panIframe {
-            0% { transform: translateY(0) scale(1); }
-            100% { transform: translateY(-20%) scale(1.05); }
+            0%   { transform: translateY(0) scale(1.02); }
+            50%  { transform: translateY(-35%) scale(1.04); }
+            100% { transform: translateY(-60%) scale(1.02); }
         }
-        @keyframes movePointer {
-            0% { transform: translate(0, 0) scale(1); opacity: 0; }
-            10% { opacity: 1; }
-            30% { transform: translate(150px, 80px) scale(0.8); }
-            35% { transform: translate(150px, 80px) scale(1.3); box-shadow: 0 0 30px var(--cyan); }
-            50% { transform: translate(-100px, 120px) scale(1); }
-            70% { transform: translate(50px, 200px) scale(0.8); }
-            75% { transform: translate(50px, 200px) scale(1.3); box-shadow: 0 0 30px var(--cyan); }
-            90% { opacity: 1; }
-            100% { transform: translate(0, 0) scale(1); opacity: 0; }
+        .ghost-cursor {
+            position: absolute;
+            width: 18px; height: 18px;
+            background: radial-gradient(circle, rgba(200,169,110,0.9), rgba(200,169,110,0) 70%);
+            border-radius: 50%;
+            pointer-events: none;
+            box-shadow: 0 0 20px rgba(200,169,110,0.5);
+            animation: ghostMove 12s ease-in-out infinite;
+            z-index: 5;
         }
+        @keyframes ghostMove {
+            0%   { top: 15%; left: 25%; opacity: 0; }
+            8%   { opacity: 1; }
+            20%  { top: 30%; left: 55%; }
+            25%  { transform: scale(1.6); box-shadow: 0 0 35px var(--green); }
+            30%  { transform: scale(1); }
+            50%  { top: 50%; left: 35%; }
+            55%  { transform: scale(1.6); box-shadow: 0 0 35px var(--cyan); }
+            60%  { transform: scale(1); }
+            75%  { top: 65%; left: 65%; }
+            80%  { transform: scale(1.6); box-shadow: 0 0 35px var(--violet); }
+            85%  { transform: scale(1); }
+            92%  { opacity: 1; }
+            100% { top: 15%; left: 25%; opacity: 0; }
+        }
+
+        /* Slide 2 SOSA bridge animation */
+        .bridge-anim {
+            height: 2px; width: 100%; margin: 8px 0;
+            background: linear-gradient(90deg, transparent 0%, var(--green) 50%, transparent 100%);
+            background-size: 200% 100%;
+            animation: bridgeFlow 2.5s ease-in-out infinite;
+            opacity: 0.6; border-radius: 1px;
+        }
+        @keyframes bridgeFlow {
+            0%   { background-position: 100% 0; opacity: 0.3; }
+            50%  { opacity: 0.8; }
+            100% { background-position: -100% 0; opacity: 0.3; }
+        }
+
+        /* Slide 4 typing effect container */
+        .code-line { opacity: 0; animation: fadeInLine 0.4s forwards; }
+        @keyframes fadeInLine { to { opacity: 1; } }
 
         /* Slide 5 validation scanner */
         .scanner-container { position: relative; }
         .scanner-line {
             position: absolute;
             top: 0; left: -20px; right: -20px; height: 3px;
-            background: rgba(94, 224, 131, 0.8);
-            box-shadow: 0 0 15px var(--green);
+            background: linear-gradient(90deg, transparent, var(--green), rgba(155,126,200,0.6), transparent);
+            box-shadow: 0 0 18px var(--green);
             border-radius: 50%;
-            animation: scan 4s ease-in-out infinite;
-            pointer-events: none;
-            opacity: 0;
-            z-index: 10;
+            animation: scan 5s ease-in-out infinite;
+            pointer-events: none; opacity: 0; z-index: 10;
         }
         @keyframes scan {
             0% { top: 0; opacity: 0; }
@@ -259,34 +293,48 @@
             90% { opacity: 1; }
             100% { top: 100%; opacity: 0; }
         }
-        
-        /* Interactive Data Flow Line for Slide 2 */
-        .data-flow-line {
-            height: 2px;
-            width: 100%;
-            background: linear-gradient(90deg, transparent, var(--green), transparent);
-            background-size: 200% 100%;
-            animation: flowRight 2s linear infinite;
-            margin: 10px 0;
-            opacity: 0.5;
+
+        /* Slide 6 SPARQL pulse badges */
+        .query-badge {
+            display: inline-block; padding: 2px 8px; border-radius: 4px;
+            font-size: 0.7em; font-weight: 700; letter-spacing: 0.05em;
+            animation: badgePulse 2s infinite alternate;
         }
-        @keyframes flowRight {
-            0% { background-position: 100% 0; }
-            100% { background-position: -100% 0; }
+        @keyframes badgePulse {
+            0% { box-shadow: 0 0 4px currentColor; }
+            100% { box-shadow: 0 0 14px currentColor; }
         }
+
+        /* Slide 7 orbiting particles */
+        .orbit-ring {
+            position: absolute; top: 50%; left: 50%;
+            width: 200px; height: 200px;
+            border: 1px dashed rgba(200,169,110,0.15);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            animation: orbitSpin 20s linear infinite;
+            pointer-events: none;
+        }
+        .orbit-ring::after {
+            content: ''; position: absolute; top: -5px; left: 50%;
+            width: 10px; height: 10px; border-radius: 50%;
+            background: var(--green);
+            box-shadow: 0 0 12px var(--green);
+        }
+        @keyframes orbitSpin { to { transform: translate(-50%, -50%) rotate(360deg); } }
     </style>
 </head>
 <body>
     <!-- Audio Warning Popup -->
-    <div id="audio-start-popup" style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(11, 12, 16, 0.95); z-index: 99999; display: flex; align-items: center; justify-content: center; backdrop-filter: blur(10px);">
-        <div style="background: var(--panel-2); border: 1px solid var(--green); padding: 40px; border-radius: 16px; text-align: center; max-width: 500px; box-shadow: 0 0 40px rgba(94, 224, 131, 0.2);">
-            <div class="pulse-glow" style="display: inline-block; border-radius: 50%; padding: 20px; background: rgba(94, 224, 131, 0.1); margin-bottom: 20px;">
+    <div id="audio-start-popup" style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(14, 12, 10, 0.96); z-index: 99999; display: flex; align-items: center; justify-content: center; backdrop-filter: blur(14px);">
+        <div style="background: var(--panel-2); border: 1px solid rgba(200,169,110,0.3); padding: 50px; border-radius: 20px; text-align: center; max-width: 480px; box-shadow: 0 0 60px rgba(200,169,110,0.1);">
+            <div class="pulse-glow" style="display: inline-block; border-radius: 50%; padding: 24px; background: rgba(200,169,110,0.08); margin-bottom: 24px;">
                 <i class="fa-solid fa-volume-high" style="font-size: 3rem; color: var(--green);"></i>
             </div>
-            <h2 style="color: var(--text); font-size: 1.5rem; margin-bottom: 15px; border-bottom: none;">Sesli Sunum Modu</h2>
-            <p style="color: var(--muted); margin-bottom: 30px; line-height: 1.5;">Bu interaktif sunum otomatik sesli anlatım içermektedir. Lütfen en iyi deneyim için cihazınızın sesinin açık olduğundan emin olun.</p>
-            <button id="start-presentation-btn" style="background: var(--green); color: #000; border: none; padding: 12px 24px; font-size: 1.1rem; font-weight: 600; border-radius: 8px; cursor: pointer; transition: transform 0.3s ease, box-shadow 0.3s ease;" onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 0 15px rgba(94,224,131,0.5)';" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='none';">
-                Sunumu Başlat
+            <h2 style="color: var(--text); font-size: 1.6rem; margin-bottom: 12px; border-bottom: none; font-family: 'Playfair Display', serif;">Sesli Sunum Modu</h2>
+            <p style="color: var(--muted); margin-bottom: 30px; line-height: 1.6; font-size: 0.95rem;">Bu interaktif sunum otomatik sesli anlatım içermektedir.<br>Lütfen cihazınızın sesinin açık olduğundan emin olun.</p>
+            <button id="start-presentation-btn" style="background: linear-gradient(135deg, var(--green), var(--amber)); color: #0e0c0a; border: none; padding: 14px 32px; font-size: 1.1rem; font-weight: 700; border-radius: 10px; cursor: pointer; transition: transform 0.3s ease, box-shadow 0.3s ease; font-family: 'Inter', sans-serif;" onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 0 20px rgba(200,169,110,0.4)';" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='none';">
+                <i class="fa-solid fa-play" style="margin-right: 8px;"></i> Sunumu Başlat
             </button>
         </div>
     </div>
@@ -294,12 +342,12 @@
     <div class="reveal">
         <div class="slides">
             <section data-audio-src="audio/01_intro.mp3">
-                <div class="pulse-glow" style="border: 1px solid rgba(94, 224, 131, 0.2); background: rgba(25, 26, 23, 0.7); padding: 40px; border-radius: 16px; backdrop-filter: blur(8px);">
-                    <div style="color: var(--green); text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.9rem; margin-bottom: 20px;">
+                <div class="pulse-glow" style="border: 1px solid rgba(200,169,110,0.2); background: rgba(26, 23, 20, 0.8); padding: 44px; border-radius: 20px; backdrop-filter: blur(8px);">
+                    <div style="color: var(--green); text-transform: uppercase; letter-spacing: 0.15em; font-size: 0.85rem; margin-bottom: 20px; font-family: 'Inter', sans-serif;">
                         <i class="fa-solid fa-wave-square"></i> Bilgi Mühendisliği ve Ontolojiler
                     </div>
-                    <h1 class="gradient-text" style="background: linear-gradient(135deg, var(--text) 30%, var(--green) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Industrial IoT ve Kestirimci Bakım</h1>
-                    <p style="color: var(--muted); font-size: 1.2rem; margin-bottom: 40px;">Semantik Bilgi Grafiği Altyapısı (IIoT-PMO v2)</p>
+                    <h1 style="background: linear-gradient(135deg, var(--text) 20%, var(--green) 80%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Industrial IoT ve Kestirimci Bakım</h1>
+                    <p style="color: var(--muted); font-size: 1.1rem; margin-bottom: 36px; font-style: italic;">Semantik Bilgi Grafiği Altyapısı — IIoT-PMO v2</p>
                     <div style="font-size: 0.95rem; color: var(--text);">
                         <strong>Sunan:</strong> Alperen Çetin <br>
                         <span style="color: var(--muted);">Proje Final Sunumu ve Canlı Gösterimi</span>
@@ -312,17 +360,17 @@
                 <h2>Sistem Mimarisi ve SOSA/SSN Hizalaması</h2>
                 <ul>
                     <li class="fragment" data-audio-src="audio/02_architecture_1.mp3">
-                        <i class="fa-solid fa-robot" style="font-size: 1.5rem; color: var(--green); margin-right: 20px; width: 30px;"></i>
+                        <i class="fa-solid fa-globe" style="font-size: 1.5rem; color: var(--green); margin-right: 20px; width: 30px;"></i>
                         <div style="width: 100%;">
                             <strong>W3C Standartlarına Uyum (SOSA & SSN):</strong> Ontolojimizi endüstriyel birlikte çalışabilirlik için SOSA ve SSN standartları ile hizaladık.
-                            <div class="data-flow-line"></div>
+                            <div class="bridge-anim"></div>
                         </div>
                     </li>
                     <li class="fragment" data-audio-src="audio/02_architecture_2.mp3">
-                        <i class="fa-solid fa-database" style="font-size: 1.5rem; color: var(--cyan); margin-right: 20px; width: 30px;"></i>
+                        <i class="fa-solid fa-link" style="font-size: 1.5rem; color: var(--cyan); margin-right: 20px; width: 30px;"></i>
                         <div style="width: 100%;">
                             <strong>OWL/RDFS Semantik Köprüleri:</strong> Geliştirdiğimiz Sensor, Measurement ve Asset sınıflarını equivalentClass ve subClassOf ile bağladık.
-                            <div class="data-flow-line" style="background: linear-gradient(90deg, transparent, var(--cyan), transparent);"></div>
+                            <div class="bridge-anim" style="background: linear-gradient(90deg, transparent 0%, var(--cyan) 50%, transparent 100%);"></div>
                         </div>
                     </li>
                 </ul>
@@ -330,11 +378,10 @@
 
             <!-- Slide 3: Visualization -->
             <section data-audio-src="audio/03_webvowl.mp3">
-                <h2 style="margin-bottom: 15px;">Etkileşimli WebVOWL Graf Arayüzü</h2>
+                <h2 style="margin-bottom: 12px;">Etkileşimli Ontoloji Konsolu</h2>
                 <div class="auto-pan-container">
                     <iframe src="console.html" class="auto-pan-iframe" title="Ontology Console"></iframe>
-                    <!-- Simulated interactive pointer -->
-                    <div style="position: absolute; width: 15px; height: 15px; background: rgba(94, 224, 131, 0.7); border-radius: 50%; pointer-events: none; top: 30%; left: 30%; box-shadow: 0 0 20px var(--green); animation: movePointer 10s ease-in-out infinite;"></div>
+                    <div class="ghost-cursor"></div>
                 </div>
             </section>
 
@@ -384,38 +431,42 @@ g.serialize("populated_data.ttl", format="turtle")<span class="terminal-cursor">
                 <h2>SPARQL Analitik Sorguları</h2>
                 <ul>
                     <li class="fragment" data-audio-src="audio/06_sparql_1.mp3">
-                        <i class="fa-solid fa-circle-exclamation" style="font-size: 1.2rem; color: var(--red); margin-right: 20px; width: 24px;"></i>
+                        <i class="fa-solid fa-magnifying-glass-chart" style="font-size: 1.2rem; color: var(--red); margin-right: 20px; width: 24px;"></i>
                         <div>
-                            <strong>Sorgu 1 & 2 (Eşik & Arıza Takibi):</strong> Kritik sınırları aşan sensörleri ve bağlı oldukları endüstriyel cihazları anlık olarak filtreliyoruz.
+                            <span class="query-badge" style="background: rgba(212,106,94,0.15); color: var(--red); margin-bottom: 4px;">FILTER &middot; THRESHOLD</span><br>
+                            <strong>Sorgu 1 & 2:</strong> Kritik sınırları aşan sensörleri ve bağlı endüstriyel cihazları anlık filtreliyoruz.
                         </div>
                     </li>
                     <li class="fragment" data-audio-src="audio/06_sparql_2.mp3">
                         <i class="fa-solid fa-chart-line" style="font-size: 1.2rem; color: var(--green); margin-right: 20px; width: 24px;"></i>
                         <div>
-                            <strong>Sorgu 3 & 4 (Risk Sıralama & Ortalama Metrikler):</strong> En yüksek riskli tahminleri sıralayıp, geçmişe dönük ortalama metrikleri AVG ile çekebiliyoruz.
+                            <span class="query-badge" style="background: rgba(200,169,110,0.15); color: var(--green); margin-bottom: 4px;">AVG &middot; ORDER BY</span><br>
+                            <strong>Sorgu 3 & 4:</strong> En riskli tahminleri sıralayıp geçmişe dönük ortalama metrikleri çekebiliyoruz.
                         </div>
                     </li>
                 </ul>
             </section>
 
             <!-- Slide 7: Integration Success -->
-            <section data-audio-src="audio/07_future_work.mp3">
+            <section data-audio-src="audio/07_future_work.mp3" style="position: relative;">
+                <div class="orbit-ring"></div>
+                <div class="orbit-ring" style="width: 320px; height: 320px; animation-duration: 30s; animation-direction: reverse; border-color: rgba(155,126,200,0.1);"></div>
                 <h2>Sistem Entegrasyonu ve Canlı Akış Başarısı</h2>
-                <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:16px; margin-top:20px;">
-                    <div class="grid-card" style="border: 1px solid rgba(255,255,255,0.08); background:var(--panel-2); padding: 20px; border-radius: 12px; text-align: left;">
+                <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:16px; margin-top:20px; position: relative; z-index: 2;">
+                    <div class="grid-card" style="border: 1px solid rgba(200,169,110,0.12); background:var(--panel-2); padding: 20px; border-radius: 12px; text-align: left;">
                         <i class="fa-solid fa-bolt" style="font-size:1.8rem; color:var(--green); margin-bottom:12px;"></i>
                         <h3 style="font-size:1.1rem; margin-top:0;">Zaman Serisi Entegrasyonu</h3>
                         <p style="font-size:0.75rem; color:var(--muted); margin:0;">Derin öğrenme tabanlı GRU-RNN modellerinden gelen tahminleri ve IoT metriklerini anlık işler.</p>
                     </div>
-                    <div class="grid-card" style="border: 1px solid rgba(255,255,255,0.08); background:var(--panel-2); padding: 20px; border-radius: 12px; text-align: left;">
+                    <div class="grid-card" style="border: 1px solid rgba(139,184,196,0.12); background:var(--panel-2); padding: 20px; border-radius: 12px; text-align: left;">
                         <i class="fa-solid fa-brain" style="font-size:1.8rem; color:var(--cyan); margin-bottom:12px;"></i>
                         <h3 style="font-size:1.1rem; margin-top:0;">Otonom Veri Akışı</h3>
                         <p style="font-size:0.75rem; color:var(--muted); margin:0;">Zaman serisi analizlerinin ve kestirimci tahminlerin bilgi grafiğine akışı otonom çalışmaktadır.</p>
                     </div>
-                    <div class="grid-card" style="border: 1px solid rgba(255,255,255,0.08); background:var(--panel-2); padding: 20px; border-radius: 12px; text-align: left;">
+                    <div class="grid-card" style="border: 1px solid rgba(232,164,74,0.12); background:var(--panel-2); padding: 20px; border-radius: 12px; text-align: left;">
                         <i class="fa-solid fa-check-double" style="font-size:1.8rem; color:var(--amber); margin-bottom:12px;"></i>
                         <h3 style="font-size:1.1rem; margin-top:0;">Bütünleşik Bilgi Grafiği</h3>
-                        <p style="font-size:0.75rem; color:var(--muted); margin:0;">SOSA/SSN hizalı şemamıza akan tüm veriler `populated_data.ttl` grafında birleşir.</p>
+                        <p style="font-size:0.75rem; color:var(--muted); margin:0;">SOSA/SSN hizalı şemamıza akan tüm veriler populated_data.ttl grafında birleşir.</p>
                     </div>
                 </div>
             </section>
