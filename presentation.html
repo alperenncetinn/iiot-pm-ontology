@@ -38,6 +38,14 @@
             color: var(--text) !important;
         }
 
+        .reveal, .reveal .slide-background {
+            background: var(--bg) !important;
+        }
+
+        .reveal .slides section {
+            padding-top: 30px !important;
+        }
+
         .reveal h1, .reveal h2, .reveal h3, .reveal h4 {
             color: var(--text) !important;
             font-family: 'Playfair Display', serif !important;
@@ -384,8 +392,9 @@
 
             <!-- Slide 3: Visualization -->
             <section data-audio-src="audio/03_webvowl.mp3">
-                <h2 style="margin-bottom: 12px;">Etkileşimli Ontoloji Konsolu</h2>
-                <div class="auto-pan-container">
+                <h2 style="margin-bottom: 8px;">Etkileşimli Ontoloji Konsolu</h2>
+                <p style="color: var(--muted); font-size: 0.75rem; margin-bottom: 10px;"><i class="fa-solid fa-hand-pointer" style="margin-right: 6px;"></i> Bu alan interaktiftir — aşağı kaydırarak tüm ontoloji grafini keşfedebilirsiniz.</p>
+                <div class="auto-pan-container" style="height: 380px;">
                     <iframe src="console.html" class="auto-pan-iframe" title="Ontology Console"></iframe>
                     <div class="ghost-cursor"></div>
                 </div>
@@ -532,10 +541,10 @@ g.serialize("populated_data.ttl", format="turtle")<span class="terminal-cursor">
             center: true,
             hash: true,
             transition: 'slide',
-            width: 1200,      // Widen the slides container
-            height: 800,      // Heighten the slides container
-            margin: 0.04,     // Reduce margins to prevent elements from overflowing
-            minScale: 0.2,    // Allow scale down for small screens
+            width: 1100,
+            height: 700,
+            margin: 0.06,
+            minScale: 0.2,
             maxScale: 2.0
         });
 
