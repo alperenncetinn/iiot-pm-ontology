@@ -101,3 +101,10 @@ IIoT-PMO currently focuses on the core concepts needed for predictive maintenanc
 ## Academic Context
 
 This repository was prepared as a semester project foundation for a Knowledge Engineering and Ontologies course. It follows ontology engineering best practices by starting from an Ontology Requirements Specification Document, then implementing an initial OWL/Turtle model aligned with clearly defined competency questions.
+
+## 🌐 Live Ontology Documentation
+
+The auto-generated WIDOCO HTML documentation and interactive visualization of the ontology is available online at:
+👉 [https://alperenncetinn.github.io/iiot-pm-ontology/](https://alperenncetinn.github.io/iiot-pm-ontology/)
+
+*Note: The live page redirects automatically to the WIDOCO documentation inside `docs/widoco/`, but allows navigating to the custom Interactive Ontology Console (`console.html`) for dynamic graph exploration.*

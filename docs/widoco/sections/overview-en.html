@@ -1,0 +1,242 @@
+<h2 id="overv" class="list">Industrial IoT & Predictive Maintenance Ontology (IIoT-PMO): Overview <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+<span class="markdown">
+This ontology has the following classes and properties.</span>
+<h4>Classes</h4>
+<ul xmlns:widoco="https://w3id.org/widoco/vocab#"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    class="hlist">
+   <li>
+      <a href="#Alert" title="https://w3id.org/iiot-pmo#Alert">Alert</a>
+   </li>
+   <li>
+      <a href="#Asset" title="https://w3id.org/iiot-pmo#Asset">Asset</a>
+   </li>
+   <li>
+      <a href="#CriticalAlert" title="https://w3id.org/iiot-pmo#CriticalAlert">Critical Alert</a>
+   </li>
+   <li>
+      <a href="#DataSource" title="https://w3id.org/iiot-pmo#DataSource">Data Source</a>
+   </li>
+   <li>
+      <a href="#Equipment" title="https://w3id.org/iiot-pmo#Equipment">Equipment</a>
+   </li>
+   <li>
+      <a href="#FailureMode" title="https://w3id.org/iiot-pmo#FailureMode">Failure Mode</a>
+   </li>
+   <li>
+      <a href="#GRURNNModel" title="https://w3id.org/iiot-pmo#GRURNNModel">GRU-RNN Model</a>
+   </li>
+   <li>
+      <a href="#LLMExtractionTask" title="https://w3id.org/iiot-pmo#LLMExtractionTask">LLM Extraction Task</a>
+   </li>
+   <li>
+      <a href="#MLModel" title="https://w3id.org/iiot-pmo#MLModel">Machine Learning Model</a>
+   </li>
+   <li>
+      <a href="#MaintenanceEvent" title="https://w3id.org/iiot-pmo#MaintenanceEvent">Maintenance Event</a>
+   </li>
+   <li>
+      <a href="#MaintenanceLog" title="https://w3id.org/iiot-pmo#MaintenanceLog">Maintenance Log</a>
+   </li>
+   <li>
+      <a href="#Measurement" title="https://w3id.org/iiot-pmo#Measurement">Measurement</a>
+   </li>
+   <li>
+      <a href="#MeasurementValue" title="https://w3id.org/iiot-pmo#MeasurementValue">Measurement Value</a>
+   </li>
+   <li>
+      <a href="#Motor" title="https://w3id.org/iiot-pmo#Motor">Motor</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/ns/sosa/Observation" title="http://www.w3.org/ns/sosa/Observation">
+         <span>Observation</span>
+      </a>
+   </li>
+   <li>
+      <a href="#Observation" title="https://w3id.org/iiot-pmo#Observation">Observation</a>
+   </li>
+   <li>
+      <a href="#PredictedFailure" title="https://w3id.org/iiot-pmo#PredictedFailure">Predicted Failure</a>
+   </li>
+   <li>
+      <a href="#PressureSensor" title="https://w3id.org/iiot-pmo#PressureSensor">Pressure Sensor</a>
+   </li>
+   <li>
+      <a href="#Pump" title="https://w3id.org/iiot-pmo#Pump">Pump</a>
+   </li>
+   <li>
+      <a href="#RotatingEquipment" title="https://w3id.org/iiot-pmo#RotatingEquipment">Rotating Equipment</a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/ns/sosa/Sensor" title="http://www.w3.org/ns/sosa/Sensor">
+         <span>Sensor</span>
+      </a>
+   </li>
+   <li>
+      <a href="#Sensor" title="https://w3id.org/iiot-pmo#Sensor">Sensor</a>
+   </li>
+   <li>
+      <a href="#TemperatureSensor" title="https://w3id.org/iiot-pmo#TemperatureSensor">Temperature Sensor</a>
+   </li>
+   <li>
+      <a href="#ThresholdAlert" title="https://w3id.org/iiot-pmo#ThresholdAlert">Threshold Alert</a>
+   </li>
+   <li>
+      <a href="#TimeSeriesBatch" title="https://w3id.org/iiot-pmo#TimeSeriesBatch">Time Series Batch</a>
+   </li>
+   <li>
+      <a href="#VibrationSensor" title="https://w3id.org/iiot-pmo#VibrationSensor">Vibration Sensor</a>
+   </li>
+</ul><h4>Object Properties</h4><ul xmlns:widoco="https://w3id.org/widoco/vocab#"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    class="hlist">
+   <li>
+      <a href="#containsObservation" title="https://w3id.org/iiot-pmo#containsObservation">contains observation</a>
+   </li>
+   <li>
+      <a href="#derivedFromBatch" title="https://w3id.org/iiot-pmo#derivedFromBatch">derived from batch</a>
+   </li>
+   <li>
+      <a href="#extractsCandidateFor" title="https://w3id.org/iiot-pmo#extractsCandidateFor">extracts candidate for</a>
+   </li>
+   <li>
+      <a href="#generatesAlert" title="https://w3id.org/iiot-pmo#generatesAlert">generates alert</a>
+   </li>
+   <li>
+      <a href="#hasMaintenanceEvent" title="https://w3id.org/iiot-pmo#hasMaintenanceEvent">has maintenance event</a>
+   </li>
+   <li>
+      <a href="#hasMaintenanceHistory" title="https://w3id.org/iiot-pmo#hasMaintenanceHistory">has maintenance history</a>
+   </li>
+   <li>
+      <a href="#hasMeasurement" title="https://w3id.org/iiot-pmo#hasMeasurement">has measurement</a>
+   </li>
+   <li>
+      <a href="#hasObservation" title="https://w3id.org/iiot-pmo#hasObservation">has observation</a>
+   </li>
+   <li>
+      <a href="#hasPredictedFailure" title="https://w3id.org/iiot-pmo#hasPredictedFailure">has predicted failure</a>
+   </li>
+   <li>
+      <a href="#hasSensor" title="https://w3id.org/iiot-pmo#hasSensor">has sensor</a>
+   </li>
+   <li>
+      <a href="#indicatesFailureMode" title="https://w3id.org/iiot-pmo#indicatesFailureMode">indicates failure mode</a>
+   </li>
+   <li>
+      <a href="#monitors" title="https://w3id.org/iiot-pmo#monitors">monitors</a>
+   </li>
+   <li>
+      <a href="#predictedBy" title="https://w3id.org/iiot-pmo#predictedBy">predicted by</a>
+   </li>
+   <li>
+      <a href="#usesDataSource" title="https://w3id.org/iiot-pmo#usesDataSource">uses data source</a>
+   </li>
+</ul><h4>Data Properties</h4><ul xmlns:widoco="https://w3id.org/widoco/vocab#"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    class="hlist">
+   <li>
+      <a href="#hasBatchWindowEnd" title="https://w3id.org/iiot-pmo#hasBatchWindowEnd">has batch window end</a>
+   </li>
+   <li>
+      <a href="#hasBatchWindowStart" title="https://w3id.org/iiot-pmo#hasBatchWindowStart">has batch window start</a>
+   </li>
+   <li>
+      <a href="#hasConfidence" title="https://w3id.org/iiot-pmo#hasConfidence">has confidence</a>
+   </li>
+   <li>
+      <a href="#hasFailureProbability" title="https://w3id.org/iiot-pmo#hasFailureProbability">has failure probability</a>
+   </li>
+   <li>
+      <a href="#hasLogText" title="https://w3id.org/iiot-pmo#hasLogText">has log text</a>
+   </li>
+   <li>
+      <a href="#hasMaintenanceAction" title="https://w3id.org/iiot-pmo#hasMaintenanceAction">has maintenance action</a>
+   </li>
+   <li>
+      <a href="#hasModelName" title="https://w3id.org/iiot-pmo#hasModelName">has model name</a>
+   </li>
+   <li>
+      <a href="#hasOperatingHours" title="https://w3id.org/iiot-pmo#hasOperatingHours">has operating hours</a>
+   </li>
+   <li>
+      <a href="#hasPredictionHorizonHours"
+         title="https://w3id.org/iiot-pmo#hasPredictionHorizonHours">has prediction horizon hours</a>
+   </li>
+   <li>
+      <a href="#hasThreshold" title="https://w3id.org/iiot-pmo#hasThreshold">has threshold</a>
+   </li>
+   <li>
+      <a href="#hasTimestamp" title="https://w3id.org/iiot-pmo#hasTimestamp">has timestamp</a>
+   </li>
+   <li>
+      <a href="#hasUnit" title="https://w3id.org/iiot-pmo#hasUnit">has unit</a>
+   </li>
+   <li>
+      <a href="#hasValue" title="https://w3id.org/iiot-pmo#hasValue">has value</a>
+   </li>
+</ul><h4>Named Individuals</h4><ul xmlns:widoco="https://w3id.org/widoco/vocab#"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    class="hlist">
+   <li>
+      <a href="#BearingWear" title="https://w3id.org/iiot-pmo#BearingWear">Bearing Wear</a>
+   </li>
+   <li>
+      <a href="#Alert-CriticalVibration-001"
+         title="https://w3id.org/iiot-pmo#Alert-CriticalVibration-001">Critical vibration alert 001</a>
+   </li>
+   <li>
+      <a href="#FactoryLogSimulation" title="https://w3id.org/iiot-pmo#FactoryLogSimulation">Factory Log Simulation</a>
+   </li>
+   <li>
+      <a href="#GRU-RNN-Predictor-v1" title="https://w3id.org/iiot-pmo#GRU-RNN-Predictor-v1">GRU-RNN predictive maintenance model v1</a>
+   </li>
+   <li>
+      <a href="#LLMExtractionTask-LOG-20260506-001"
+         title="https://w3id.org/iiot-pmo#LLMExtractionTask-LOG-20260506-001">LLM extraction task for simulated factory log LOG-20260506-001</a>
+   </li>
+   <li>
+      <a href="#MaintenanceLog-Motor-01-2026-04-01"
+         title="https://w3id.org/iiot-pmo#MaintenanceLog-Motor-01-2026-04-01">Maintenance log for Motor-01 on 2026-04-01</a>
+   </li>
+   <li>
+      <a href="#METHONTOLOGYScopeNote" title="https://w3id.org/iiot-pmo#METHONTOLOGYScopeNote">METHONTOLOGY scope note for IIoT-PMO v2</a>
+   </li>
+   <li>
+      <a href="#Motor-01" title="https://w3id.org/iiot-pmo#Motor-01">Motor-01</a>
+   </li>
+   <li>
+      <a href="#PredictedFailure-Motor-01-BearingWear"
+         title="https://w3id.org/iiot-pmo#PredictedFailure-Motor-01-BearingWear">Predicted bearing wear for Motor-01</a>
+   </li>
+   <li>
+      <a href="#MeasurementValue-Temp-001"
+         title="https://w3id.org/iiot-pmo#MeasurementValue-Temp-001">Temperature measurement value 001</a>
+   </li>
+   <li>
+      <a href="#Observation-Temp-2026-05-06T09-15-00"
+         title="https://w3id.org/iiot-pmo#Observation-Temp-2026-05-06T09-15-00">Temperature observation for Motor-01 at 2026-05-06 09:15:00</a>
+   </li>
+   <li>
+      <a href="#TemperatureSensor-01" title="https://w3id.org/iiot-pmo#TemperatureSensor-01">TemperatureSensor-01</a>
+   </li>
+   <li>
+      <a href="#TimeSeriesBatch-Motor-01-2026-05-06"
+         title="https://w3id.org/iiot-pmo#TimeSeriesBatch-Motor-01-2026-05-06">Time-series batch for Motor-01 on 2026-05-06</a>
+   </li>
+   <li>
+      <a href="#MeasurementValue-Vibration-001"
+         title="https://w3id.org/iiot-pmo#MeasurementValue-Vibration-001">Vibration measurement value 001</a>
+   </li>
+   <li>
+      <a href="#Observation-2026-05-06T09-15-00"
+         title="https://w3id.org/iiot-pmo#Observation-2026-05-06T09-15-00">Vibration observation for Motor-01 at 2026-05-06 09:15:00</a>
+   </li>
+   <li>
+      <a href="#VibrationSensor-01" title="https://w3id.org/iiot-pmo#VibrationSensor-01">VibrationSensor-01</a>
+   </li>
+   <li>
+      <a href="#IndustrialSensorDataset-Kaggle"
+         title="https://w3id.org/iiot-pmo#IndustrialSensorDataset-Kaggle">Industrial Sensor Dataset from Kaggle</a>
+   </li>
+</ul><iframe src="webvowl/index.html"></iframe> 

@@ -1,0 +1,1706 @@
+<h2 id="crossreference" class="list">Cross-reference for Industrial IoT & Predictive Maintenance Ontology (IIoT-PMO) classes, object properties and data properties <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+This section provides details for each class and property defined by Industrial IoT & Predictive Maintenance Ontology (IIoT-PMO).
+<div xmlns:widoco="https://w3id.org/widoco/vocab#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="classes">
+ <h3 id="classes-headline" class="list">Classes</h3>
+ <ul class="hlist">
+  <li><a href="#Alert" title="https://w3id.org/iiot-pmo#Alert">Alert</a></li>
+  <li><a href="#Asset" title="https://w3id.org/iiot-pmo#Asset">Asset</a></li>
+  <li><a href="#CriticalAlert" title="https://w3id.org/iiot-pmo#CriticalAlert">Critical Alert</a></li>
+  <li><a href="#DataSource" title="https://w3id.org/iiot-pmo#DataSource">Data Source</a></li>
+  <li><a href="#Equipment" title="https://w3id.org/iiot-pmo#Equipment">Equipment</a></li>
+  <li><a href="#FailureMode" title="https://w3id.org/iiot-pmo#FailureMode">Failure Mode</a></li>
+  <li><a href="#GRURNNModel" title="https://w3id.org/iiot-pmo#GRURNNModel">GRU-RNN Model</a></li>
+  <li><a href="#LLMExtractionTask" title="https://w3id.org/iiot-pmo#LLMExtractionTask">LLM Extraction Task</a></li>
+  <li><a href="#MLModel" title="https://w3id.org/iiot-pmo#MLModel">Machine Learning Model</a></li>
+  <li><a href="#MaintenanceEvent" title="https://w3id.org/iiot-pmo#MaintenanceEvent">Maintenance Event</a></li>
+  <li><a href="#MaintenanceLog" title="https://w3id.org/iiot-pmo#MaintenanceLog">Maintenance Log</a></li>
+  <li><a href="#Measurement" title="https://w3id.org/iiot-pmo#Measurement">Measurement</a></li>
+  <li><a href="#MeasurementValue" title="https://w3id.org/iiot-pmo#MeasurementValue">Measurement Value</a></li>
+  <li><a href="#Motor" title="https://w3id.org/iiot-pmo#Motor">Motor</a></li>
+  <li><a href="#http://www.w3.org/ns/sosa/Observation" title="http://www.w3.org/ns/sosa/Observation"> <span>Observation</span> </a></li>
+  <li><a href="#Observation" title="https://w3id.org/iiot-pmo#Observation">Observation</a></li>
+  <li><a href="#PredictedFailure" title="https://w3id.org/iiot-pmo#PredictedFailure">Predicted Failure</a></li>
+  <li><a href="#PressureSensor" title="https://w3id.org/iiot-pmo#PressureSensor">Pressure Sensor</a></li>
+  <li><a href="#Pump" title="https://w3id.org/iiot-pmo#Pump">Pump</a></li>
+  <li><a href="#RotatingEquipment" title="https://w3id.org/iiot-pmo#RotatingEquipment">Rotating Equipment</a></li>
+  <li><a href="#http://www.w3.org/ns/sosa/Sensor" title="http://www.w3.org/ns/sosa/Sensor"> <span>Sensor</span> </a></li>
+  <li><a href="#Sensor" title="https://w3id.org/iiot-pmo#Sensor">Sensor</a></li>
+  <li><a href="#TemperatureSensor" title="https://w3id.org/iiot-pmo#TemperatureSensor">Temperature Sensor</a></li>
+  <li><a href="#ThresholdAlert" title="https://w3id.org/iiot-pmo#ThresholdAlert">Threshold Alert</a></li>
+  <li><a href="#TimeSeriesBatch" title="https://w3id.org/iiot-pmo#TimeSeriesBatch">Time Series Batch</a></li>
+  <li><a href="#VibrationSensor" title="https://w3id.org/iiot-pmo#VibrationSensor">Vibration Sensor</a></li>
+ </ul>
+ <div class="entity" id="Alert">
+  <h3>Alert<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/iiot-pmo#Alert</p>
+  <div class="comment">
+   <span class="markdown">A semantic notification generated when an observation indicates abnormal or risky operating behavior.</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has sub-classes
+   </dt>
+   <dd>
+    <a href="#ThresholdAlert" title="https://w3id.org/iiot-pmo#ThresholdAlert">Threshold Alert</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is in domain of
+   </dt>
+   <dd>
+    <a href="#indicatesFailureMode" title="https://w3id.org/iiot-pmo#indicatesFailureMode">indicates failure mode</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+   <dt>
+    is in range of
+   </dt>
+   <dd>
+    <a href="#generatesAlert" title="https://w3id.org/iiot-pmo#generatesAlert">generates alert</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="Asset">
+  <h3>Asset<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/iiot-pmo#Asset</p>
+  <div class="comment">
+   <span class="markdown">A physical or logical industrial entity that can be monitored, maintained, or identified in a factory knowledge graph.</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="http://www.w3.org/ns/sosa/FeatureOfInterest" target="_blank" title="http://www.w3.org/ns/sosa/FeatureOfInterest">Feature Of Interest</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has sub-classes
+   </dt>
+   <dd>
+    <a href="#Equipment" title="https://w3id.org/iiot-pmo#Equipment">Equipment</a> <sup class="type-c" title="class">c</sup>, <a href="#Sensor" title="https://w3id.org/iiot-pmo#Sensor">Sensor</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="CriticalAlert">
+  <h3>Critical Alert<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/iiot-pmo#CriticalAlert</p>
+  <div class="comment">
+   <span class="markdown">A threshold alert representing a critical operating condition.</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#ThresholdAlert" title="https://w3id.org/iiot-pmo#ThresholdAlert">Threshold Alert</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has members
+   </dt>
+   <dd>
+    <a href="#Alert-CriticalVibration-001" title="https://w3id.org/iiot-pmo#Alert-CriticalVibration-001">Critical vibration alert 001</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="DataSource">
+  <h3>Data Source<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/iiot-pmo#DataSource</p>
+  <div class="comment">
+   <span class="markdown">A structured, semi-structured, or unstructured source used to populate the ontology.</span>
+  </div>
+  <dl class="description">
+   <dt>
+    is in range of
+   </dt>
+   <dd>
+    <a href="#usesDataSource" title="https://w3id.org/iiot-pmo#usesDataSource">uses data source</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+   <dt>
+    has members
+   </dt>
+   <dd>
+    <a href="#FactoryLogSimulation" title="https://w3id.org/iiot-pmo#FactoryLogSimulation">Factory Log Simulation</a> <sup class="type-ni" title="named individual">ni</sup>, <a href="#IndustrialSensorDataset-Kaggle" title="https://w3id.org/iiot-pmo#IndustrialSensorDataset-Kaggle">Industrial Sensor Dataset from Kaggle</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="Equipment">
+  <h3>Equipment<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/iiot-pmo#Equipment</p>
+  <div class="comment">
+   <span class="markdown">Industrial machinery that performs a production, utility, or support function.</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#Asset" title="https://w3id.org/iiot-pmo#Asset">Asset</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has sub-classes
+   </dt>
+   <dd>
+    <a href="#RotatingEquipment" title="https://w3id.org/iiot-pmo#RotatingEquipment">Rotating Equipment</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is in domain of
+   </dt>
+   <dd>
+    <a href="#hasMaintenanceEvent" title="https://w3id.org/iiot-pmo#hasMaintenanceEvent">has maintenance event</a> <sup class="type-op" title="object property">op</sup>, <a href="#hasMaintenanceHistory" title="https://w3id.org/iiot-pmo#hasMaintenanceHistory">has maintenance history</a> <sup class="type-op" title="object property">op</sup>, <a href="#hasOperatingHours" title="https://w3id.org/iiot-pmo#hasOperatingHours">has operating hours</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#hasPredictedFailure" title="https://w3id.org/iiot-pmo#hasPredictedFailure">has predicted failure</a> <sup class="type-op" title="object property">op</sup>, <a href="#hasSensor" title="https://w3id.org/iiot-pmo#hasSensor">has sensor</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+   <dt>
+    is in range of
+   </dt>
+   <dd>
+    <a href="#monitors" title="https://w3id.org/iiot-pmo#monitors">monitors</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="FailureMode">
+  <h3>Failure Mode<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/iiot-pmo#FailureMode</p>
+  <div class="comment">
+   <span class="markdown">A potential or observed mechanism of equipment degradation or failure.</span>
+  </div>
+  <dl class="description">
+   <dt>
+    is in range of
+   </dt>
+   <dd>
+    <a href="#indicatesFailureMode" title="https://w3id.org/iiot-pmo#indicatesFailureMode">indicates failure mode</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+   <dt>
+    has members
+   </dt>
+   <dd>
+    <a href="#BearingWear" title="https://w3id.org/iiot-pmo#BearingWear">Bearing Wear</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="GRURNNModel">
+  <h3>GRU-RNN Model<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/iiot-pmo#GRURNNModel</p>
+  <div class="comment">
+   <span class="markdown">A recurrent neural network model based on gated recurrent units for time-series failure prediction.</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#MLModel" title="https://w3id.org/iiot-pmo#MLModel">Machine Learning Model</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has members
+   </dt>
+   <dd>
+    <a href="#GRU-RNN-Predictor-v1" title="https://w3id.org/iiot-pmo#GRU-RNN-Predictor-v1">GRU-RNN predictive maintenance model v1</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="LLMExtractionTask">
+  <h3>LLM Extraction Task<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/iiot-pmo#LLMExtractionTask</p>
+  <div class="comment">
+   <span class="markdown">A data ingestion task in which a large language model extracts ontology candidates from unstructured industrial text.</span>
+  </div>
+  <dl class="description">
+   <dt>
+    is in domain of
+   </dt>
+   <dd>
+    <a href="#extractsCandidateFor" title="https://w3id.org/iiot-pmo#extractsCandidateFor">extracts candidate for</a> <sup class="type-op" title="object property">op</sup>, <a href="#hasConfidence" title="https://w3id.org/iiot-pmo#hasConfidence">has confidence</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#usesDataSource" title="https://w3id.org/iiot-pmo#usesDataSource">uses data source</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+   <dt>
+    has members
+   </dt>
+   <dd>
+    <a href="#LLMExtractionTask-LOG-20260506-001" title="https://w3id.org/iiot-pmo#LLMExtractionTask-LOG-20260506-001">LLM extraction task for simulated factory log LOG-20260506-001</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="MLModel">
+  <h3>Machine Learning Model<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/iiot-pmo#MLModel</p>
+  <div class="comment">
+   <span class="markdown">A computational model that produces predictions from industrial sensor or maintenance data.</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has sub-classes
+   </dt>
+   <dd>
+    <a href="#GRURNNModel" title="https://w3id.org/iiot-pmo#GRURNNModel">GRU-RNN Model</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is in domain of
+   </dt>
+   <dd>
+    <a href="#hasModelName" title="https://w3id.org/iiot-pmo#hasModelName">has model name</a> <sup class="type-dp" title="data property">dp</sup>
+   </dd>
+   <dt>
+    is in range of
+   </dt>
+   <dd>
+    <a href="#predictedBy" title="https://w3id.org/iiot-pmo#predictedBy">predicted by</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="MaintenanceEvent">
+  <h3>Maintenance Event<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/iiot-pmo#MaintenanceEvent</p>
+  <div class="comment">
+   <span class="markdown">A maintenance action or inspection event associated with equipment.</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has sub-classes
+   </dt>
+   <dd>
+    <a href="#MaintenanceLog" title="https://w3id.org/iiot-pmo#MaintenanceLog">Maintenance Log</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is in range of
+   </dt>
+   <dd>
+    <a href="#hasMaintenanceEvent" title="https://w3id.org/iiot-pmo#hasMaintenanceEvent">has maintenance event</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="MaintenanceLog">
+  <h3>Maintenance Log<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/iiot-pmo#MaintenanceLog</p>
+  <div class="comment">
+   <span class="markdown">A textual or semi-structured record describing maintenance actions, operator notes, inspection outcomes, or service events.</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#MaintenanceEvent" title="https://w3id.org/iiot-pmo#MaintenanceEvent">Maintenance Event</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is in domain of
+   </dt>
+   <dd>
+    <a href="#hasLogText" title="https://w3id.org/iiot-pmo#hasLogText">has log text</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#hasMaintenanceAction" title="https://w3id.org/iiot-pmo#hasMaintenanceAction">has maintenance action</a> <sup class="type-dp" title="data property">dp</sup>
+   </dd>
+   <dt>
+    is in range of
+   </dt>
+   <dd>
+    <a href="#hasMaintenanceHistory" title="https://w3id.org/iiot-pmo#hasMaintenanceHistory">has maintenance history</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+   <dt>
+    has members
+   </dt>
+   <dd>
+    <a href="#MaintenanceLog-Motor-01-2026-04-01" title="https://w3id.org/iiot-pmo#MaintenanceLog-Motor-01-2026-04-01">Maintenance log for Motor-01 on 2026-04-01</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="Measurement">
+  <h3>Measurement<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/iiot-pmo#Measurement</p>
+  <div class="comment">
+   <span class="markdown">A structured representation of a value produced through an observation.</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="http://www.w3.org/ns/sosa/Result" target="_blank" title="http://www.w3.org/ns/sosa/Result">Result</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has sub-classes
+   </dt>
+   <dd>
+    <a href="#MeasurementValue" title="https://w3id.org/iiot-pmo#MeasurementValue">Measurement Value</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is in domain of
+   </dt>
+   <dd>
+    <a href="#hasUnit" title="https://w3id.org/iiot-pmo#hasUnit">has unit</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#hasValue" title="https://w3id.org/iiot-pmo#hasValue">has value</a> <sup class="type-dp" title="data property">dp</sup>
+   </dd>
+   <dt>
+    is in range of
+   </dt>
+   <dd>
+    <a href="#hasMeasurement" title="https://w3id.org/iiot-pmo#hasMeasurement">has measurement</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="MeasurementValue">
+  <h3>Measurement Value<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/iiot-pmo#MeasurementValue</p>
+  <div class="comment">
+   <span class="markdown">A concrete numeric measurement value mapped from a source column such as temp_c, vibration_mm_s, or pressure_bar.</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#Measurement" title="https://w3id.org/iiot-pmo#Measurement">Measurement</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has members
+   </dt>
+   <dd>
+    <a href="#MeasurementValue-Temp-001" title="https://w3id.org/iiot-pmo#MeasurementValue-Temp-001">Temperature measurement value 001</a> <sup class="type-ni" title="named individual">ni</sup>, <a href="#MeasurementValue-Vibration-001" title="https://w3id.org/iiot-pmo#MeasurementValue-Vibration-001">Vibration measurement value 001</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="Motor">
+  <h3>Motor<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/iiot-pmo#Motor</p>
+  <div class="comment">
+   <span class="markdown">A rotating equipment asset that converts electrical energy into mechanical motion.</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#RotatingEquipment" title="https://w3id.org/iiot-pmo#RotatingEquipment">Rotating Equipment</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has members
+   </dt>
+   <dd>
+    <a href="#Motor-01" title="https://w3id.org/iiot-pmo#Motor-01">Motor-01</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="http://www.w3.org/ns/sosa/Observation">
+  <h3>Observation<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.w3.org/ns/sosa/Observation</p>
+  <dl class="description">
+   <dt>
+    is equivalent to
+   </dt>
+   <dd>
+    <a href="#Observation" title="https://w3id.org/iiot-pmo#Observation">Observation</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="Observation">
+  <h3>Observation<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/iiot-pmo#Observation</p>
+  <div class="comment">
+   <span class="markdown">A time-stamped record generated by a sensor while monitoring equipment.</span>
+  </div>
+  <dl class="description">
+   <dt>
+    is in domain of
+   </dt>
+   <dd>
+    <a href="#generatesAlert" title="https://w3id.org/iiot-pmo#generatesAlert">generates alert</a> <sup class="type-op" title="object property">op</sup>, <a href="#hasMeasurement" title="https://w3id.org/iiot-pmo#hasMeasurement">has measurement</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+   <dt>
+    is in range of
+   </dt>
+   <dd>
+    <a href="#containsObservation" title="https://w3id.org/iiot-pmo#containsObservation">contains observation</a> <sup class="type-op" title="object property">op</sup>, <a href="#hasObservation" title="https://w3id.org/iiot-pmo#hasObservation">has observation</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+   <dt>
+    has members
+   </dt>
+   <dd>
+    <a href="#Observation-Temp-2026-05-06T09-15-00" title="https://w3id.org/iiot-pmo#Observation-Temp-2026-05-06T09-15-00">Temperature observation for Motor-01 at 2026-05-06 09:15:00</a> <sup class="type-ni" title="named individual">ni</sup>, <a href="#Observation-2026-05-06T09-15-00" title="https://w3id.org/iiot-pmo#Observation-2026-05-06T09-15-00">Vibration observation for Motor-01 at 2026-05-06 09:15:00</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="PredictedFailure">
+  <h3>Predicted Failure<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/iiot-pmo#PredictedFailure</p>
+  <div class="comment">
+   <span class="markdown">A machine-learning prediction that an asset may experience a failure mode within a future prediction horizon.</span>
+  </div>
+  <dl class="description">
+   <dt>
+    is in domain of
+   </dt>
+   <dd>
+    <a href="#derivedFromBatch" title="https://w3id.org/iiot-pmo#derivedFromBatch">derived from batch</a> <sup class="type-op" title="object property">op</sup>, <a href="#hasFailureProbability" title="https://w3id.org/iiot-pmo#hasFailureProbability">has failure probability</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#hasPredictionHorizonHours" title="https://w3id.org/iiot-pmo#hasPredictionHorizonHours">has prediction horizon hours</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#indicatesFailureMode" title="https://w3id.org/iiot-pmo#indicatesFailureMode">indicates failure mode</a> <sup class="type-op" title="object property">op</sup>, <a href="#predictedBy" title="https://w3id.org/iiot-pmo#predictedBy">predicted by</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+   <dt>
+    is in range of
+   </dt>
+   <dd>
+    <a href="#hasPredictedFailure" title="https://w3id.org/iiot-pmo#hasPredictedFailure">has predicted failure</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+   <dt>
+    has members
+   </dt>
+   <dd>
+    <a href="#PredictedFailure-Motor-01-BearingWear" title="https://w3id.org/iiot-pmo#PredictedFailure-Motor-01-BearingWear">Predicted bearing wear for Motor-01</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="PressureSensor">
+  <h3>Pressure Sensor<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/iiot-pmo#PressureSensor</p>
+  <div class="comment">
+   <span class="markdown">A sensor that measures pressure in a process or equipment context.</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#Sensor" title="https://w3id.org/iiot-pmo#Sensor">Sensor</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="Pump">
+  <h3>Pump<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/iiot-pmo#Pump</p>
+  <div class="comment">
+   <span class="markdown">A rotating equipment asset used to move fluids through a process system.</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#RotatingEquipment" title="https://w3id.org/iiot-pmo#RotatingEquipment">Rotating Equipment</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="RotatingEquipment">
+  <h3>Rotating Equipment<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/iiot-pmo#RotatingEquipment</p>
+  <div class="comment">
+   <span class="markdown">Equipment whose operational behavior is characterized by rotating components such as shafts, bearings, or impellers.</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#Equipment" title="https://w3id.org/iiot-pmo#Equipment">Equipment</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has sub-classes
+   </dt>
+   <dd>
+    <a href="#Motor" title="https://w3id.org/iiot-pmo#Motor">Motor</a> <sup class="type-c" title="class">c</sup>, <a href="#Pump" title="https://w3id.org/iiot-pmo#Pump">Pump</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="http://www.w3.org/ns/sosa/Sensor">
+  <h3>Sensor<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.w3.org/ns/sosa/Sensor</p>
+  <dl class="description">
+   <dt>
+    is equivalent to
+   </dt>
+   <dd>
+    <a href="#Sensor" title="https://w3id.org/iiot-pmo#Sensor">Sensor</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="Sensor">
+  <h3>Sensor<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/iiot-pmo#Sensor</p>
+  <div class="comment">
+   <span class="markdown">A device that observes a physical property of equipment or its operational context.</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#Asset" title="https://w3id.org/iiot-pmo#Asset">Asset</a> <sup class="type-c" title="class">c</sup>, <a href="http://www.w3.org/ns/ssn/System" target="_blank" title="http://www.w3.org/ns/ssn/System">System</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has sub-classes
+   </dt>
+   <dd>
+    <a href="#PressureSensor" title="https://w3id.org/iiot-pmo#PressureSensor">Pressure Sensor</a> <sup class="type-c" title="class">c</sup>, <a href="#TemperatureSensor" title="https://w3id.org/iiot-pmo#TemperatureSensor">Temperature Sensor</a> <sup class="type-c" title="class">c</sup>, <a href="#VibrationSensor" title="https://w3id.org/iiot-pmo#VibrationSensor">Vibration Sensor</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is in domain of
+   </dt>
+   <dd>
+    <a href="#hasObservation" title="https://w3id.org/iiot-pmo#hasObservation">has observation</a> <sup class="type-op" title="object property">op</sup>, <a href="#hasThreshold" title="https://w3id.org/iiot-pmo#hasThreshold">has threshold</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#monitors" title="https://w3id.org/iiot-pmo#monitors">monitors</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+   <dt>
+    is in range of
+   </dt>
+   <dd>
+    <a href="#hasSensor" title="https://w3id.org/iiot-pmo#hasSensor">has sensor</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="TemperatureSensor">
+  <h3>Temperature Sensor<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/iiot-pmo#TemperatureSensor</p>
+  <div class="comment">
+   <span class="markdown">A sensor that measures temperature of equipment or process environments.</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#Sensor" title="https://w3id.org/iiot-pmo#Sensor">Sensor</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has members
+   </dt>
+   <dd>
+    <a href="#TemperatureSensor-01" title="https://w3id.org/iiot-pmo#TemperatureSensor-01">TemperatureSensor-01</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="ThresholdAlert">
+  <h3>Threshold Alert<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/iiot-pmo#ThresholdAlert</p>
+  <div class="comment">
+   <span class="markdown">An alert generated when a measurement exceeds a configured threshold.</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#Alert" title="https://w3id.org/iiot-pmo#Alert">Alert</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has sub-classes
+   </dt>
+   <dd>
+    <a href="#CriticalAlert" title="https://w3id.org/iiot-pmo#CriticalAlert">Critical Alert</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="TimeSeriesBatch">
+  <h3>Time Series Batch<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/iiot-pmo#TimeSeriesBatch</p>
+  <div class="comment">
+   <span class="markdown">A temporally bounded collection of sensor observations used as an input window for predictive maintenance models.</span>
+  </div>
+  <dl class="description">
+   <dt>
+    is in domain of
+   </dt>
+   <dd>
+    <a href="#containsObservation" title="https://w3id.org/iiot-pmo#containsObservation">contains observation</a> <sup class="type-op" title="object property">op</sup>, <a href="#hasBatchWindowEnd" title="https://w3id.org/iiot-pmo#hasBatchWindowEnd">has batch window end</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#hasBatchWindowStart" title="https://w3id.org/iiot-pmo#hasBatchWindowStart">has batch window start</a> <sup class="type-dp" title="data property">dp</sup>
+   </dd>
+   <dt>
+    is in range of
+   </dt>
+   <dd>
+    <a href="#derivedFromBatch" title="https://w3id.org/iiot-pmo#derivedFromBatch">derived from batch</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+   <dt>
+    has members
+   </dt>
+   <dd>
+    <a href="#TimeSeriesBatch-Motor-01-2026-05-06" title="https://w3id.org/iiot-pmo#TimeSeriesBatch-Motor-01-2026-05-06">Time-series batch for Motor-01 on 2026-05-06</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="VibrationSensor">
+  <h3>Vibration Sensor<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/iiot-pmo#VibrationSensor</p>
+  <div class="comment">
+   <span class="markdown">A sensor that measures vibration behavior of industrial equipment.</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#Sensor" title="https://w3id.org/iiot-pmo#Sensor">Sensor</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has members
+   </dt>
+   <dd>
+    <a href="#VibrationSensor-01" title="https://w3id.org/iiot-pmo#VibrationSensor-01">VibrationSensor-01</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+  </dl>
+ </div>
+</div><div xmlns:widoco="https://w3id.org/widoco/vocab#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="objectproperties">
+ <h3 id="properties" class="list">Object Properties</h3>
+ <ul class="hlist">
+  <li><a href="#containsObservation" title="https://w3id.org/iiot-pmo#containsObservation">contains observation</a></li>
+  <li><a href="#derivedFromBatch" title="https://w3id.org/iiot-pmo#derivedFromBatch">derived from batch</a></li>
+  <li><a href="#extractsCandidateFor" title="https://w3id.org/iiot-pmo#extractsCandidateFor">extracts candidate for</a></li>
+  <li><a href="#generatesAlert" title="https://w3id.org/iiot-pmo#generatesAlert">generates alert</a></li>
+  <li><a href="#hasMaintenanceEvent" title="https://w3id.org/iiot-pmo#hasMaintenanceEvent">has maintenance event</a></li>
+  <li><a href="#hasMaintenanceHistory" title="https://w3id.org/iiot-pmo#hasMaintenanceHistory">has maintenance history</a></li>
+  <li><a href="#hasMeasurement" title="https://w3id.org/iiot-pmo#hasMeasurement">has measurement</a></li>
+  <li><a href="#hasObservation" title="https://w3id.org/iiot-pmo#hasObservation">has observation</a></li>
+  <li><a href="#hasPredictedFailure" title="https://w3id.org/iiot-pmo#hasPredictedFailure">has predicted failure</a></li>
+  <li><a href="#hasSensor" title="https://w3id.org/iiot-pmo#hasSensor">has sensor</a></li>
+  <li><a href="#indicatesFailureMode" title="https://w3id.org/iiot-pmo#indicatesFailureMode">indicates failure mode</a></li>
+  <li><a href="#monitors" title="https://w3id.org/iiot-pmo#monitors">monitors</a></li>
+  <li><a href="#predictedBy" title="https://w3id.org/iiot-pmo#predictedBy">predicted by</a></li>
+  <li><a href="#usesDataSource" title="https://w3id.org/iiot-pmo#usesDataSource">uses data source</a></li>
+ </ul>
+ <div class="entity" id="containsObservation">
+  <h3>contains observation<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/iiot-pmo#containsObservation</p>
+  <div class="comment">
+   <span class="markdown">Connects a time-series batch to the observations included in its prediction window.</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#TimeSeriesBatch" title="https://w3id.org/iiot-pmo#TimeSeriesBatch">Time Series Batch</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#Observation" title="https://w3id.org/iiot-pmo#Observation">Observation</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="derivedFromBatch">
+  <h3>derived from batch<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/iiot-pmo#derivedFromBatch</p>
+  <div class="comment">
+   <span class="markdown">Links a predicted failure to the time-series batch used as model input.</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#PredictedFailure" title="https://w3id.org/iiot-pmo#PredictedFailure">Predicted Failure</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#TimeSeriesBatch" title="https://w3id.org/iiot-pmo#TimeSeriesBatch">Time Series Batch</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="extractsCandidateFor">
+  <h3>extracts candidate for<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/iiot-pmo#extractsCandidateFor</p>
+  <div class="comment">
+   <span class="markdown">Links an LLM extraction task to an ontology individual proposed during population.</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#LLMExtractionTask" title="https://w3id.org/iiot-pmo#LLMExtractionTask">LLM Extraction Task</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2002/07/owl#Thing" target="_blank" title="http://www.w3.org/2002/07/owl#Thing">Thing</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="generatesAlert">
+  <h3>generates alert<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/iiot-pmo#generatesAlert</p>
+  <div class="comment">
+   <span class="markdown">Indicates that an observation generated an alert.</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#Observation" title="https://w3id.org/iiot-pmo#Observation">Observation</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#Alert" title="https://w3id.org/iiot-pmo#Alert">Alert</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="hasMaintenanceEvent">
+  <h3>has maintenance event<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/iiot-pmo#hasMaintenanceEvent</p>
+  <div class="comment">
+   <span class="markdown">Associates equipment with a maintenance action or inspection.</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has sub-properties
+    </dt>
+    <dd>
+     <a href="#hasMaintenanceHistory" title="https://w3id.org/iiot-pmo#hasMaintenanceHistory">has maintenance history</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#Equipment" title="https://w3id.org/iiot-pmo#Equipment">Equipment</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#MaintenanceEvent" title="https://w3id.org/iiot-pmo#MaintenanceEvent">Maintenance Event</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="hasMaintenanceHistory">
+  <h3>has maintenance history<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/iiot-pmo#hasMaintenanceHistory</p>
+  <div class="comment">
+   <span class="markdown">Associates equipment with historical maintenance logs.</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has super-properties
+    </dt>
+    <dd>
+     <a href="#hasMaintenanceEvent" title="https://w3id.org/iiot-pmo#hasMaintenanceEvent">has maintenance event</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#Equipment" title="https://w3id.org/iiot-pmo#Equipment">Equipment</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#MaintenanceLog" title="https://w3id.org/iiot-pmo#MaintenanceLog">Maintenance Log</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="hasMeasurement">
+  <h3>has measurement<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/iiot-pmo#hasMeasurement</p>
+  <div class="comment">
+   <span class="markdown">Connects an observation to its measurement value object.</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#Observation" title="https://w3id.org/iiot-pmo#Observation">Observation</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#Measurement" title="https://w3id.org/iiot-pmo#Measurement">Measurement</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="hasObservation">
+  <h3>has observation<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/iiot-pmo#hasObservation</p>
+  <div class="comment">
+   <span class="markdown">Links a sensor to an observation it produced.</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#Sensor" title="https://w3id.org/iiot-pmo#Sensor">Sensor</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#Observation" title="https://w3id.org/iiot-pmo#Observation">Observation</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="hasPredictedFailure">
+  <h3>has predicted failure<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/iiot-pmo#hasPredictedFailure</p>
+  <div class="comment">
+   <span class="markdown">Links equipment to a failure prediction generated from sensor or maintenance evidence.</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#Equipment" title="https://w3id.org/iiot-pmo#Equipment">Equipment</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#PredictedFailure" title="https://w3id.org/iiot-pmo#PredictedFailure">Predicted Failure</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="hasSensor">
+  <h3>has sensor<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/iiot-pmo#hasSensor</p>
+  <div class="comment">
+   <span class="markdown">Connects equipment to an installed or associated sensor.</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#Equipment" title="https://w3id.org/iiot-pmo#Equipment">Equipment</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#Sensor" title="https://w3id.org/iiot-pmo#Sensor">Sensor</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     is inverse of
+    </dt>
+    <dd>
+     <a href="#monitors" title="https://w3id.org/iiot-pmo#monitors">monitors</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="indicatesFailureMode">
+  <h3>indicates failure mode<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/iiot-pmo#indicatesFailureMode</p>
+  <div class="comment">
+   <span class="markdown">Links an alert or predicted failure to a suspected or known failure mode.</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#Alert" title="https://w3id.org/iiot-pmo#Alert">Alert</a> <sup class="type-c" title="class">c</sup> <span class="logic">or</span> <a href="#PredictedFailure" title="https://w3id.org/iiot-pmo#PredictedFailure">Predicted Failure</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#FailureMode" title="https://w3id.org/iiot-pmo#FailureMode">Failure Mode</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="monitors">
+  <h3>monitors<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/iiot-pmo#monitors</p>
+  <div class="comment">
+   <span class="markdown">Indicates which equipment is monitored by a sensor.</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has super-properties
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/ns/ssn/detects" target="_blank" title="http://www.w3.org/ns/ssn/detects">detects</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#Sensor" title="https://w3id.org/iiot-pmo#Sensor">Sensor</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#Equipment" title="https://w3id.org/iiot-pmo#Equipment">Equipment</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     is inverse of
+    </dt>
+    <dd>
+     <a href="#hasSensor" title="https://w3id.org/iiot-pmo#hasSensor">has sensor</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="predictedBy">
+  <h3>predicted by<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/iiot-pmo#predictedBy</p>
+  <div class="comment">
+   <span class="markdown">Links a predicted failure to the machine learning model that produced it.</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#PredictedFailure" title="https://w3id.org/iiot-pmo#PredictedFailure">Predicted Failure</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#MLModel" title="https://w3id.org/iiot-pmo#MLModel">Machine Learning Model</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="usesDataSource">
+  <h3>uses data source<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/iiot-pmo#usesDataSource</p>
+  <div class="comment">
+   <span class="markdown">Links an LLM extraction task to its source data.</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#LLMExtractionTask" title="https://w3id.org/iiot-pmo#LLMExtractionTask">LLM Extraction Task</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#DataSource" title="https://w3id.org/iiot-pmo#DataSource">Data Source</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+</div><div xmlns:widoco="https://w3id.org/widoco/vocab#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="dataproperties">
+ <h3 id="dataproperties-headline" class="list">Data Properties</h3>
+ <ul class="hlist">
+  <li><a href="#hasBatchWindowEnd" title="https://w3id.org/iiot-pmo#hasBatchWindowEnd">has batch window end</a></li>
+  <li><a href="#hasBatchWindowStart" title="https://w3id.org/iiot-pmo#hasBatchWindowStart">has batch window start</a></li>
+  <li><a href="#hasConfidence" title="https://w3id.org/iiot-pmo#hasConfidence">has confidence</a></li>
+  <li><a href="#hasFailureProbability" title="https://w3id.org/iiot-pmo#hasFailureProbability">has failure probability</a></li>
+  <li><a href="#hasLogText" title="https://w3id.org/iiot-pmo#hasLogText">has log text</a></li>
+  <li><a href="#hasMaintenanceAction" title="https://w3id.org/iiot-pmo#hasMaintenanceAction">has maintenance action</a></li>
+  <li><a href="#hasModelName" title="https://w3id.org/iiot-pmo#hasModelName">has model name</a></li>
+  <li><a href="#hasOperatingHours" title="https://w3id.org/iiot-pmo#hasOperatingHours">has operating hours</a></li>
+  <li><a href="#hasPredictionHorizonHours" title="https://w3id.org/iiot-pmo#hasPredictionHorizonHours">has prediction horizon hours</a></li>
+  <li><a href="#hasThreshold" title="https://w3id.org/iiot-pmo#hasThreshold">has threshold</a></li>
+  <li><a href="#hasTimestamp" title="https://w3id.org/iiot-pmo#hasTimestamp">has timestamp</a></li>
+  <li><a href="#hasUnit" title="https://w3id.org/iiot-pmo#hasUnit">has unit</a></li>
+  <li><a href="#hasValue" title="https://w3id.org/iiot-pmo#hasValue">has value</a></li>
+ </ul>
+ <div class="entity" id="hasBatchWindowEnd">
+  <h3>has batch window end<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/iiot-pmo#hasBatchWindowEnd</p>
+  <div class="comment">
+   <span class="markdown">End timestamp of the time-series window.</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#TimeSeriesBatch" title="https://w3id.org/iiot-pmo#TimeSeriesBatch">Time Series Batch</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#dateTime" target="_blank" title="http://www.w3.org/2001/XMLSchema#dateTime">date Time</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="hasBatchWindowStart">
+  <h3>has batch window start<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/iiot-pmo#hasBatchWindowStart</p>
+  <div class="comment">
+   <span class="markdown">Start timestamp of the time-series window.</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#TimeSeriesBatch" title="https://w3id.org/iiot-pmo#TimeSeriesBatch">Time Series Batch</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#dateTime" target="_blank" title="http://www.w3.org/2001/XMLSchema#dateTime">date Time</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="hasConfidence">
+  <h3>has confidence<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/iiot-pmo#hasConfidence</p>
+  <div class="comment">
+   <span class="markdown">Confidence assigned to an LLM extraction result.</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#LLMExtractionTask" title="https://w3id.org/iiot-pmo#LLMExtractionTask">LLM Extraction Task</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#decimal" target="_blank" title="http://www.w3.org/2001/XMLSchema#decimal">decimal</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="hasFailureProbability">
+  <h3>has failure probability<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/iiot-pmo#hasFailureProbability</p>
+  <div class="comment">
+   <span class="markdown">Probability assigned by a machine learning model to a predicted failure.</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#PredictedFailure" title="https://w3id.org/iiot-pmo#PredictedFailure">Predicted Failure</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#decimal" target="_blank" title="http://www.w3.org/2001/XMLSchema#decimal">decimal</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="hasLogText">
+  <h3>has log text<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/iiot-pmo#hasLogText</p>
+  <div class="comment">
+   <span class="markdown">Raw or normalized text of a maintenance log.</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#MaintenanceLog" title="https://w3id.org/iiot-pmo#MaintenanceLog">Maintenance Log</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#string" target="_blank" title="http://www.w3.org/2001/XMLSchema#string">string</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="hasMaintenanceAction">
+  <h3>has maintenance action<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/iiot-pmo#hasMaintenanceAction</p>
+  <div class="comment">
+   <span class="markdown">Maintenance action described by a maintenance log.</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#MaintenanceLog" title="https://w3id.org/iiot-pmo#MaintenanceLog">Maintenance Log</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#string" target="_blank" title="http://www.w3.org/2001/XMLSchema#string">string</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="hasModelName">
+  <h3>has model name<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/iiot-pmo#hasModelName</p>
+  <div class="comment">
+   <span class="markdown">Human-readable model name.</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#MLModel" title="https://w3id.org/iiot-pmo#MLModel">Machine Learning Model</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#string" target="_blank" title="http://www.w3.org/2001/XMLSchema#string">string</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="hasOperatingHours">
+  <h3>has operating hours<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/iiot-pmo#hasOperatingHours</p>
+  <div class="comment">
+   <span class="markdown">Operating hours accumulated by an equipment asset.</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#Equipment" title="https://w3id.org/iiot-pmo#Equipment">Equipment</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#decimal" target="_blank" title="http://www.w3.org/2001/XMLSchema#decimal">decimal</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="hasPredictionHorizonHours">
+  <h3>has prediction horizon hours<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/iiot-pmo#hasPredictionHorizonHours</p>
+  <div class="comment">
+   <span class="markdown">Future time horizon, in hours, covered by a predicted failure.</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#PredictedFailure" title="https://w3id.org/iiot-pmo#PredictedFailure">Predicted Failure</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#decimal" target="_blank" title="http://www.w3.org/2001/XMLSchema#decimal">decimal</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="hasThreshold">
+  <h3>has threshold<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/iiot-pmo#hasThreshold</p>
+  <div class="comment">
+   <span class="markdown">Configured threshold value for a sensor.</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#Sensor" title="https://w3id.org/iiot-pmo#Sensor">Sensor</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#decimal" target="_blank" title="http://www.w3.org/2001/XMLSchema#decimal">decimal</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="hasTimestamp">
+  <h3>has timestamp<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/iiot-pmo#hasTimestamp</p>
+  <div class="comment">
+   <span class="markdown">Time associated with an observation, alert, prediction, or maintenance event.</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#dateTime" target="_blank" title="http://www.w3.org/2001/XMLSchema#dateTime">date Time</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="hasUnit">
+  <h3>has unit<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/iiot-pmo#hasUnit</p>
+  <div class="comment">
+   <span class="markdown">Unit used for the measurement value.</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#Measurement" title="https://w3id.org/iiot-pmo#Measurement">Measurement</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#string" target="_blank" title="http://www.w3.org/2001/XMLSchema#string">string</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="hasValue">
+  <h3>has value<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/iiot-pmo#hasValue</p>
+  <div class="comment">
+   <span class="markdown">Numeric value of a measurement.</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#Measurement" title="https://w3id.org/iiot-pmo#Measurement">Measurement</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#decimal" target="_blank" title="http://www.w3.org/2001/XMLSchema#decimal">decimal</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+</div><div xmlns:widoco="https://w3id.org/widoco/vocab#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="namedindividuals">
+ <h3 id="namedindividuals" class="list">Named Individuals</h3>
+ <ul class="hlist">
+  <li><a href="#BearingWear" title="https://w3id.org/iiot-pmo#BearingWear">Bearing Wear</a></li>
+  <li><a href="#Alert-CriticalVibration-001" title="https://w3id.org/iiot-pmo#Alert-CriticalVibration-001">Critical vibration alert 001</a></li>
+  <li><a href="#FactoryLogSimulation" title="https://w3id.org/iiot-pmo#FactoryLogSimulation">Factory Log Simulation</a></li>
+  <li><a href="#GRU-RNN-Predictor-v1" title="https://w3id.org/iiot-pmo#GRU-RNN-Predictor-v1">GRU-RNN predictive maintenance model v1</a></li>
+  <li><a href="#LLMExtractionTask-LOG-20260506-001" title="https://w3id.org/iiot-pmo#LLMExtractionTask-LOG-20260506-001">LLM extraction task for simulated factory log LOG-20260506-001</a></li>
+  <li><a href="#MaintenanceLog-Motor-01-2026-04-01" title="https://w3id.org/iiot-pmo#MaintenanceLog-Motor-01-2026-04-01">Maintenance log for Motor-01 on 2026-04-01</a></li>
+  <li><a href="#METHONTOLOGYScopeNote" title="https://w3id.org/iiot-pmo#METHONTOLOGYScopeNote">METHONTOLOGY scope note for IIoT-PMO v2</a></li>
+  <li><a href="#Motor-01" title="https://w3id.org/iiot-pmo#Motor-01">Motor-01</a></li>
+  <li><a href="#PredictedFailure-Motor-01-BearingWear" title="https://w3id.org/iiot-pmo#PredictedFailure-Motor-01-BearingWear">Predicted bearing wear for Motor-01</a></li>
+  <li><a href="#MeasurementValue-Temp-001" title="https://w3id.org/iiot-pmo#MeasurementValue-Temp-001">Temperature measurement value 001</a></li>
+  <li><a href="#Observation-Temp-2026-05-06T09-15-00" title="https://w3id.org/iiot-pmo#Observation-Temp-2026-05-06T09-15-00">Temperature observation for Motor-01 at 2026-05-06 09:15:00</a></li>
+  <li><a href="#TemperatureSensor-01" title="https://w3id.org/iiot-pmo#TemperatureSensor-01">TemperatureSensor-01</a></li>
+  <li><a href="#TimeSeriesBatch-Motor-01-2026-05-06" title="https://w3id.org/iiot-pmo#TimeSeriesBatch-Motor-01-2026-05-06">Time-series batch for Motor-01 on 2026-05-06</a></li>
+  <li><a href="#MeasurementValue-Vibration-001" title="https://w3id.org/iiot-pmo#MeasurementValue-Vibration-001">Vibration measurement value 001</a></li>
+  <li><a href="#Observation-2026-05-06T09-15-00" title="https://w3id.org/iiot-pmo#Observation-2026-05-06T09-15-00">Vibration observation for Motor-01 at 2026-05-06 09:15:00</a></li>
+  <li><a href="#VibrationSensor-01" title="https://w3id.org/iiot-pmo#VibrationSensor-01">VibrationSensor-01</a></li>
+  <li><a href="#IndustrialSensorDataset-Kaggle" title="https://w3id.org/iiot-pmo#IndustrialSensorDataset-Kaggle">Industrial Sensor Dataset from Kaggle</a></li>
+ </ul>
+ <div class="entity" id="BearingWear">
+  <h3>Bearing Wear<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/iiot-pmo#BearingWear</p>
+  <div class="comment">
+   <span class="markdown">A degradation mode in which bearing surfaces lose material or alignment quality, often reflected by abnormal vibration patterns.</span>
+  </div>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="#FailureMode" title="https://w3id.org/iiot-pmo#FailureMode">Failure Mode</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="Alert-CriticalVibration-001">
+  <h3>Critical vibration alert 001<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/iiot-pmo#Alert-CriticalVibration-001</p>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="#CriticalAlert" title="https://w3id.org/iiot-pmo#CriticalAlert">Critical Alert</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has facts
+   </dt>
+   <dd>
+    <a href="#indicatesFailureMode" title="https://w3id.org/iiot-pmo#indicatesFailureMode">indicates failure mode</a> <sup class="type-op" title="object property">op</sup> <a href="#BearingWear" title="https://w3id.org/iiot-pmo#BearingWear">Bearing Wear</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+   <dd>
+    <a href="#hasTimestamp" title="https://w3id.org/iiot-pmo#hasTimestamp">has timestamp</a> <sup class="type-dp" title="data property">dp</sup> <span class="literal">"2026-05-06T09:15:05+03:00"^^<a href="http://www.w3.org/2001/XMLSchema#dateTime" target="_blank" title="http://www.w3.org/2001/XMLSchema#dateTime">date Time</a> </span>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="FactoryLogSimulation">
+  <h3>Factory Log Simulation<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/iiot-pmo#FactoryLogSimulation</p>
+  <div class="comment">
+   <span class="markdown">Synthetic maintenance and operations log source used to test LLM-assisted ontology population without exposing confidential plant data.</span>
+  </div>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="#DataSource" title="https://w3id.org/iiot-pmo#DataSource">Data Source</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="GRU-RNN-Predictor-v1">
+  <h3>GRU-RNN predictive maintenance model v1<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/iiot-pmo#GRU-RNN-Predictor-v1</p>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="#GRURNNModel" title="https://w3id.org/iiot-pmo#GRURNNModel">GRU-RNN Model</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has facts
+   </dt>
+   <dd>
+    <a href="#hasModelName" title="https://w3id.org/iiot-pmo#hasModelName">has model name</a> <sup class="type-dp" title="data property">dp</sup> <span class="literal">"GRU-RNN Predictive Maintenance Model v1"</span>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="LLMExtractionTask-LOG-20260506-001">
+  <h3>LLM extraction task for simulated factory log LOG-20260506-001<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/iiot-pmo#LLMExtractionTask-LOG-20260506-001</p>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="#LLMExtractionTask" title="https://w3id.org/iiot-pmo#LLMExtractionTask">LLM Extraction Task</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has facts
+   </dt>
+   <dd>
+    <a href="#extractsCandidateFor" title="https://w3id.org/iiot-pmo#extractsCandidateFor">extracts candidate for</a> <sup class="type-op" title="object property">op</sup> <a href="#BearingWear" title="https://w3id.org/iiot-pmo#BearingWear">Bearing Wear</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+   <dd>
+    <a href="#extractsCandidateFor" title="https://w3id.org/iiot-pmo#extractsCandidateFor">extracts candidate for</a> <sup class="type-op" title="object property">op</sup> <a href="#MaintenanceLog-Motor-01-2026-04-01" title="https://w3id.org/iiot-pmo#MaintenanceLog-Motor-01-2026-04-01">Maintenance log for Motor-01 on 2026-04-01</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+   <dd>
+    <a href="#extractsCandidateFor" title="https://w3id.org/iiot-pmo#extractsCandidateFor">extracts candidate for</a> <sup class="type-op" title="object property">op</sup> <a href="#Motor-01" title="https://w3id.org/iiot-pmo#Motor-01">Motor-01</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+   <dd>
+    <a href="#usesDataSource" title="https://w3id.org/iiot-pmo#usesDataSource">uses data source</a> <sup class="type-op" title="object property">op</sup> <a href="#FactoryLogSimulation" title="https://w3id.org/iiot-pmo#FactoryLogSimulation">Factory Log Simulation</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+   <dd>
+    <a href="#hasConfidence" title="https://w3id.org/iiot-pmo#hasConfidence">has confidence</a> <sup class="type-dp" title="data property">dp</sup> <span class="literal">"0.91"^^<a href="http://www.w3.org/2001/XMLSchema#decimal" target="_blank" title="http://www.w3.org/2001/XMLSchema#decimal">decimal</a> </span>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="MaintenanceLog-Motor-01-2026-04-01">
+  <h3>Maintenance log for Motor-01 on 2026-04-01<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/iiot-pmo#MaintenanceLog-Motor-01-2026-04-01</p>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="#MaintenanceLog" title="https://w3id.org/iiot-pmo#MaintenanceLog">Maintenance Log</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has facts
+   </dt>
+   <dd>
+    <a href="#hasLogText" title="https://w3id.org/iiot-pmo#hasLogText">has log text</a> <sup class="type-dp" title="data property">dp</sup> <span class="literal">"Routine bearing inspection completed; no part replacement recorded."</span>
+   </dd>
+   <dd>
+    <a href="#hasMaintenanceAction" title="https://w3id.org/iiot-pmo#hasMaintenanceAction">has maintenance action</a> <sup class="type-dp" title="data property">dp</sup> <span class="literal">"bearing inspection"</span>
+   </dd>
+   <dd>
+    <a href="#hasTimestamp" title="https://w3id.org/iiot-pmo#hasTimestamp">has timestamp</a> <sup class="type-dp" title="data property">dp</sup> <span class="literal">"2026-04-01T10:00:00+03:00"^^<a href="http://www.w3.org/2001/XMLSchema#dateTime" target="_blank" title="http://www.w3.org/2001/XMLSchema#dateTime">date Time</a> </span>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="METHONTOLOGYScopeNote">
+  <h3>METHONTOLOGY scope note for IIoT-PMO v2<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/iiot-pmo#METHONTOLOGYScopeNote</p>
+  <div class="comment">
+   <span class="markdown">The v2 scope expands the ontology from static asset-sensor-observation modeling to ontology population, maintenance history, and predictive time-series analytics.</span>
+  </div>
+ </div>
+ <div class="entity" id="Motor-01">
+  <h3>Motor-01<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/iiot-pmo#Motor-01</p>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="#Motor" title="https://w3id.org/iiot-pmo#Motor">Motor</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has facts
+   </dt>
+   <dd>
+    <a href="#hasMaintenanceHistory" title="https://w3id.org/iiot-pmo#hasMaintenanceHistory">has maintenance history</a> <sup class="type-op" title="object property">op</sup> <a href="#MaintenanceLog-Motor-01-2026-04-01" title="https://w3id.org/iiot-pmo#MaintenanceLog-Motor-01-2026-04-01">Maintenance log for Motor-01 on 2026-04-01</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+   <dd>
+    <a href="#hasPredictedFailure" title="https://w3id.org/iiot-pmo#hasPredictedFailure">has predicted failure</a> <sup class="type-op" title="object property">op</sup> <a href="#PredictedFailure-Motor-01-BearingWear" title="https://w3id.org/iiot-pmo#PredictedFailure-Motor-01-BearingWear">Predicted bearing wear for Motor-01</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+   <dd>
+    <a href="#hasSensor" title="https://w3id.org/iiot-pmo#hasSensor">has sensor</a> <sup class="type-op" title="object property">op</sup> <a href="#TemperatureSensor-01" title="https://w3id.org/iiot-pmo#TemperatureSensor-01">TemperatureSensor-01</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+   <dd>
+    <a href="#hasSensor" title="https://w3id.org/iiot-pmo#hasSensor">has sensor</a> <sup class="type-op" title="object property">op</sup> <a href="#VibrationSensor-01" title="https://w3id.org/iiot-pmo#VibrationSensor-01">VibrationSensor-01</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+   <dd>
+    <a href="#hasOperatingHours" title="https://w3id.org/iiot-pmo#hasOperatingHours">has operating hours</a> <sup class="type-dp" title="data property">dp</sup> <span class="literal">"1240.0"^^<a href="http://www.w3.org/2001/XMLSchema#decimal" target="_blank" title="http://www.w3.org/2001/XMLSchema#decimal">decimal</a> </span>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="PredictedFailure-Motor-01-BearingWear">
+  <h3>Predicted bearing wear for Motor-01<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/iiot-pmo#PredictedFailure-Motor-01-BearingWear</p>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="#PredictedFailure" title="https://w3id.org/iiot-pmo#PredictedFailure">Predicted Failure</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has facts
+   </dt>
+   <dd>
+    <a href="#derivedFromBatch" title="https://w3id.org/iiot-pmo#derivedFromBatch">derived from batch</a> <sup class="type-op" title="object property">op</sup> <a href="#TimeSeriesBatch-Motor-01-2026-05-06" title="https://w3id.org/iiot-pmo#TimeSeriesBatch-Motor-01-2026-05-06">Time-series batch for Motor-01 on 2026-05-06</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+   <dd>
+    <a href="#indicatesFailureMode" title="https://w3id.org/iiot-pmo#indicatesFailureMode">indicates failure mode</a> <sup class="type-op" title="object property">op</sup> <a href="#BearingWear" title="https://w3id.org/iiot-pmo#BearingWear">Bearing Wear</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+   <dd>
+    <a href="#predictedBy" title="https://w3id.org/iiot-pmo#predictedBy">predicted by</a> <sup class="type-op" title="object property">op</sup> <a href="#GRU-RNN-Predictor-v1" title="https://w3id.org/iiot-pmo#GRU-RNN-Predictor-v1">GRU-RNN predictive maintenance model v1</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+   <dd>
+    <a href="#hasFailureProbability" title="https://w3id.org/iiot-pmo#hasFailureProbability">has failure probability</a> <sup class="type-dp" title="data property">dp</sup> <span class="literal">"0.86"^^<a href="http://www.w3.org/2001/XMLSchema#decimal" target="_blank" title="http://www.w3.org/2001/XMLSchema#decimal">decimal</a> </span>
+   </dd>
+   <dd>
+    <a href="#hasPredictionHorizonHours" title="https://w3id.org/iiot-pmo#hasPredictionHorizonHours">has prediction horizon hours</a> <sup class="type-dp" title="data property">dp</sup> <span class="literal">"72.0"^^<a href="http://www.w3.org/2001/XMLSchema#decimal" target="_blank" title="http://www.w3.org/2001/XMLSchema#decimal">decimal</a> </span>
+   </dd>
+   <dd>
+    <a href="#hasTimestamp" title="https://w3id.org/iiot-pmo#hasTimestamp">has timestamp</a> <sup class="type-dp" title="data property">dp</sup> <span class="literal">"2026-05-06T09:16:00+03:00"^^<a href="http://www.w3.org/2001/XMLSchema#dateTime" target="_blank" title="http://www.w3.org/2001/XMLSchema#dateTime">date Time</a> </span>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="MeasurementValue-Temp-001">
+  <h3>Temperature measurement value 001<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/iiot-pmo#MeasurementValue-Temp-001</p>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="#MeasurementValue" title="https://w3id.org/iiot-pmo#MeasurementValue">Measurement Value</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has facts
+   </dt>
+   <dd>
+    <a href="#hasUnit" title="https://w3id.org/iiot-pmo#hasUnit">has unit</a> <sup class="type-dp" title="data property">dp</sup> <span class="literal">"degC"</span>
+   </dd>
+   <dd>
+    <a href="#hasValue" title="https://w3id.org/iiot-pmo#hasValue">has value</a> <sup class="type-dp" title="data property">dp</sup> <span class="literal">"82.4"^^<a href="http://www.w3.org/2001/XMLSchema#decimal" target="_blank" title="http://www.w3.org/2001/XMLSchema#decimal">decimal</a> </span>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="Observation-Temp-2026-05-06T09-15-00">
+  <h3>Temperature observation for Motor-01 at 2026-05-06 09:15:00<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/iiot-pmo#Observation-Temp-2026-05-06T09-15-00</p>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="#Observation" title="https://w3id.org/iiot-pmo#Observation">Observation</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has facts
+   </dt>
+   <dd>
+    <a href="#hasMeasurement" title="https://w3id.org/iiot-pmo#hasMeasurement">has measurement</a> <sup class="type-op" title="object property">op</sup> <a href="#MeasurementValue-Temp-001" title="https://w3id.org/iiot-pmo#MeasurementValue-Temp-001">Temperature measurement value 001</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+   <dd>
+    <a href="#hasTimestamp" title="https://w3id.org/iiot-pmo#hasTimestamp">has timestamp</a> <sup class="type-dp" title="data property">dp</sup> <span class="literal">"2026-05-06T09:15:00+03:00"^^<a href="http://www.w3.org/2001/XMLSchema#dateTime" target="_blank" title="http://www.w3.org/2001/XMLSchema#dateTime">date Time</a> </span>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="TemperatureSensor-01">
+  <h3>TemperatureSensor-01<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/iiot-pmo#TemperatureSensor-01</p>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="#TemperatureSensor" title="https://w3id.org/iiot-pmo#TemperatureSensor">Temperature Sensor</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has facts
+   </dt>
+   <dd>
+    <a href="#hasObservation" title="https://w3id.org/iiot-pmo#hasObservation">has observation</a> <sup class="type-op" title="object property">op</sup> <a href="#Observation-Temp-2026-05-06T09-15-00" title="https://w3id.org/iiot-pmo#Observation-Temp-2026-05-06T09-15-00">Temperature observation for Motor-01 at 2026-05-06 09:15:00</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+   <dd>
+    <a href="#monitors" title="https://w3id.org/iiot-pmo#monitors">monitors</a> <sup class="type-op" title="object property">op</sup> <a href="#Motor-01" title="https://w3id.org/iiot-pmo#Motor-01">Motor-01</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+   <dd>
+    <a href="#hasThreshold" title="https://w3id.org/iiot-pmo#hasThreshold">has threshold</a> <sup class="type-dp" title="data property">dp</sup> <span class="literal">"80.0"^^<a href="http://www.w3.org/2001/XMLSchema#decimal" target="_blank" title="http://www.w3.org/2001/XMLSchema#decimal">decimal</a> </span>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="TimeSeriesBatch-Motor-01-2026-05-06">
+  <h3>Time-series batch for Motor-01 on 2026-05-06<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/iiot-pmo#TimeSeriesBatch-Motor-01-2026-05-06</p>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="#TimeSeriesBatch" title="https://w3id.org/iiot-pmo#TimeSeriesBatch">Time Series Batch</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has facts
+   </dt>
+   <dd>
+    <a href="#containsObservation" title="https://w3id.org/iiot-pmo#containsObservation">contains observation</a> <sup class="type-op" title="object property">op</sup> <a href="#Observation-2026-05-06T09-15-00" title="https://w3id.org/iiot-pmo#Observation-2026-05-06T09-15-00">Vibration observation for Motor-01 at 2026-05-06 09:15:00</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+   <dd>
+    <a href="#containsObservation" title="https://w3id.org/iiot-pmo#containsObservation">contains observation</a> <sup class="type-op" title="object property">op</sup> <a href="#Observation-Temp-2026-05-06T09-15-00" title="https://w3id.org/iiot-pmo#Observation-Temp-2026-05-06T09-15-00">Temperature observation for Motor-01 at 2026-05-06 09:15:00</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+   <dd>
+    <a href="#hasBatchWindowEnd" title="https://w3id.org/iiot-pmo#hasBatchWindowEnd">has batch window end</a> <sup class="type-dp" title="data property">dp</sup> <span class="literal">"2026-05-06T09:15:00+03:00"^^<a href="http://www.w3.org/2001/XMLSchema#dateTime" target="_blank" title="http://www.w3.org/2001/XMLSchema#dateTime">date Time</a> </span>
+   </dd>
+   <dd>
+    <a href="#hasBatchWindowStart" title="https://w3id.org/iiot-pmo#hasBatchWindowStart">has batch window start</a> <sup class="type-dp" title="data property">dp</sup> <span class="literal">"2026-05-06T08:15:00+03:00"^^<a href="http://www.w3.org/2001/XMLSchema#dateTime" target="_blank" title="http://www.w3.org/2001/XMLSchema#dateTime">date Time</a> </span>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="MeasurementValue-Vibration-001">
+  <h3>Vibration measurement value 001<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/iiot-pmo#MeasurementValue-Vibration-001</p>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="#MeasurementValue" title="https://w3id.org/iiot-pmo#MeasurementValue">Measurement Value</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has facts
+   </dt>
+   <dd>
+    <a href="#hasUnit" title="https://w3id.org/iiot-pmo#hasUnit">has unit</a> <sup class="type-dp" title="data property">dp</sup> <span class="literal">"mm/s RMS"</span>
+   </dd>
+   <dd>
+    <a href="#hasValue" title="https://w3id.org/iiot-pmo#hasValue">has value</a> <sup class="type-dp" title="data property">dp</sup> <span class="literal">"8.7"^^<a href="http://www.w3.org/2001/XMLSchema#decimal" target="_blank" title="http://www.w3.org/2001/XMLSchema#decimal">decimal</a> </span>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="Observation-2026-05-06T09-15-00">
+  <h3>Vibration observation for Motor-01 at 2026-05-06 09:15:00<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/iiot-pmo#Observation-2026-05-06T09-15-00</p>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="#Observation" title="https://w3id.org/iiot-pmo#Observation">Observation</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has facts
+   </dt>
+   <dd>
+    <a href="#generatesAlert" title="https://w3id.org/iiot-pmo#generatesAlert">generates alert</a> <sup class="type-op" title="object property">op</sup> <a href="#Alert-CriticalVibration-001" title="https://w3id.org/iiot-pmo#Alert-CriticalVibration-001">Critical vibration alert 001</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+   <dd>
+    <a href="#hasMeasurement" title="https://w3id.org/iiot-pmo#hasMeasurement">has measurement</a> <sup class="type-op" title="object property">op</sup> <a href="#MeasurementValue-Vibration-001" title="https://w3id.org/iiot-pmo#MeasurementValue-Vibration-001">Vibration measurement value 001</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+   <dd>
+    <a href="#hasTimestamp" title="https://w3id.org/iiot-pmo#hasTimestamp">has timestamp</a> <sup class="type-dp" title="data property">dp</sup> <span class="literal">"2026-05-06T09:15:00+03:00"^^<a href="http://www.w3.org/2001/XMLSchema#dateTime" target="_blank" title="http://www.w3.org/2001/XMLSchema#dateTime">date Time</a> </span>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="VibrationSensor-01">
+  <h3>VibrationSensor-01<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/iiot-pmo#VibrationSensor-01</p>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="#VibrationSensor" title="https://w3id.org/iiot-pmo#VibrationSensor">Vibration Sensor</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has facts
+   </dt>
+   <dd>
+    <a href="#hasObservation" title="https://w3id.org/iiot-pmo#hasObservation">has observation</a> <sup class="type-op" title="object property">op</sup> <a href="#Observation-2026-05-06T09-15-00" title="https://w3id.org/iiot-pmo#Observation-2026-05-06T09-15-00">Vibration observation for Motor-01 at 2026-05-06 09:15:00</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+   <dd>
+    <a href="#monitors" title="https://w3id.org/iiot-pmo#monitors">monitors</a> <sup class="type-op" title="object property">op</sup> <a href="#Motor-01" title="https://w3id.org/iiot-pmo#Motor-01">Motor-01</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+   <dd>
+    <a href="#hasThreshold" title="https://w3id.org/iiot-pmo#hasThreshold">has threshold</a> <sup class="type-dp" title="data property">dp</sup> <span class="literal">"7.5"^^<a href="http://www.w3.org/2001/XMLSchema#decimal" target="_blank" title="http://www.w3.org/2001/XMLSchema#decimal">decimal</a> </span>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="IndustrialSensorDataset-Kaggle">
+  <h3>Industrial Sensor Dataset from Kaggle<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://w3id.org/iiot-pmo#IndustrialSensorDataset-Kaggle</p>
+  <div class="comment">
+   <span class="markdown">Structured sensor dataset used for time-series model development and ontology population experiments.</span>
+  </div>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="#DataSource" title="https://w3id.org/iiot-pmo#DataSource">Data Source</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+</div><div id="legend">
+<h2>Legend <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+<div   class="entity">
+<sup class="type-c" title="Classes">c</sup>: Classes <br/>
+<sup class="type-op" title="Object Properties">op</sup>: Object Properties <br/>
+<sup class="type-dp" title="Data Properties">dp</sup>: Data Properties <br/>
+<sup class="type-ni" title="Named Individuals">ni</sup>: Named Individuals <br/>
+</div>
+</div>

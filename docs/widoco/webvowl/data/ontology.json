@@ -1,0 +1,1401 @@
+{
+  "_comment" : "Created with OWL2VOWL (version 0.3.5), http://vowl.visualdataweb.org",
+  "header" : {
+    "languages" : [ "en", "undefined" ],
+    "baseIris" : [ "http://www.w3.org/1999/02/22-rdf-syntax-ns", "http://www.w3.org/ns/ssn", "https://w3id.org/iiot-pmo", "http://www.w3.org/2000/01/rdf-schema", "http://www.w3.org/2001/XMLSchema", "http://www.w3.org/ns/sosa" ],
+    "title" : {
+      "en" : "Industrial IoT & Predictive Maintenance Ontology (IIoT-PMO)"
+    },
+    "iri" : "https://w3id.org/iiot-pmo",
+    "version" : "0.2.0",
+    "description" : {
+      "en" : "Version 0.2.0 extends the initial predictive maintenance ontology with LLM-assisted ontology population, maintenance history, time-series batches, and machine-learning-based predicted failures."
+    },
+    "comments" : {
+      "en" : "Developed according to a METHONTOLOGY-inspired lifecycle: specification, conceptualization, formalization, implementation, and evaluation."
+    },
+    "other" : {
+      "references" : [ {
+        "identifier" : "references",
+        "language" : "undefined",
+        "value" : "https://doi.org/10.1002/cpe.7420",
+        "type" : "iri"
+      }, {
+        "identifier" : "references",
+        "language" : "undefined",
+        "value" : "https://doi.org/10.1007/978-3-031-47240-4_22",
+        "type" : "iri"
+      }, {
+        "identifier" : "references",
+        "language" : "undefined",
+        "value" : "https://doi.org/10.1016/j.knosys.2024.112940",
+        "type" : "iri"
+      } ],
+      "versionInfo" : [ {
+        "identifier" : "versionInfo",
+        "language" : "undefined",
+        "value" : "0.2.0",
+        "type" : "label"
+      } ],
+      "title" : [ {
+        "identifier" : "title",
+        "language" : "en",
+        "value" : "Industrial IoT & Predictive Maintenance Ontology (IIoT-PMO)",
+        "type" : "label"
+      } ]
+    }
+  },
+  "namespace" : [ ],
+  "class" : [ {
+    "id" : "9",
+    "type" : "owl:Class"
+  }, {
+    "id" : "10",
+    "type" : "owl:Class"
+  }, {
+    "id" : "11",
+    "type" : "owl:Class"
+  }, {
+    "id" : "1",
+    "type" : "owl:Class"
+  }, {
+    "id" : "5",
+    "type" : "owl:equivalentClass"
+  }, {
+    "id" : "19",
+    "type" : "owl:Class"
+  }, {
+    "id" : "20",
+    "type" : "owl:Class"
+  }, {
+    "id" : "18",
+    "type" : "owl:equivalentClass"
+  }, {
+    "id" : "30",
+    "type" : "owl:Class"
+  }, {
+    "id" : "44",
+    "type" : "owl:Class"
+  }, {
+    "id" : "52",
+    "type" : "owl:Class"
+  }, {
+    "id" : "21",
+    "type" : "owl:equivalentClass"
+  }, {
+    "id" : "2",
+    "type" : "owl:Class"
+  }, {
+    "id" : "50",
+    "type" : "owl:Class"
+  }, {
+    "id" : "40",
+    "type" : "owl:Class"
+  }, {
+    "id" : "64",
+    "type" : "owl:Thing"
+  }, {
+    "id" : "66",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "68",
+    "type" : "owl:Thing"
+  }, {
+    "id" : "69",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "57",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "71",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "42",
+    "type" : "owl:Class"
+  }, {
+    "id" : "38",
+    "type" : "owl:Class"
+  }, {
+    "id" : "73",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "51",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "74",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "75",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "76",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "48",
+    "type" : "owl:Class"
+  }, {
+    "id" : "59",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "36",
+    "type" : "owl:Class"
+  }, {
+    "id" : "78",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "23",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "12",
+    "type" : "owl:Class"
+  }, {
+    "id" : "55",
+    "type" : "owl:equivalentClass"
+  }, {
+    "id" : "16",
+    "type" : "owl:unionOf"
+  }, {
+    "id" : "54",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "33",
+    "type" : "owl:Class"
+  }, {
+    "id" : "27",
+    "type" : "owl:Class"
+  }, {
+    "id" : "14",
+    "type" : "owl:Class"
+  }, {
+    "id" : "29",
+    "type" : "owl:Class"
+  }, {
+    "id" : "31",
+    "type" : "owl:Class"
+  }, {
+    "id" : "6",
+    "type" : "owl:Class"
+  }, {
+    "id" : "17",
+    "type" : "owl:Class"
+  }, {
+    "id" : "8",
+    "type" : "owl:Class"
+  } ],
+  "classAttribute" : [ {
+    "iri" : "https://w3id.org/iiot-pmo#DataSource",
+    "baseIri" : "https://w3id.org/iiot-pmo",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "DataSource",
+      "en" : "Data Source"
+    },
+    "individuals" : [ {
+      "iri" : "https://w3id.org/iiot-pmo#FactoryLogSimulation",
+      "baseIri" : "https://w3id.org/iiot-pmo",
+      "comment" : {
+        "en" : "Synthetic maintenance and operations log source used to test LLM-assisted ontology population without exposing confidential plant data."
+      },
+      "labels" : {
+        "IRI-based" : "FactoryLogSimulation",
+        "en" : "Factory Log Simulation"
+      }
+    }, {
+      "iri" : "https://w3id.org/iiot-pmo#IndustrialSensorDataset-Kaggle",
+      "baseIri" : "https://w3id.org/iiot-pmo",
+      "comment" : {
+        "en" : "Structured sensor dataset used for time-series model development and ontology population experiments."
+      },
+      "labels" : {
+        "IRI-based" : "IndustrialSensorDataset-Kaggle",
+        "en" : "Industrial Sensor Dataset from Kaggle"
+      }
+    } ],
+    "comment" : {
+      "en" : "A structured, semi-structured, or unstructured source used to populate the ontology."
+    },
+    "id" : "9"
+  }, {
+    "iri" : "https://w3id.org/iiot-pmo#PredictedFailure",
+    "baseIri" : "https://w3id.org/iiot-pmo",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "PredictedFailure",
+      "en" : "Predicted Failure"
+    },
+    "individuals" : [ {
+      "iri" : "https://w3id.org/iiot-pmo#PredictedFailure-Motor-01-BearingWear",
+      "baseIri" : "https://w3id.org/iiot-pmo",
+      "labels" : {
+        "IRI-based" : "PredictedFailure-Motor-01-BearingWear",
+        "en" : "Predicted bearing wear for Motor-01"
+      }
+    } ],
+    "comment" : {
+      "en" : "A machine-learning prediction that an asset may experience a failure mode within a future prediction horizon."
+    },
+    "id" : "10"
+  }, {
+    "iri" : "https://w3id.org/iiot-pmo#Pump",
+    "baseIri" : "https://w3id.org/iiot-pmo",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Pump",
+      "en" : "Pump"
+    },
+    "comment" : {
+      "en" : "A rotating equipment asset used to move fluids through a process system."
+    },
+    "id" : "11",
+    "superClasses" : [ "12" ]
+  }, {
+    "iri" : "https://w3id.org/iiot-pmo#Equipment",
+    "baseIri" : "https://w3id.org/iiot-pmo",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Equipment",
+      "en" : "Equipment"
+    },
+    "subClasses" : [ "12" ],
+    "comment" : {
+      "en" : "Industrial machinery that performs a production, utility, or support function."
+    },
+    "id" : "1",
+    "superClasses" : [ "8" ]
+  }, {
+    "iri" : "https://w3id.org/iiot-pmo#Observation",
+    "equivalent" : [ "18" ],
+    "baseIri" : "https://w3id.org/iiot-pmo",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Observation",
+      "en" : "Observation"
+    },
+    "individuals" : [ {
+      "iri" : "https://w3id.org/iiot-pmo#Observation-2026-05-06T09-15-00",
+      "baseIri" : "https://w3id.org/iiot-pmo",
+      "labels" : {
+        "IRI-based" : "Observation-2026-05-06T09-15-00",
+        "en" : "Vibration observation for Motor-01 at 2026-05-06 09:15:00"
+      }
+    }, {
+      "iri" : "https://w3id.org/iiot-pmo#Observation-Temp-2026-05-06T09-15-00",
+      "baseIri" : "https://w3id.org/iiot-pmo",
+      "labels" : {
+        "IRI-based" : "Observation-Temp-2026-05-06T09-15-00",
+        "en" : "Temperature observation for Motor-01 at 2026-05-06 09:15:00"
+      }
+    } ],
+    "comment" : {
+      "en" : "iiot:Observation represents the act of carrying out an observation, equivalent to sosa:Observation."
+    },
+    "attributes" : [ "equivalent" ],
+    "id" : "5"
+  }, {
+    "iri" : "https://w3id.org/iiot-pmo#Motor",
+    "baseIri" : "https://w3id.org/iiot-pmo",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Motor",
+      "en" : "Motor"
+    },
+    "individuals" : [ {
+      "iri" : "https://w3id.org/iiot-pmo#Motor-01",
+      "baseIri" : "https://w3id.org/iiot-pmo",
+      "labels" : {
+        "IRI-based" : "Motor-01",
+        "en" : "Motor-01"
+      }
+    } ],
+    "comment" : {
+      "en" : "A rotating equipment asset that converts electrical energy into mechanical motion."
+    },
+    "id" : "19",
+    "superClasses" : [ "12" ]
+  }, {
+    "iri" : "https://w3id.org/iiot-pmo#TemperatureSensor",
+    "baseIri" : "https://w3id.org/iiot-pmo",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "TemperatureSensor",
+      "en" : "Temperature Sensor"
+    },
+    "individuals" : [ {
+      "iri" : "https://w3id.org/iiot-pmo#TemperatureSensor-01",
+      "baseIri" : "https://w3id.org/iiot-pmo",
+      "labels" : {
+        "IRI-based" : "TemperatureSensor-01",
+        "en" : "TemperatureSensor-01"
+      }
+    } ],
+    "comment" : {
+      "en" : "A sensor that measures temperature of equipment or process environments."
+    },
+    "id" : "20",
+    "superClasses" : [ "21" ]
+  }, {
+    "iri" : "http://www.w3.org/ns/sosa/Observation",
+    "baseIri" : "http://www.w3.org/ns/sosa",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Observation"
+    },
+    "attributes" : [ "external", "equivalent" ],
+    "id" : "18"
+  }, {
+    "iri" : "https://w3id.org/iiot-pmo#MLModel",
+    "baseIri" : "https://w3id.org/iiot-pmo",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "MLModel",
+      "en" : "Machine Learning Model"
+    },
+    "subClasses" : [ "31" ],
+    "comment" : {
+      "en" : "A computational model that produces predictions from industrial sensor or maintenance data."
+    },
+    "id" : "30"
+  }, {
+    "iri" : "https://w3id.org/iiot-pmo#VibrationSensor",
+    "baseIri" : "https://w3id.org/iiot-pmo",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "VibrationSensor",
+      "en" : "Vibration Sensor"
+    },
+    "individuals" : [ {
+      "iri" : "https://w3id.org/iiot-pmo#VibrationSensor-01",
+      "baseIri" : "https://w3id.org/iiot-pmo",
+      "labels" : {
+        "IRI-based" : "VibrationSensor-01",
+        "en" : "VibrationSensor-01"
+      }
+    } ],
+    "comment" : {
+      "en" : "A sensor that measures vibration behavior of industrial equipment."
+    },
+    "id" : "44",
+    "superClasses" : [ "21" ]
+  }, {
+    "iri" : "https://w3id.org/iiot-pmo#PressureSensor",
+    "baseIri" : "https://w3id.org/iiot-pmo",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "PressureSensor",
+      "en" : "Pressure Sensor"
+    },
+    "comment" : {
+      "en" : "A sensor that measures pressure in a process or equipment context."
+    },
+    "id" : "52",
+    "superClasses" : [ "21" ]
+  }, {
+    "iri" : "https://w3id.org/iiot-pmo#Sensor",
+    "equivalent" : [ "55" ],
+    "baseIri" : "https://w3id.org/iiot-pmo",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Sensor",
+      "en" : "Sensor"
+    },
+    "subClasses" : [ "52", "20", "44" ],
+    "comment" : {
+      "en" : "iiot:Sensor is semantically equivalent to sosa:Sensor and, as a physical device, is a subclass of ssn:System."
+    },
+    "attributes" : [ "equivalent" ],
+    "id" : "21",
+    "superClasses" : [ "8", "48" ]
+  }, {
+    "iri" : "https://w3id.org/iiot-pmo#MaintenanceLog",
+    "baseIri" : "https://w3id.org/iiot-pmo",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "MaintenanceLog",
+      "en" : "Maintenance Log"
+    },
+    "individuals" : [ {
+      "iri" : "https://w3id.org/iiot-pmo#MaintenanceLog-Motor-01-2026-04-01",
+      "baseIri" : "https://w3id.org/iiot-pmo",
+      "labels" : {
+        "IRI-based" : "MaintenanceLog-Motor-01-2026-04-01",
+        "en" : "Maintenance log for Motor-01 on 2026-04-01"
+      }
+    } ],
+    "comment" : {
+      "en" : "A textual or semi-structured record describing maintenance actions, operator notes, inspection outcomes, or service events."
+    },
+    "id" : "2",
+    "superClasses" : [ "29" ]
+  }, {
+    "iri" : "https://w3id.org/iiot-pmo#LLMExtractionTask",
+    "baseIri" : "https://w3id.org/iiot-pmo",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "LLMExtractionTask",
+      "en" : "LLM Extraction Task"
+    },
+    "individuals" : [ {
+      "iri" : "https://w3id.org/iiot-pmo#LLMExtractionTask-LOG-20260506-001",
+      "baseIri" : "https://w3id.org/iiot-pmo",
+      "labels" : {
+        "IRI-based" : "LLMExtractionTask-LOG-20260506-001",
+        "en" : "LLM extraction task for simulated factory log LOG-20260506-001"
+      }
+    } ],
+    "comment" : {
+      "en" : "A data ingestion task in which a large language model extracts ontology candidates from unstructured industrial text."
+    },
+    "id" : "50"
+  }, {
+    "iri" : "https://w3id.org/iiot-pmo#CriticalAlert",
+    "baseIri" : "https://w3id.org/iiot-pmo",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "CriticalAlert",
+      "en" : "Critical Alert"
+    },
+    "individuals" : [ {
+      "iri" : "https://w3id.org/iiot-pmo#Alert-CriticalVibration-001",
+      "baseIri" : "https://w3id.org/iiot-pmo",
+      "labels" : {
+        "IRI-based" : "Alert-CriticalVibration-001",
+        "en" : "Critical vibration alert 001"
+      }
+    } ],
+    "comment" : {
+      "en" : "A threshold alert representing a critical operating condition."
+    },
+    "id" : "40",
+    "superClasses" : [ "27" ]
+  }, {
+    "iri" : "http://www.w3.org/2002/07/owl#Thing",
+    "baseIri" : "http://owl2vowl.de",
+    "id" : "64",
+    "label" : {
+      "undefined" : "Thing"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#decimal",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "66",
+    "label" : {
+      "IRI-based" : "decimal"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2002/07/owl#Thing",
+    "baseIri" : "http://owl2vowl.de",
+    "id" : "68",
+    "label" : {
+      "undefined" : "Thing"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#decimal",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "69",
+    "label" : {
+      "IRI-based" : "decimal"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#string",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "57",
+    "label" : {
+      "IRI-based" : "string"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#dateTime",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "71",
+    "label" : {
+      "IRI-based" : "dateTime"
+    }
+  }, {
+    "iri" : "http://www.w3.org/ns/sosa/Result",
+    "baseIri" : "http://www.w3.org/ns/sosa",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Result"
+    },
+    "subClasses" : [ "14" ],
+    "attributes" : [ "external" ],
+    "id" : "42"
+  }, {
+    "iri" : "https://w3id.org/iiot-pmo#MeasurementValue",
+    "baseIri" : "https://w3id.org/iiot-pmo",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "MeasurementValue",
+      "en" : "Measurement Value"
+    },
+    "individuals" : [ {
+      "iri" : "https://w3id.org/iiot-pmo#MeasurementValue-Vibration-001",
+      "baseIri" : "https://w3id.org/iiot-pmo",
+      "labels" : {
+        "IRI-based" : "MeasurementValue-Vibration-001",
+        "en" : "Vibration measurement value 001"
+      }
+    }, {
+      "iri" : "https://w3id.org/iiot-pmo#MeasurementValue-Temp-001",
+      "baseIri" : "https://w3id.org/iiot-pmo",
+      "labels" : {
+        "IRI-based" : "MeasurementValue-Temp-001",
+        "en" : "Temperature measurement value 001"
+      }
+    } ],
+    "comment" : {
+      "en" : "A concrete numeric measurement value mapped from a source column such as temp_c, vibration_mm_s, or pressure_bar."
+    },
+    "id" : "38",
+    "superClasses" : [ "14" ]
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#dateTime",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "73",
+    "label" : {
+      "IRI-based" : "dateTime"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#decimal",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "51",
+    "label" : {
+      "IRI-based" : "decimal"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#decimal",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "74",
+    "label" : {
+      "IRI-based" : "decimal"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#string",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "75",
+    "label" : {
+      "IRI-based" : "string"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#string",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "76",
+    "label" : {
+      "IRI-based" : "string"
+    }
+  }, {
+    "iri" : "http://www.w3.org/ns/ssn/System",
+    "baseIri" : "http://www.w3.org/ns/ssn",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "System"
+    },
+    "subClasses" : [ "21" ],
+    "attributes" : [ "external" ],
+    "id" : "48"
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#string",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "59",
+    "label" : {
+      "IRI-based" : "string"
+    }
+  }, {
+    "iri" : "https://w3id.org/iiot-pmo#TimeSeriesBatch",
+    "baseIri" : "https://w3id.org/iiot-pmo",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "TimeSeriesBatch",
+      "en" : "Time Series Batch"
+    },
+    "individuals" : [ {
+      "iri" : "https://w3id.org/iiot-pmo#TimeSeriesBatch-Motor-01-2026-05-06",
+      "baseIri" : "https://w3id.org/iiot-pmo",
+      "labels" : {
+        "IRI-based" : "TimeSeriesBatch-Motor-01-2026-05-06",
+        "en" : "Time-series batch for Motor-01 on 2026-05-06"
+      }
+    } ],
+    "comment" : {
+      "en" : "A temporally bounded collection of sensor observations used as an input window for predictive maintenance models."
+    },
+    "id" : "36"
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#decimal",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "78",
+    "label" : {
+      "IRI-based" : "decimal"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#decimal",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "23",
+    "label" : {
+      "IRI-based" : "decimal"
+    }
+  }, {
+    "iri" : "https://w3id.org/iiot-pmo#RotatingEquipment",
+    "baseIri" : "https://w3id.org/iiot-pmo",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "RotatingEquipment",
+      "en" : "Rotating Equipment"
+    },
+    "subClasses" : [ "11", "19" ],
+    "comment" : {
+      "en" : "Equipment whose operational behavior is characterized by rotating components such as shafts, bearings, or impellers."
+    },
+    "id" : "12",
+    "superClasses" : [ "1" ]
+  }, {
+    "iri" : "http://www.w3.org/ns/sosa/Sensor",
+    "baseIri" : "http://www.w3.org/ns/sosa",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Sensor"
+    },
+    "attributes" : [ "external", "equivalent" ],
+    "id" : "55"
+  }, {
+    "instances" : 0,
+    "union" : [ "10", "6" ],
+    "attributes" : [ "anonymous", "union" ],
+    "id" : "16"
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#dateTime",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "54",
+    "label" : {
+      "IRI-based" : "dateTime"
+    }
+  }, {
+    "iri" : "http://www.w3.org/ns/sosa/FeatureOfInterest",
+    "baseIri" : "http://www.w3.org/ns/sosa",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "FeatureOfInterest"
+    },
+    "subClasses" : [ "8" ],
+    "attributes" : [ "external" ],
+    "id" : "33"
+  }, {
+    "iri" : "https://w3id.org/iiot-pmo#ThresholdAlert",
+    "baseIri" : "https://w3id.org/iiot-pmo",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "ThresholdAlert",
+      "en" : "Threshold Alert"
+    },
+    "subClasses" : [ "40" ],
+    "comment" : {
+      "en" : "An alert generated when a measurement exceeds a configured threshold."
+    },
+    "id" : "27",
+    "superClasses" : [ "6" ]
+  }, {
+    "iri" : "https://w3id.org/iiot-pmo#Measurement",
+    "baseIri" : "https://w3id.org/iiot-pmo",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Measurement",
+      "en" : "Measurement"
+    },
+    "subClasses" : [ "38" ],
+    "comment" : {
+      "en" : "iiot:Measurement represents the structured value or representation of the observation result, aligning it as a subclass of sosa:Result."
+    },
+    "id" : "14",
+    "superClasses" : [ "42" ]
+  }, {
+    "iri" : "https://w3id.org/iiot-pmo#MaintenanceEvent",
+    "baseIri" : "https://w3id.org/iiot-pmo",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "MaintenanceEvent",
+      "en" : "Maintenance Event"
+    },
+    "subClasses" : [ "2" ],
+    "comment" : {
+      "en" : "A maintenance action or inspection event associated with equipment."
+    },
+    "id" : "29"
+  }, {
+    "iri" : "https://w3id.org/iiot-pmo#GRURNNModel",
+    "baseIri" : "https://w3id.org/iiot-pmo",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "GRURNNModel",
+      "en" : "GRU-RNN Model"
+    },
+    "individuals" : [ {
+      "iri" : "https://w3id.org/iiot-pmo#GRU-RNN-Predictor-v1",
+      "baseIri" : "https://w3id.org/iiot-pmo",
+      "labels" : {
+        "IRI-based" : "GRU-RNN-Predictor-v1",
+        "en" : "GRU-RNN predictive maintenance model v1"
+      }
+    } ],
+    "comment" : {
+      "en" : "A recurrent neural network model based on gated recurrent units for time-series failure prediction."
+    },
+    "id" : "31",
+    "superClasses" : [ "30" ]
+  }, {
+    "iri" : "https://w3id.org/iiot-pmo#Alert",
+    "baseIri" : "https://w3id.org/iiot-pmo",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Alert",
+      "en" : "Alert"
+    },
+    "subClasses" : [ "27" ],
+    "comment" : {
+      "en" : "A semantic notification generated when an observation indicates abnormal or risky operating behavior."
+    },
+    "id" : "6"
+  }, {
+    "iri" : "https://w3id.org/iiot-pmo#FailureMode",
+    "baseIri" : "https://w3id.org/iiot-pmo",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "FailureMode",
+      "en" : "Failure Mode"
+    },
+    "individuals" : [ {
+      "iri" : "https://w3id.org/iiot-pmo#BearingWear",
+      "baseIri" : "https://w3id.org/iiot-pmo",
+      "comment" : {
+        "en" : "A degradation mode in which bearing surfaces lose material or alignment quality, often reflected by abnormal vibration patterns."
+      },
+      "labels" : {
+        "IRI-based" : "BearingWear",
+        "en" : "Bearing Wear"
+      }
+    } ],
+    "comment" : {
+      "en" : "A potential or observed mechanism of equipment degradation or failure."
+    },
+    "id" : "17"
+  }, {
+    "iri" : "https://w3id.org/iiot-pmo#Asset",
+    "baseIri" : "https://w3id.org/iiot-pmo",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Asset",
+      "en" : "Asset"
+    },
+    "subClasses" : [ "1", "21" ],
+    "comment" : {
+      "en" : "A physical or logical industrial entity that can be monitored, maintained, or identified in a factory knowledge graph."
+    },
+    "id" : "8",
+    "superClasses" : [ "33" ]
+  } ],
+  "property" : [ {
+    "id" : "0",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "4",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "7",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "13",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "15",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "22",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "24",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "26",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "28",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "32",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "34",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "35",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "37",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "39",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "41",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "43",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "45",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "46",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "47",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "49",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "53",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "56",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "58",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "60",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "61",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "62",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "63",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "65",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "67",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "70",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "25",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "72",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "77",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "79",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "3",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "80",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "81",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "82",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "83",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "84",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "85",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "86",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "87",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "88",
+    "type" : "owl:datatypeProperty"
+  } ],
+  "propertyAttribute" : [ {
+    "iri" : "https://w3id.org/iiot-pmo#hasMaintenanceHistory",
+    "baseIri" : "https://w3id.org/iiot-pmo",
+    "range" : "2",
+    "label" : {
+      "IRI-based" : "hasMaintenanceHistory",
+      "en" : "has maintenance history"
+    },
+    "superproperty" : [ "3" ],
+    "domain" : "1",
+    "comment" : {
+      "en" : "Associates equipment with historical maintenance logs."
+    },
+    "attributes" : [ "object" ],
+    "id" : "0"
+  }, {
+    "iri" : "https://w3id.org/iiot-pmo#generatesAlert",
+    "baseIri" : "https://w3id.org/iiot-pmo",
+    "range" : "6",
+    "label" : {
+      "IRI-based" : "generatesAlert",
+      "en" : "generates alert"
+    },
+    "domain" : "5",
+    "comment" : {
+      "en" : "Indicates that an observation generated an alert."
+    },
+    "attributes" : [ "object" ],
+    "id" : "4"
+  }, {
+    "range" : "8",
+    "domain" : "1",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "7"
+  }, {
+    "iri" : "https://w3id.org/iiot-pmo#hasMeasurement",
+    "baseIri" : "https://w3id.org/iiot-pmo",
+    "range" : "14",
+    "label" : {
+      "IRI-based" : "hasMeasurement",
+      "en" : "has measurement"
+    },
+    "domain" : "5",
+    "comment" : {
+      "en" : "Connects an observation to its measurement value object."
+    },
+    "attributes" : [ "object" ],
+    "id" : "13"
+  }, {
+    "iri" : "https://w3id.org/iiot-pmo#indicatesFailureMode",
+    "baseIri" : "https://w3id.org/iiot-pmo",
+    "range" : "17",
+    "label" : {
+      "IRI-based" : "indicatesFailureMode",
+      "en" : "indicates failure mode"
+    },
+    "domain" : "16",
+    "comment" : {
+      "en" : "Links an alert or predicted failure to a suspected or known failure mode."
+    },
+    "attributes" : [ "object" ],
+    "id" : "15"
+  }, {
+    "iri" : "https://w3id.org/iiot-pmo#hasPredictionHorizonHours",
+    "baseIri" : "https://w3id.org/iiot-pmo",
+    "range" : "23",
+    "label" : {
+      "IRI-based" : "hasPredictionHorizonHours",
+      "en" : "has prediction horizon hours"
+    },
+    "domain" : "10",
+    "comment" : {
+      "en" : "Future time horizon, in hours, covered by a predicted failure."
+    },
+    "attributes" : [ "datatype" ],
+    "id" : "22"
+  }, {
+    "iri" : "https://w3id.org/iiot-pmo#monitors",
+    "baseIri" : "https://w3id.org/iiot-pmo",
+    "range" : "1",
+    "label" : {
+      "IRI-based" : "monitors",
+      "en" : "monitors"
+    },
+    "superproperty" : [ "25" ],
+    "domain" : "21",
+    "comment" : {
+      "en" : "Indicates which equipment is monitored by a sensor."
+    },
+    "attributes" : [ "object" ],
+    "id" : "24"
+  }, {
+    "range" : "6",
+    "domain" : "27",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "26"
+  }, {
+    "range" : "29",
+    "domain" : "2",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "28"
+  }, {
+    "range" : "33",
+    "domain" : "8",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "32"
+  }, {
+    "range" : "12",
+    "domain" : "19",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "34"
+  }, {
+    "iri" : "https://w3id.org/iiot-pmo#containsObservation",
+    "baseIri" : "https://w3id.org/iiot-pmo",
+    "range" : "5",
+    "label" : {
+      "IRI-based" : "containsObservation",
+      "en" : "contains observation"
+    },
+    "domain" : "36",
+    "comment" : {
+      "en" : "Connects a time-series batch to the observations included in its prediction window."
+    },
+    "attributes" : [ "object" ],
+    "id" : "35"
+  }, {
+    "range" : "14",
+    "domain" : "38",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "37"
+  }, {
+    "range" : "27",
+    "domain" : "40",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "39"
+  }, {
+    "range" : "42",
+    "domain" : "14",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "41"
+  }, {
+    "range" : "21",
+    "domain" : "44",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "43"
+  }, {
+    "iri" : "https://w3id.org/iiot-pmo#hasObservation",
+    "baseIri" : "https://w3id.org/iiot-pmo",
+    "range" : "5",
+    "label" : {
+      "IRI-based" : "hasObservation",
+      "en" : "has observation"
+    },
+    "domain" : "21",
+    "comment" : {
+      "en" : "Links a sensor to an observation it produced."
+    },
+    "attributes" : [ "object" ],
+    "id" : "45"
+  }, {
+    "range" : "12",
+    "domain" : "11",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "46"
+  }, {
+    "range" : "48",
+    "domain" : "21",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "47"
+  }, {
+    "iri" : "https://w3id.org/iiot-pmo#hasConfidence",
+    "baseIri" : "https://w3id.org/iiot-pmo",
+    "range" : "51",
+    "label" : {
+      "IRI-based" : "hasConfidence",
+      "en" : "has confidence"
+    },
+    "domain" : "50",
+    "comment" : {
+      "en" : "Confidence assigned to an LLM extraction result."
+    },
+    "attributes" : [ "datatype" ],
+    "id" : "49"
+  }, {
+    "iri" : "https://w3id.org/iiot-pmo#hasBatchWindowEnd",
+    "baseIri" : "https://w3id.org/iiot-pmo",
+    "range" : "54",
+    "label" : {
+      "IRI-based" : "hasBatchWindowEnd",
+      "en" : "has batch window end"
+    },
+    "domain" : "36",
+    "comment" : {
+      "en" : "End timestamp of the time-series window."
+    },
+    "attributes" : [ "datatype" ],
+    "id" : "53"
+  }, {
+    "iri" : "https://w3id.org/iiot-pmo#hasUnit",
+    "baseIri" : "https://w3id.org/iiot-pmo",
+    "range" : "57",
+    "label" : {
+      "IRI-based" : "hasUnit",
+      "en" : "has unit"
+    },
+    "domain" : "14",
+    "comment" : {
+      "en" : "Unit used for the measurement value."
+    },
+    "attributes" : [ "datatype" ],
+    "id" : "56"
+  }, {
+    "iri" : "https://w3id.org/iiot-pmo#hasModelName",
+    "baseIri" : "https://w3id.org/iiot-pmo",
+    "range" : "59",
+    "label" : {
+      "IRI-based" : "hasModelName",
+      "en" : "has model name"
+    },
+    "domain" : "30",
+    "comment" : {
+      "en" : "Human-readable model name."
+    },
+    "attributes" : [ "datatype" ],
+    "id" : "58"
+  }, {
+    "iri" : "https://w3id.org/iiot-pmo#hasSensor",
+    "inverse" : "24",
+    "baseIri" : "https://w3id.org/iiot-pmo",
+    "range" : "21",
+    "label" : {
+      "IRI-based" : "hasSensor",
+      "en" : "has sensor"
+    },
+    "domain" : "1",
+    "comment" : {
+      "en" : "Connects equipment to an installed or associated sensor."
+    },
+    "attributes" : [ "object" ],
+    "id" : "60"
+  }, {
+    "range" : "21",
+    "domain" : "52",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "61"
+  }, {
+    "range" : "30",
+    "domain" : "31",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "62"
+  }, {
+    "range" : "21",
+    "domain" : "20",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "63"
+  }, {
+    "iri" : "https://w3id.org/iiot-pmo#predictedBy",
+    "baseIri" : "https://w3id.org/iiot-pmo",
+    "range" : "30",
+    "label" : {
+      "IRI-based" : "predictedBy",
+      "en" : "predicted by"
+    },
+    "domain" : "10",
+    "comment" : {
+      "en" : "Links a predicted failure to the machine learning model that produced it."
+    },
+    "attributes" : [ "object" ],
+    "id" : "65"
+  }, {
+    "range" : "1",
+    "domain" : "12",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "67"
+  }, {
+    "iri" : "https://w3id.org/iiot-pmo#hasValue",
+    "baseIri" : "https://w3id.org/iiot-pmo",
+    "range" : "66",
+    "label" : {
+      "IRI-based" : "hasValue",
+      "en" : "has value"
+    },
+    "domain" : "14",
+    "comment" : {
+      "en" : "Numeric value of a measurement."
+    },
+    "attributes" : [ "datatype" ],
+    "id" : "70"
+  }, {
+    "iri" : "http://www.w3.org/ns/ssn/detects",
+    "baseIri" : "http://www.w3.org/ns/ssn",
+    "range" : "64",
+    "label" : {
+      "IRI-based" : "detects"
+    },
+    "domain" : "64",
+    "subproperty" : [ "24" ],
+    "attributes" : [ "external", "object" ],
+    "id" : "25"
+  }, {
+    "iri" : "https://w3id.org/iiot-pmo#derivedFromBatch",
+    "baseIri" : "https://w3id.org/iiot-pmo",
+    "range" : "36",
+    "label" : {
+      "IRI-based" : "derivedFromBatch",
+      "en" : "derived from batch"
+    },
+    "domain" : "10",
+    "comment" : {
+      "en" : "Links a predicted failure to the time-series batch used as model input."
+    },
+    "attributes" : [ "object" ],
+    "id" : "72"
+  }, {
+    "iri" : "https://w3id.org/iiot-pmo#usesDataSource",
+    "baseIri" : "https://w3id.org/iiot-pmo",
+    "range" : "9",
+    "label" : {
+      "IRI-based" : "usesDataSource",
+      "en" : "uses data source"
+    },
+    "domain" : "50",
+    "comment" : {
+      "en" : "Links an LLM extraction task to its source data."
+    },
+    "attributes" : [ "object" ],
+    "id" : "77"
+  }, {
+    "iri" : "https://w3id.org/iiot-pmo#hasBatchWindowStart",
+    "baseIri" : "https://w3id.org/iiot-pmo",
+    "range" : "73",
+    "label" : {
+      "IRI-based" : "hasBatchWindowStart",
+      "en" : "has batch window start"
+    },
+    "domain" : "36",
+    "comment" : {
+      "en" : "Start timestamp of the time-series window."
+    },
+    "attributes" : [ "datatype" ],
+    "id" : "79"
+  }, {
+    "iri" : "https://w3id.org/iiot-pmo#hasMaintenanceEvent",
+    "baseIri" : "https://w3id.org/iiot-pmo",
+    "range" : "29",
+    "label" : {
+      "IRI-based" : "hasMaintenanceEvent",
+      "en" : "has maintenance event"
+    },
+    "domain" : "1",
+    "subproperty" : [ "0" ],
+    "comment" : {
+      "en" : "Associates equipment with a maintenance action or inspection."
+    },
+    "attributes" : [ "object" ],
+    "id" : "3"
+  }, {
+    "iri" : "https://w3id.org/iiot-pmo#hasTimestamp",
+    "baseIri" : "https://w3id.org/iiot-pmo",
+    "range" : "71",
+    "label" : {
+      "IRI-based" : "hasTimestamp",
+      "en" : "has timestamp"
+    },
+    "domain" : "64",
+    "comment" : {
+      "en" : "Time associated with an observation, alert, prediction, or maintenance event."
+    },
+    "attributes" : [ "datatype" ],
+    "id" : "80"
+  }, {
+    "iri" : "https://w3id.org/iiot-pmo#extractsCandidateFor",
+    "baseIri" : "https://w3id.org/iiot-pmo",
+    "range" : "68",
+    "label" : {
+      "IRI-based" : "extractsCandidateFor",
+      "en" : "extracts candidate for"
+    },
+    "domain" : "50",
+    "comment" : {
+      "en" : "Links an LLM extraction task to an ontology individual proposed during population."
+    },
+    "attributes" : [ "object" ],
+    "id" : "81"
+  }, {
+    "iri" : "https://w3id.org/iiot-pmo#hasPredictedFailure",
+    "baseIri" : "https://w3id.org/iiot-pmo",
+    "range" : "10",
+    "label" : {
+      "IRI-based" : "hasPredictedFailure",
+      "en" : "has predicted failure"
+    },
+    "domain" : "1",
+    "comment" : {
+      "en" : "Links equipment to a failure prediction generated from sensor or maintenance evidence."
+    },
+    "attributes" : [ "object" ],
+    "id" : "82"
+  }, {
+    "iri" : "https://w3id.org/iiot-pmo#hasFailureProbability",
+    "baseIri" : "https://w3id.org/iiot-pmo",
+    "range" : "74",
+    "label" : {
+      "IRI-based" : "hasFailureProbability",
+      "en" : "has failure probability"
+    },
+    "domain" : "10",
+    "comment" : {
+      "en" : "Probability assigned by a machine learning model to a predicted failure."
+    },
+    "attributes" : [ "datatype" ],
+    "id" : "83"
+  }, {
+    "iri" : "https://w3id.org/iiot-pmo#hasMaintenanceAction",
+    "baseIri" : "https://w3id.org/iiot-pmo",
+    "range" : "76",
+    "label" : {
+      "IRI-based" : "hasMaintenanceAction",
+      "en" : "has maintenance action"
+    },
+    "domain" : "2",
+    "comment" : {
+      "en" : "Maintenance action described by a maintenance log."
+    },
+    "attributes" : [ "datatype" ],
+    "id" : "84"
+  }, {
+    "iri" : "https://w3id.org/iiot-pmo#hasOperatingHours",
+    "baseIri" : "https://w3id.org/iiot-pmo",
+    "range" : "78",
+    "label" : {
+      "IRI-based" : "hasOperatingHours",
+      "en" : "has operating hours"
+    },
+    "domain" : "1",
+    "comment" : {
+      "en" : "Operating hours accumulated by an equipment asset."
+    },
+    "attributes" : [ "datatype" ],
+    "id" : "85"
+  }, {
+    "iri" : "https://w3id.org/iiot-pmo#hasLogText",
+    "baseIri" : "https://w3id.org/iiot-pmo",
+    "range" : "75",
+    "label" : {
+      "IRI-based" : "hasLogText",
+      "en" : "has log text"
+    },
+    "domain" : "2",
+    "comment" : {
+      "en" : "Raw or normalized text of a maintenance log."
+    },
+    "attributes" : [ "datatype" ],
+    "id" : "86"
+  }, {
+    "range" : "8",
+    "domain" : "21",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "87"
+  }, {
+    "iri" : "https://w3id.org/iiot-pmo#hasThreshold",
+    "baseIri" : "https://w3id.org/iiot-pmo",
+    "range" : "69",
+    "label" : {
+      "IRI-based" : "hasThreshold",
+      "en" : "has threshold"
+    },
+    "domain" : "21",
+    "comment" : {
+      "en" : "Configured threshold value for a sensor."
+    },
+    "attributes" : [ "datatype" ],
+    "id" : "88"
+  } ]
+}

@@ -1,0 +1,964 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="https://w3id.org/iiot-pmo#"
+     xml:base="https://w3id.org/iiot-pmo"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:terms="http://purl.org/dc/terms/"
+     xmlns:iiot-pmo="https://w3id.org/iiot-pmo#">
+    <owl:Ontology rdf:about="https://w3id.org/iiot-pmo">
+        <owl:versionIRI rdf:resource="https://w3id.org/iiot-pmo/0.2.0"/>
+        <terms:description xml:lang="en">Version 0.2.0 extends the initial predictive maintenance ontology with LLM-assisted ontology population, maintenance history, time-series batches, and machine-learning-based predicted failures.</terms:description>
+        <terms:references rdf:resource="https://doi.org/10.1002/cpe.7420"/>
+        <terms:references rdf:resource="https://doi.org/10.1007/978-3-031-47240-4_22"/>
+        <terms:references rdf:resource="https://doi.org/10.1016/j.knosys.2024.112940"/>
+        <terms:title xml:lang="en">Industrial IoT &amp; Predictive Maintenance Ontology (IIoT-PMO)</terms:title>
+        <rdfs:comment xml:lang="en">Developed according to a METHONTOLOGY-inspired lifecycle: specification, conceptualization, formalization, implementation, and evaluation.</rdfs:comment>
+        <owl:versionInfo>0.2.0</owl:versionInfo>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- http://purl.org/dc/terms/description -->
+
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/description"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/references -->
+
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/references"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/title -->
+
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/title"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- http://www.w3.org/ns/ssn/detects -->
+
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/ns/ssn/detects"/>
+    
+
+
+    <!-- https://w3id.org/iiot-pmo#containsObservation -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/iiot-pmo#containsObservation">
+        <rdfs:domain rdf:resource="https://w3id.org/iiot-pmo#TimeSeriesBatch"/>
+        <rdfs:range rdf:resource="https://w3id.org/iiot-pmo#Observation"/>
+        <rdfs:comment xml:lang="en">Connects a time-series batch to the observations included in its prediction window.</rdfs:comment>
+        <rdfs:label xml:lang="en">contains observation</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/iiot-pmo#derivedFromBatch -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/iiot-pmo#derivedFromBatch">
+        <rdfs:domain rdf:resource="https://w3id.org/iiot-pmo#PredictedFailure"/>
+        <rdfs:range rdf:resource="https://w3id.org/iiot-pmo#TimeSeriesBatch"/>
+        <rdfs:comment xml:lang="en">Links a predicted failure to the time-series batch used as model input.</rdfs:comment>
+        <rdfs:label xml:lang="en">derived from batch</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/iiot-pmo#extractsCandidateFor -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/iiot-pmo#extractsCandidateFor">
+        <rdfs:domain rdf:resource="https://w3id.org/iiot-pmo#LLMExtractionTask"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <rdfs:comment xml:lang="en">Links an LLM extraction task to an ontology individual proposed during population.</rdfs:comment>
+        <rdfs:label xml:lang="en">extracts candidate for</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/iiot-pmo#generatesAlert -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/iiot-pmo#generatesAlert">
+        <rdfs:domain rdf:resource="https://w3id.org/iiot-pmo#Observation"/>
+        <rdfs:range rdf:resource="https://w3id.org/iiot-pmo#Alert"/>
+        <rdfs:comment xml:lang="en">Indicates that an observation generated an alert.</rdfs:comment>
+        <rdfs:label xml:lang="en">generates alert</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/iiot-pmo#hasMaintenanceEvent -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/iiot-pmo#hasMaintenanceEvent">
+        <rdfs:domain rdf:resource="https://w3id.org/iiot-pmo#Equipment"/>
+        <rdfs:range rdf:resource="https://w3id.org/iiot-pmo#MaintenanceEvent"/>
+        <rdfs:comment xml:lang="en">Associates equipment with a maintenance action or inspection.</rdfs:comment>
+        <rdfs:label xml:lang="en">has maintenance event</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/iiot-pmo#hasMaintenanceHistory -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/iiot-pmo#hasMaintenanceHistory">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/iiot-pmo#hasMaintenanceEvent"/>
+        <rdfs:domain rdf:resource="https://w3id.org/iiot-pmo#Equipment"/>
+        <rdfs:range rdf:resource="https://w3id.org/iiot-pmo#MaintenanceLog"/>
+        <rdfs:comment xml:lang="en">Associates equipment with historical maintenance logs.</rdfs:comment>
+        <rdfs:label xml:lang="en">has maintenance history</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/iiot-pmo#hasMeasurement -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/iiot-pmo#hasMeasurement">
+        <rdfs:domain rdf:resource="https://w3id.org/iiot-pmo#Observation"/>
+        <rdfs:range rdf:resource="https://w3id.org/iiot-pmo#Measurement"/>
+        <rdfs:comment xml:lang="en">Connects an observation to its measurement value object.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Links an observation to its result, equivalent to sosa:hasResult.</rdfs:comment>
+        <rdfs:label xml:lang="en">has measurement</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/iiot-pmo#hasObservation -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/iiot-pmo#hasObservation">
+        <rdfs:domain rdf:resource="https://w3id.org/iiot-pmo#Sensor"/>
+        <rdfs:range rdf:resource="https://w3id.org/iiot-pmo#Observation"/>
+        <rdfs:comment xml:lang="en">Links a sensor to an observation it produced.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Links a sensor to the observations it has made, equivalent to ssn:madeObservation.</rdfs:comment>
+        <rdfs:label xml:lang="en">has observation</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/iiot-pmo#hasPredictedFailure -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/iiot-pmo#hasPredictedFailure">
+        <rdfs:domain rdf:resource="https://w3id.org/iiot-pmo#Equipment"/>
+        <rdfs:range rdf:resource="https://w3id.org/iiot-pmo#PredictedFailure"/>
+        <rdfs:comment xml:lang="en">Links equipment to a failure prediction generated from sensor or maintenance evidence.</rdfs:comment>
+        <rdfs:label xml:lang="en">has predicted failure</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/iiot-pmo#hasSensor -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/iiot-pmo#hasSensor">
+        <owl:inverseOf rdf:resource="https://w3id.org/iiot-pmo#monitors"/>
+        <rdfs:domain rdf:resource="https://w3id.org/iiot-pmo#Equipment"/>
+        <rdfs:range rdf:resource="https://w3id.org/iiot-pmo#Sensor"/>
+        <rdfs:comment xml:lang="en">Connects equipment to an installed or associated sensor.</rdfs:comment>
+        <rdfs:label xml:lang="en">has sensor</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/iiot-pmo#indicatesFailureMode -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/iiot-pmo#indicatesFailureMode">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://w3id.org/iiot-pmo#Alert"/>
+                    <rdf:Description rdf:about="https://w3id.org/iiot-pmo#PredictedFailure"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="https://w3id.org/iiot-pmo#FailureMode"/>
+        <rdfs:comment xml:lang="en">Links an alert or predicted failure to a suspected or known failure mode.</rdfs:comment>
+        <rdfs:label xml:lang="en">indicates failure mode</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/iiot-pmo#monitors -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/iiot-pmo#monitors">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/ns/ssn/detects"/>
+        <rdfs:domain rdf:resource="https://w3id.org/iiot-pmo#Sensor"/>
+        <rdfs:range rdf:resource="https://w3id.org/iiot-pmo#Equipment"/>
+        <rdfs:comment xml:lang="en">Indicates which equipment is monitored by a sensor.</rdfs:comment>
+        <rdfs:comment xml:lang="en">iiot:monitors is a domain-specific specialization of ssn:detects, linking a sensor to the equipment it monitors.</rdfs:comment>
+        <rdfs:label xml:lang="en">monitors</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/iiot-pmo#predictedBy -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/iiot-pmo#predictedBy">
+        <rdfs:domain rdf:resource="https://w3id.org/iiot-pmo#PredictedFailure"/>
+        <rdfs:range rdf:resource="https://w3id.org/iiot-pmo#MLModel"/>
+        <rdfs:comment xml:lang="en">Links a predicted failure to the machine learning model that produced it.</rdfs:comment>
+        <rdfs:label xml:lang="en">predicted by</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/iiot-pmo#usesDataSource -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/iiot-pmo#usesDataSource">
+        <rdfs:domain rdf:resource="https://w3id.org/iiot-pmo#LLMExtractionTask"/>
+        <rdfs:range rdf:resource="https://w3id.org/iiot-pmo#DataSource"/>
+        <rdfs:comment xml:lang="en">Links an LLM extraction task to its source data.</rdfs:comment>
+        <rdfs:label xml:lang="en">uses data source</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- https://w3id.org/iiot-pmo#hasBatchWindowEnd -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/iiot-pmo#hasBatchWindowEnd">
+        <rdfs:domain rdf:resource="https://w3id.org/iiot-pmo#TimeSeriesBatch"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+        <rdfs:comment xml:lang="en">End timestamp of the time-series window.</rdfs:comment>
+        <rdfs:label xml:lang="en">has batch window end</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/iiot-pmo#hasBatchWindowStart -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/iiot-pmo#hasBatchWindowStart">
+        <rdfs:domain rdf:resource="https://w3id.org/iiot-pmo#TimeSeriesBatch"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+        <rdfs:comment xml:lang="en">Start timestamp of the time-series window.</rdfs:comment>
+        <rdfs:label xml:lang="en">has batch window start</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/iiot-pmo#hasConfidence -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/iiot-pmo#hasConfidence">
+        <rdfs:domain rdf:resource="https://w3id.org/iiot-pmo#LLMExtractionTask"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+        <rdfs:comment xml:lang="en">Confidence assigned to an LLM extraction result.</rdfs:comment>
+        <rdfs:label xml:lang="en">has confidence</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/iiot-pmo#hasFailureProbability -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/iiot-pmo#hasFailureProbability">
+        <rdfs:domain rdf:resource="https://w3id.org/iiot-pmo#PredictedFailure"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+        <rdfs:comment xml:lang="en">Probability assigned by a machine learning model to a predicted failure.</rdfs:comment>
+        <rdfs:label xml:lang="en">has failure probability</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/iiot-pmo#hasLogText -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/iiot-pmo#hasLogText">
+        <rdfs:domain rdf:resource="https://w3id.org/iiot-pmo#MaintenanceLog"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="en">Raw or normalized text of a maintenance log.</rdfs:comment>
+        <rdfs:label xml:lang="en">has log text</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/iiot-pmo#hasMaintenanceAction -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/iiot-pmo#hasMaintenanceAction">
+        <rdfs:domain rdf:resource="https://w3id.org/iiot-pmo#MaintenanceLog"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="en">Maintenance action described by a maintenance log.</rdfs:comment>
+        <rdfs:label xml:lang="en">has maintenance action</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/iiot-pmo#hasModelName -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/iiot-pmo#hasModelName">
+        <rdfs:domain rdf:resource="https://w3id.org/iiot-pmo#MLModel"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="en">Human-readable model name.</rdfs:comment>
+        <rdfs:label xml:lang="en">has model name</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/iiot-pmo#hasOperatingHours -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/iiot-pmo#hasOperatingHours">
+        <rdfs:domain rdf:resource="https://w3id.org/iiot-pmo#Equipment"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+        <rdfs:comment xml:lang="en">Operating hours accumulated by an equipment asset.</rdfs:comment>
+        <rdfs:label xml:lang="en">has operating hours</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/iiot-pmo#hasPredictionHorizonHours -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/iiot-pmo#hasPredictionHorizonHours">
+        <rdfs:domain rdf:resource="https://w3id.org/iiot-pmo#PredictedFailure"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+        <rdfs:comment xml:lang="en">Future time horizon, in hours, covered by a predicted failure.</rdfs:comment>
+        <rdfs:label xml:lang="en">has prediction horizon hours</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/iiot-pmo#hasThreshold -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/iiot-pmo#hasThreshold">
+        <rdfs:domain rdf:resource="https://w3id.org/iiot-pmo#Sensor"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+        <rdfs:comment xml:lang="en">Configured threshold value for a sensor.</rdfs:comment>
+        <rdfs:label xml:lang="en">has threshold</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/iiot-pmo#hasTimestamp -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/iiot-pmo#hasTimestamp">
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+        <rdfs:comment xml:lang="en">Time associated with an observation, alert, prediction, or maintenance event.</rdfs:comment>
+        <rdfs:label xml:lang="en">has timestamp</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/iiot-pmo#hasUnit -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/iiot-pmo#hasUnit">
+        <rdfs:domain rdf:resource="https://w3id.org/iiot-pmo#Measurement"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="en">Unit used for the measurement value.</rdfs:comment>
+        <rdfs:label xml:lang="en">has unit</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/iiot-pmo#hasValue -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/iiot-pmo#hasValue">
+        <rdfs:domain rdf:resource="https://w3id.org/iiot-pmo#Measurement"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+        <rdfs:comment xml:lang="en">Numeric value of a measurement.</rdfs:comment>
+        <rdfs:label xml:lang="en">has value</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- http://www.w3.org/ns/sosa/FeatureOfInterest -->
+
+
+    <owl:Class rdf:about="http://www.w3.org/ns/sosa/FeatureOfInterest"/>
+    
+
+
+    <!-- http://www.w3.org/ns/sosa/Observation -->
+
+
+    <owl:Class rdf:about="http://www.w3.org/ns/sosa/Observation">
+        <owl:equivalentClass rdf:resource="https://w3id.org/iiot-pmo#Observation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/ns/sosa/Result -->
+
+
+    <owl:Class rdf:about="http://www.w3.org/ns/sosa/Result"/>
+    
+
+
+    <!-- http://www.w3.org/ns/sosa/Sensor -->
+
+
+    <owl:Class rdf:about="http://www.w3.org/ns/sosa/Sensor">
+        <owl:equivalentClass rdf:resource="https://w3id.org/iiot-pmo#Sensor"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/ns/ssn/System -->
+
+
+    <owl:Class rdf:about="http://www.w3.org/ns/ssn/System"/>
+    
+
+
+    <!-- https://w3id.org/iiot-pmo#Alert -->
+
+
+    <owl:Class rdf:about="https://w3id.org/iiot-pmo#Alert">
+        <rdfs:comment xml:lang="en">A semantic notification generated when an observation indicates abnormal or risky operating behavior.</rdfs:comment>
+        <rdfs:label xml:lang="en">Alert</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/iiot-pmo#Asset -->
+
+
+    <owl:Class rdf:about="https://w3id.org/iiot-pmo#Asset">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/sosa/FeatureOfInterest"/>
+        <rdfs:comment xml:lang="en">A physical or logical industrial entity that can be monitored, maintained, or identified in a factory knowledge graph.</rdfs:comment>
+        <rdfs:comment xml:lang="en">An industrial asset represents the physical or logical entity whose properties (e.g. temperature, vibration) are observed, making it a subclass of sosa:FeatureOfInterest.</rdfs:comment>
+        <rdfs:label xml:lang="en">Asset</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/iiot-pmo#CriticalAlert -->
+
+
+    <owl:Class rdf:about="https://w3id.org/iiot-pmo#CriticalAlert">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/iiot-pmo#ThresholdAlert"/>
+        <rdfs:comment xml:lang="en">A threshold alert representing a critical operating condition.</rdfs:comment>
+        <rdfs:label xml:lang="en">Critical Alert</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/iiot-pmo#DataSource -->
+
+
+    <owl:Class rdf:about="https://w3id.org/iiot-pmo#DataSource">
+        <rdfs:comment xml:lang="en">A structured, semi-structured, or unstructured source used to populate the ontology.</rdfs:comment>
+        <rdfs:label xml:lang="en">Data Source</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/iiot-pmo#Equipment -->
+
+
+    <owl:Class rdf:about="https://w3id.org/iiot-pmo#Equipment">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/iiot-pmo#Asset"/>
+        <rdfs:comment xml:lang="en">Industrial machinery that performs a production, utility, or support function.</rdfs:comment>
+        <rdfs:label xml:lang="en">Equipment</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/iiot-pmo#FailureMode -->
+
+
+    <owl:Class rdf:about="https://w3id.org/iiot-pmo#FailureMode">
+        <rdfs:comment xml:lang="en">A potential or observed mechanism of equipment degradation or failure.</rdfs:comment>
+        <rdfs:label xml:lang="en">Failure Mode</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/iiot-pmo#GRURNNModel -->
+
+
+    <owl:Class rdf:about="https://w3id.org/iiot-pmo#GRURNNModel">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/iiot-pmo#MLModel"/>
+        <rdfs:comment xml:lang="en">A recurrent neural network model based on gated recurrent units for time-series failure prediction.</rdfs:comment>
+        <rdfs:label xml:lang="en">GRU-RNN Model</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/iiot-pmo#LLMExtractionTask -->
+
+
+    <owl:Class rdf:about="https://w3id.org/iiot-pmo#LLMExtractionTask">
+        <rdfs:comment xml:lang="en">A data ingestion task in which a large language model extracts ontology candidates from unstructured industrial text.</rdfs:comment>
+        <rdfs:label xml:lang="en">LLM Extraction Task</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/iiot-pmo#MLModel -->
+
+
+    <owl:Class rdf:about="https://w3id.org/iiot-pmo#MLModel">
+        <rdfs:comment xml:lang="en">A computational model that produces predictions from industrial sensor or maintenance data.</rdfs:comment>
+        <rdfs:label xml:lang="en">Machine Learning Model</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/iiot-pmo#MaintenanceEvent -->
+
+
+    <owl:Class rdf:about="https://w3id.org/iiot-pmo#MaintenanceEvent">
+        <rdfs:comment xml:lang="en">A maintenance action or inspection event associated with equipment.</rdfs:comment>
+        <rdfs:label xml:lang="en">Maintenance Event</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/iiot-pmo#MaintenanceLog -->
+
+
+    <owl:Class rdf:about="https://w3id.org/iiot-pmo#MaintenanceLog">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/iiot-pmo#MaintenanceEvent"/>
+        <rdfs:comment xml:lang="en">A textual or semi-structured record describing maintenance actions, operator notes, inspection outcomes, or service events.</rdfs:comment>
+        <rdfs:label xml:lang="en">Maintenance Log</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/iiot-pmo#Measurement -->
+
+
+    <owl:Class rdf:about="https://w3id.org/iiot-pmo#Measurement">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/sosa/Result"/>
+        <rdfs:comment xml:lang="en">A structured representation of a value produced through an observation.</rdfs:comment>
+        <rdfs:comment xml:lang="en">iiot:Measurement represents the structured value or representation of the observation result, aligning it as a subclass of sosa:Result.</rdfs:comment>
+        <rdfs:label xml:lang="en">Measurement</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/iiot-pmo#MeasurementValue -->
+
+
+    <owl:Class rdf:about="https://w3id.org/iiot-pmo#MeasurementValue">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/iiot-pmo#Measurement"/>
+        <rdfs:comment xml:lang="en">A concrete numeric measurement value mapped from a source column such as temp_c, vibration_mm_s, or pressure_bar.</rdfs:comment>
+        <rdfs:label xml:lang="en">Measurement Value</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/iiot-pmo#Motor -->
+
+
+    <owl:Class rdf:about="https://w3id.org/iiot-pmo#Motor">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/iiot-pmo#RotatingEquipment"/>
+        <rdfs:comment xml:lang="en">A rotating equipment asset that converts electrical energy into mechanical motion.</rdfs:comment>
+        <rdfs:label xml:lang="en">Motor</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/iiot-pmo#Observation -->
+
+
+    <owl:Class rdf:about="https://w3id.org/iiot-pmo#Observation">
+        <rdfs:comment xml:lang="en">A time-stamped record generated by a sensor while monitoring equipment.</rdfs:comment>
+        <rdfs:comment xml:lang="en">iiot:Observation represents the act of carrying out an observation, equivalent to sosa:Observation.</rdfs:comment>
+        <rdfs:label xml:lang="en">Observation</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/iiot-pmo#PredictedFailure -->
+
+
+    <owl:Class rdf:about="https://w3id.org/iiot-pmo#PredictedFailure">
+        <rdfs:comment xml:lang="en">A machine-learning prediction that an asset may experience a failure mode within a future prediction horizon.</rdfs:comment>
+        <rdfs:label xml:lang="en">Predicted Failure</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/iiot-pmo#PressureSensor -->
+
+
+    <owl:Class rdf:about="https://w3id.org/iiot-pmo#PressureSensor">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/iiot-pmo#Sensor"/>
+        <rdfs:comment xml:lang="en">A sensor that measures pressure in a process or equipment context.</rdfs:comment>
+        <rdfs:label xml:lang="en">Pressure Sensor</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/iiot-pmo#Pump -->
+
+
+    <owl:Class rdf:about="https://w3id.org/iiot-pmo#Pump">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/iiot-pmo#RotatingEquipment"/>
+        <rdfs:comment xml:lang="en">A rotating equipment asset used to move fluids through a process system.</rdfs:comment>
+        <rdfs:label xml:lang="en">Pump</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/iiot-pmo#RotatingEquipment -->
+
+
+    <owl:Class rdf:about="https://w3id.org/iiot-pmo#RotatingEquipment">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/iiot-pmo#Equipment"/>
+        <rdfs:comment xml:lang="en">Equipment whose operational behavior is characterized by rotating components such as shafts, bearings, or impellers.</rdfs:comment>
+        <rdfs:label xml:lang="en">Rotating Equipment</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/iiot-pmo#Sensor -->
+
+
+    <owl:Class rdf:about="https://w3id.org/iiot-pmo#Sensor">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/ssn/System"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/iiot-pmo#Asset"/>
+        <rdfs:comment xml:lang="en">A device that observes a physical property of equipment or its operational context.</rdfs:comment>
+        <rdfs:comment xml:lang="en">iiot:Sensor is semantically equivalent to sosa:Sensor and, as a physical device, is a subclass of ssn:System.</rdfs:comment>
+        <rdfs:label xml:lang="en">Sensor</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/iiot-pmo#TemperatureSensor -->
+
+
+    <owl:Class rdf:about="https://w3id.org/iiot-pmo#TemperatureSensor">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/iiot-pmo#Sensor"/>
+        <rdfs:comment xml:lang="en">A sensor that measures temperature of equipment or process environments.</rdfs:comment>
+        <rdfs:label xml:lang="en">Temperature Sensor</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/iiot-pmo#ThresholdAlert -->
+
+
+    <owl:Class rdf:about="https://w3id.org/iiot-pmo#ThresholdAlert">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/iiot-pmo#Alert"/>
+        <rdfs:comment xml:lang="en">An alert generated when a measurement exceeds a configured threshold.</rdfs:comment>
+        <rdfs:label xml:lang="en">Threshold Alert</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/iiot-pmo#TimeSeriesBatch -->
+
+
+    <owl:Class rdf:about="https://w3id.org/iiot-pmo#TimeSeriesBatch">
+        <rdfs:comment xml:lang="en">A temporally bounded collection of sensor observations used as an input window for predictive maintenance models.</rdfs:comment>
+        <rdfs:label xml:lang="en">Time Series Batch</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/iiot-pmo#VibrationSensor -->
+
+
+    <owl:Class rdf:about="https://w3id.org/iiot-pmo#VibrationSensor">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/iiot-pmo#Sensor"/>
+        <rdfs:comment xml:lang="en">A sensor that measures vibration behavior of industrial equipment.</rdfs:comment>
+        <rdfs:label xml:lang="en">Vibration Sensor</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- https://w3id.org/iiot-pmo#Alert-CriticalVibration-001 -->
+
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/iiot-pmo#Alert-CriticalVibration-001">
+        <rdf:type rdf:resource="https://w3id.org/iiot-pmo#CriticalAlert"/>
+        <indicatesFailureMode rdf:resource="https://w3id.org/iiot-pmo#BearingWear"/>
+        <hasTimestamp rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-05-06T09:15:05+03:00</hasTimestamp>
+        <rdfs:label xml:lang="en">Critical vibration alert 001</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/iiot-pmo#BearingWear -->
+
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/iiot-pmo#BearingWear">
+        <rdf:type rdf:resource="https://w3id.org/iiot-pmo#FailureMode"/>
+        <rdfs:comment xml:lang="en">A degradation mode in which bearing surfaces lose material or alignment quality, often reflected by abnormal vibration patterns.</rdfs:comment>
+        <rdfs:label xml:lang="en">Bearing Wear</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/iiot-pmo#FactoryLogSimulation -->
+
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/iiot-pmo#FactoryLogSimulation">
+        <rdf:type rdf:resource="https://w3id.org/iiot-pmo#DataSource"/>
+        <rdfs:comment xml:lang="en">Synthetic maintenance and operations log source used to test LLM-assisted ontology population without exposing confidential plant data.</rdfs:comment>
+        <rdfs:label xml:lang="en">Factory Log Simulation</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/iiot-pmo#GRU-RNN-Predictor-v1 -->
+
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/iiot-pmo#GRU-RNN-Predictor-v1">
+        <rdf:type rdf:resource="https://w3id.org/iiot-pmo#GRURNNModel"/>
+        <hasModelName>GRU-RNN Predictive Maintenance Model v1</hasModelName>
+        <rdfs:label xml:lang="en">GRU-RNN predictive maintenance model v1</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/iiot-pmo#IndustrialSensorDataset-Kaggle -->
+
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/iiot-pmo#IndustrialSensorDataset-Kaggle">
+        <rdf:type rdf:resource="https://w3id.org/iiot-pmo#DataSource"/>
+        <rdfs:comment xml:lang="en">Structured sensor dataset used for time-series model development and ontology population experiments.</rdfs:comment>
+        <rdfs:label xml:lang="en">Industrial Sensor Dataset from Kaggle</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/iiot-pmo#LLMExtractionTask-LOG-20260506-001 -->
+
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/iiot-pmo#LLMExtractionTask-LOG-20260506-001">
+        <rdf:type rdf:resource="https://w3id.org/iiot-pmo#LLMExtractionTask"/>
+        <extractsCandidateFor rdf:resource="https://w3id.org/iiot-pmo#BearingWear"/>
+        <extractsCandidateFor rdf:resource="https://w3id.org/iiot-pmo#MaintenanceLog-Motor-01-2026-04-01"/>
+        <extractsCandidateFor rdf:resource="https://w3id.org/iiot-pmo#Motor-01"/>
+        <usesDataSource rdf:resource="https://w3id.org/iiot-pmo#FactoryLogSimulation"/>
+        <hasConfidence rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.91</hasConfidence>
+        <rdfs:label xml:lang="en">LLM extraction task for simulated factory log LOG-20260506-001</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/iiot-pmo#METHONTOLOGYScopeNote -->
+
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/iiot-pmo#METHONTOLOGYScopeNote">
+        <rdfs:comment xml:lang="en">The v2 scope expands the ontology from static asset-sensor-observation modeling to ontology population, maintenance history, and predictive time-series analytics.</rdfs:comment>
+        <rdfs:label xml:lang="en">METHONTOLOGY scope note for IIoT-PMO v2</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/iiot-pmo#MaintenanceLog-Motor-01-2026-04-01 -->
+
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/iiot-pmo#MaintenanceLog-Motor-01-2026-04-01">
+        <rdf:type rdf:resource="https://w3id.org/iiot-pmo#MaintenanceLog"/>
+        <hasLogText>Routine bearing inspection completed; no part replacement recorded.</hasLogText>
+        <hasMaintenanceAction>bearing inspection</hasMaintenanceAction>
+        <hasTimestamp rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-04-01T10:00:00+03:00</hasTimestamp>
+        <rdfs:label xml:lang="en">Maintenance log for Motor-01 on 2026-04-01</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/iiot-pmo#MeasurementValue-Temp-001 -->
+
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/iiot-pmo#MeasurementValue-Temp-001">
+        <rdf:type rdf:resource="https://w3id.org/iiot-pmo#MeasurementValue"/>
+        <hasUnit>degC</hasUnit>
+        <hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">82.4</hasValue>
+        <rdfs:label xml:lang="en">Temperature measurement value 001</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/iiot-pmo#MeasurementValue-Vibration-001 -->
+
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/iiot-pmo#MeasurementValue-Vibration-001">
+        <rdf:type rdf:resource="https://w3id.org/iiot-pmo#MeasurementValue"/>
+        <hasUnit>mm/s RMS</hasUnit>
+        <hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">8.7</hasValue>
+        <rdfs:label xml:lang="en">Vibration measurement value 001</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/iiot-pmo#Motor-01 -->
+
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/iiot-pmo#Motor-01">
+        <rdf:type rdf:resource="https://w3id.org/iiot-pmo#Motor"/>
+        <hasMaintenanceHistory rdf:resource="https://w3id.org/iiot-pmo#MaintenanceLog-Motor-01-2026-04-01"/>
+        <hasPredictedFailure rdf:resource="https://w3id.org/iiot-pmo#PredictedFailure-Motor-01-BearingWear"/>
+        <hasSensor rdf:resource="https://w3id.org/iiot-pmo#TemperatureSensor-01"/>
+        <hasSensor rdf:resource="https://w3id.org/iiot-pmo#VibrationSensor-01"/>
+        <hasOperatingHours rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1240.0</hasOperatingHours>
+        <rdfs:label xml:lang="en">Motor-01</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/iiot-pmo#Observation-2026-05-06T09-15-00 -->
+
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/iiot-pmo#Observation-2026-05-06T09-15-00">
+        <rdf:type rdf:resource="https://w3id.org/iiot-pmo#Observation"/>
+        <generatesAlert rdf:resource="https://w3id.org/iiot-pmo#Alert-CriticalVibration-001"/>
+        <hasMeasurement rdf:resource="https://w3id.org/iiot-pmo#MeasurementValue-Vibration-001"/>
+        <hasTimestamp rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-05-06T09:15:00+03:00</hasTimestamp>
+        <rdfs:label xml:lang="en">Vibration observation for Motor-01 at 2026-05-06 09:15:00</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/iiot-pmo#Observation-Temp-2026-05-06T09-15-00 -->
+
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/iiot-pmo#Observation-Temp-2026-05-06T09-15-00">
+        <rdf:type rdf:resource="https://w3id.org/iiot-pmo#Observation"/>
+        <hasMeasurement rdf:resource="https://w3id.org/iiot-pmo#MeasurementValue-Temp-001"/>
+        <hasTimestamp rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-05-06T09:15:00+03:00</hasTimestamp>
+        <rdfs:label xml:lang="en">Temperature observation for Motor-01 at 2026-05-06 09:15:00</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/iiot-pmo#PredictedFailure-Motor-01-BearingWear -->
+
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/iiot-pmo#PredictedFailure-Motor-01-BearingWear">
+        <rdf:type rdf:resource="https://w3id.org/iiot-pmo#PredictedFailure"/>
+        <derivedFromBatch rdf:resource="https://w3id.org/iiot-pmo#TimeSeriesBatch-Motor-01-2026-05-06"/>
+        <indicatesFailureMode rdf:resource="https://w3id.org/iiot-pmo#BearingWear"/>
+        <predictedBy rdf:resource="https://w3id.org/iiot-pmo#GRU-RNN-Predictor-v1"/>
+        <hasFailureProbability rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.86</hasFailureProbability>
+        <hasPredictionHorizonHours rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">72.0</hasPredictionHorizonHours>
+        <hasTimestamp rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-05-06T09:16:00+03:00</hasTimestamp>
+        <rdfs:label xml:lang="en">Predicted bearing wear for Motor-01</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/iiot-pmo#TemperatureSensor-01 -->
+
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/iiot-pmo#TemperatureSensor-01">
+        <rdf:type rdf:resource="https://w3id.org/iiot-pmo#TemperatureSensor"/>
+        <hasObservation rdf:resource="https://w3id.org/iiot-pmo#Observation-Temp-2026-05-06T09-15-00"/>
+        <monitors rdf:resource="https://w3id.org/iiot-pmo#Motor-01"/>
+        <hasThreshold rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">80.0</hasThreshold>
+        <rdfs:label xml:lang="en">TemperatureSensor-01</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/iiot-pmo#TimeSeriesBatch-Motor-01-2026-05-06 -->
+
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/iiot-pmo#TimeSeriesBatch-Motor-01-2026-05-06">
+        <rdf:type rdf:resource="https://w3id.org/iiot-pmo#TimeSeriesBatch"/>
+        <containsObservation rdf:resource="https://w3id.org/iiot-pmo#Observation-2026-05-06T09-15-00"/>
+        <containsObservation rdf:resource="https://w3id.org/iiot-pmo#Observation-Temp-2026-05-06T09-15-00"/>
+        <hasBatchWindowEnd rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-05-06T09:15:00+03:00</hasBatchWindowEnd>
+        <hasBatchWindowStart rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-05-06T08:15:00+03:00</hasBatchWindowStart>
+        <rdfs:label xml:lang="en">Time-series batch for Motor-01 on 2026-05-06</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/iiot-pmo#VibrationSensor-01 -->
+
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/iiot-pmo#VibrationSensor-01">
+        <rdf:type rdf:resource="https://w3id.org/iiot-pmo#VibrationSensor"/>
+        <hasObservation rdf:resource="https://w3id.org/iiot-pmo#Observation-2026-05-06T09-15-00"/>
+        <monitors rdf:resource="https://w3id.org/iiot-pmo#Motor-01"/>
+        <hasThreshold rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">7.5</hasThreshold>
+        <rdfs:label xml:lang="en">VibrationSensor-01</rdfs:label>
+    </owl:NamedIndividual>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 5.1.18) https://github.com/owlcs/owlapi/ -->
+
+

@@ -1,0 +1,555 @@
+<https://w3id.org/iiot-pmo> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Ontology> .
+<https://w3id.org/iiot-pmo> <http://www.w3.org/2002/07/owl#versionIRI> <https://w3id.org/iiot-pmo/0.2.0> .
+<https://w3id.org/iiot-pmo> <http://purl.org/dc/terms/description> "Version 0.2.0 extends the initial predictive maintenance ontology with LLM-assisted ontology population, maintenance history, time-series batches, and machine-learning-based predicted failures."@en .
+<https://w3id.org/iiot-pmo> <http://purl.org/dc/terms/references> <https://doi.org/10.1002/cpe.7420> .
+<https://w3id.org/iiot-pmo> <http://purl.org/dc/terms/references> <https://doi.org/10.1007/978-3-031-47240-4_22> .
+<https://w3id.org/iiot-pmo> <http://purl.org/dc/terms/references> <https://doi.org/10.1016/j.knosys.2024.112940> .
+<https://w3id.org/iiot-pmo> <http://purl.org/dc/terms/title> "Industrial IoT & Predictive Maintenance Ontology (IIoT-PMO)"@en .
+<https://w3id.org/iiot-pmo> <http://www.w3.org/2000/01/rdf-schema#comment> "Developed according to a METHONTOLOGY-inspired lifecycle: specification, conceptualization, formalization, implementation, and evaluation."@en .
+<https://w3id.org/iiot-pmo> <http://www.w3.org/2002/07/owl#versionInfo> "0.2.0" .
+# 
+# 
+# #################################################################
+# #
+# #    Annotation properties
+# #
+# #################################################################
+# 
+# 
+# http://purl.org/dc/terms/description
+<http://purl.org/dc/terms/description> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://purl.org/dc/terms/references
+<http://purl.org/dc/terms/references> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://purl.org/dc/terms/title
+<http://purl.org/dc/terms/title> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Object Properties
+# #
+# #################################################################
+# 
+# 
+# http://www.w3.org/ns/ssn/detects
+<http://www.w3.org/ns/ssn/detects> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+# 
+# https://w3id.org/iiot-pmo#containsObservation
+<https://w3id.org/iiot-pmo#containsObservation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/iiot-pmo#containsObservation> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/iiot-pmo#TimeSeriesBatch> .
+<https://w3id.org/iiot-pmo#containsObservation> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/iiot-pmo#Observation> .
+<https://w3id.org/iiot-pmo#containsObservation> <http://www.w3.org/2000/01/rdf-schema#comment> "Connects a time-series batch to the observations included in its prediction window."@en .
+<https://w3id.org/iiot-pmo#containsObservation> <http://www.w3.org/2000/01/rdf-schema#label> "contains observation"@en .
+# 
+# https://w3id.org/iiot-pmo#derivedFromBatch
+<https://w3id.org/iiot-pmo#derivedFromBatch> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/iiot-pmo#derivedFromBatch> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/iiot-pmo#PredictedFailure> .
+<https://w3id.org/iiot-pmo#derivedFromBatch> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/iiot-pmo#TimeSeriesBatch> .
+<https://w3id.org/iiot-pmo#derivedFromBatch> <http://www.w3.org/2000/01/rdf-schema#comment> "Links a predicted failure to the time-series batch used as model input."@en .
+<https://w3id.org/iiot-pmo#derivedFromBatch> <http://www.w3.org/2000/01/rdf-schema#label> "derived from batch"@en .
+# 
+# https://w3id.org/iiot-pmo#extractsCandidateFor
+<https://w3id.org/iiot-pmo#extractsCandidateFor> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/iiot-pmo#extractsCandidateFor> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/iiot-pmo#LLMExtractionTask> .
+<https://w3id.org/iiot-pmo#extractsCandidateFor> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2002/07/owl#Thing> .
+<https://w3id.org/iiot-pmo#extractsCandidateFor> <http://www.w3.org/2000/01/rdf-schema#comment> "Links an LLM extraction task to an ontology individual proposed during population."@en .
+<https://w3id.org/iiot-pmo#extractsCandidateFor> <http://www.w3.org/2000/01/rdf-schema#label> "extracts candidate for"@en .
+# 
+# https://w3id.org/iiot-pmo#generatesAlert
+<https://w3id.org/iiot-pmo#generatesAlert> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/iiot-pmo#generatesAlert> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/iiot-pmo#Observation> .
+<https://w3id.org/iiot-pmo#generatesAlert> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/iiot-pmo#Alert> .
+<https://w3id.org/iiot-pmo#generatesAlert> <http://www.w3.org/2000/01/rdf-schema#comment> "Indicates that an observation generated an alert."@en .
+<https://w3id.org/iiot-pmo#generatesAlert> <http://www.w3.org/2000/01/rdf-schema#label> "generates alert"@en .
+# 
+# https://w3id.org/iiot-pmo#hasMaintenanceEvent
+<https://w3id.org/iiot-pmo#hasMaintenanceEvent> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/iiot-pmo#hasMaintenanceEvent> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/iiot-pmo#Equipment> .
+<https://w3id.org/iiot-pmo#hasMaintenanceEvent> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/iiot-pmo#MaintenanceEvent> .
+<https://w3id.org/iiot-pmo#hasMaintenanceEvent> <http://www.w3.org/2000/01/rdf-schema#comment> "Associates equipment with a maintenance action or inspection."@en .
+<https://w3id.org/iiot-pmo#hasMaintenanceEvent> <http://www.w3.org/2000/01/rdf-schema#label> "has maintenance event"@en .
+# 
+# https://w3id.org/iiot-pmo#hasMaintenanceHistory
+<https://w3id.org/iiot-pmo#hasMaintenanceHistory> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/iiot-pmo#hasMaintenanceHistory> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <https://w3id.org/iiot-pmo#hasMaintenanceEvent> .
+<https://w3id.org/iiot-pmo#hasMaintenanceHistory> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/iiot-pmo#Equipment> .
+<https://w3id.org/iiot-pmo#hasMaintenanceHistory> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/iiot-pmo#MaintenanceLog> .
+<https://w3id.org/iiot-pmo#hasMaintenanceHistory> <http://www.w3.org/2000/01/rdf-schema#comment> "Associates equipment with historical maintenance logs."@en .
+<https://w3id.org/iiot-pmo#hasMaintenanceHistory> <http://www.w3.org/2000/01/rdf-schema#label> "has maintenance history"@en .
+# 
+# https://w3id.org/iiot-pmo#hasMeasurement
+<https://w3id.org/iiot-pmo#hasMeasurement> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/iiot-pmo#hasMeasurement> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/iiot-pmo#Observation> .
+<https://w3id.org/iiot-pmo#hasMeasurement> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/iiot-pmo#Measurement> .
+<https://w3id.org/iiot-pmo#hasMeasurement> <http://www.w3.org/2000/01/rdf-schema#comment> "Connects an observation to its measurement value object."@en .
+<https://w3id.org/iiot-pmo#hasMeasurement> <http://www.w3.org/2000/01/rdf-schema#comment> "Links an observation to its result, equivalent to sosa:hasResult."@en .
+<https://w3id.org/iiot-pmo#hasMeasurement> <http://www.w3.org/2000/01/rdf-schema#label> "has measurement"@en .
+# 
+# https://w3id.org/iiot-pmo#hasObservation
+<https://w3id.org/iiot-pmo#hasObservation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/iiot-pmo#hasObservation> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/iiot-pmo#Sensor> .
+<https://w3id.org/iiot-pmo#hasObservation> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/iiot-pmo#Observation> .
+<https://w3id.org/iiot-pmo#hasObservation> <http://www.w3.org/2000/01/rdf-schema#comment> "Links a sensor to an observation it produced."@en .
+<https://w3id.org/iiot-pmo#hasObservation> <http://www.w3.org/2000/01/rdf-schema#comment> "Links a sensor to the observations it has made, equivalent to ssn:madeObservation."@en .
+<https://w3id.org/iiot-pmo#hasObservation> <http://www.w3.org/2000/01/rdf-schema#label> "has observation"@en .
+# 
+# https://w3id.org/iiot-pmo#hasPredictedFailure
+<https://w3id.org/iiot-pmo#hasPredictedFailure> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/iiot-pmo#hasPredictedFailure> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/iiot-pmo#Equipment> .
+<https://w3id.org/iiot-pmo#hasPredictedFailure> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/iiot-pmo#PredictedFailure> .
+<https://w3id.org/iiot-pmo#hasPredictedFailure> <http://www.w3.org/2000/01/rdf-schema#comment> "Links equipment to a failure prediction generated from sensor or maintenance evidence."@en .
+<https://w3id.org/iiot-pmo#hasPredictedFailure> <http://www.w3.org/2000/01/rdf-schema#label> "has predicted failure"@en .
+# 
+# https://w3id.org/iiot-pmo#hasSensor
+<https://w3id.org/iiot-pmo#hasSensor> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/iiot-pmo#hasSensor> <http://www.w3.org/2002/07/owl#inverseOf> <https://w3id.org/iiot-pmo#monitors> .
+<https://w3id.org/iiot-pmo#hasSensor> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/iiot-pmo#Equipment> .
+<https://w3id.org/iiot-pmo#hasSensor> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/iiot-pmo#Sensor> .
+<https://w3id.org/iiot-pmo#hasSensor> <http://www.w3.org/2000/01/rdf-schema#comment> "Connects equipment to an installed or associated sensor."@en .
+<https://w3id.org/iiot-pmo#hasSensor> <http://www.w3.org/2000/01/rdf-schema#label> "has sensor"@en .
+# 
+# https://w3id.org/iiot-pmo#indicatesFailureMode
+<https://w3id.org/iiot-pmo#indicatesFailureMode> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/iiot-pmo#indicatesFailureMode> <http://www.w3.org/2000/01/rdf-schema#domain> _:genid1 .
+_:genid1 <http://www.w3.org/2002/07/owl#unionOf> _:genid3 .
+_:genid3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid2 .
+_:genid2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:genid2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/iiot-pmo#PredictedFailure> .
+_:genid2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <https://w3id.org/iiot-pmo#Alert> .
+_:genid3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/iiot-pmo#indicatesFailureMode> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/iiot-pmo#FailureMode> .
+<https://w3id.org/iiot-pmo#indicatesFailureMode> <http://www.w3.org/2000/01/rdf-schema#comment> "Links an alert or predicted failure to a suspected or known failure mode."@en .
+<https://w3id.org/iiot-pmo#indicatesFailureMode> <http://www.w3.org/2000/01/rdf-schema#label> "indicates failure mode"@en .
+# 
+# https://w3id.org/iiot-pmo#monitors
+<https://w3id.org/iiot-pmo#monitors> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/iiot-pmo#monitors> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/ns/ssn/detects> .
+<https://w3id.org/iiot-pmo#monitors> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/iiot-pmo#Sensor> .
+<https://w3id.org/iiot-pmo#monitors> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/iiot-pmo#Equipment> .
+<https://w3id.org/iiot-pmo#monitors> <http://www.w3.org/2000/01/rdf-schema#comment> "Indicates which equipment is monitored by a sensor."@en .
+<https://w3id.org/iiot-pmo#monitors> <http://www.w3.org/2000/01/rdf-schema#comment> "iiot:monitors is a domain-specific specialization of ssn:detects, linking a sensor to the equipment it monitors."@en .
+<https://w3id.org/iiot-pmo#monitors> <http://www.w3.org/2000/01/rdf-schema#label> "monitors"@en .
+# 
+# https://w3id.org/iiot-pmo#predictedBy
+<https://w3id.org/iiot-pmo#predictedBy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/iiot-pmo#predictedBy> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/iiot-pmo#PredictedFailure> .
+<https://w3id.org/iiot-pmo#predictedBy> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/iiot-pmo#MLModel> .
+<https://w3id.org/iiot-pmo#predictedBy> <http://www.w3.org/2000/01/rdf-schema#comment> "Links a predicted failure to the machine learning model that produced it."@en .
+<https://w3id.org/iiot-pmo#predictedBy> <http://www.w3.org/2000/01/rdf-schema#label> "predicted by"@en .
+# 
+# https://w3id.org/iiot-pmo#usesDataSource
+<https://w3id.org/iiot-pmo#usesDataSource> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/iiot-pmo#usesDataSource> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/iiot-pmo#LLMExtractionTask> .
+<https://w3id.org/iiot-pmo#usesDataSource> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/iiot-pmo#DataSource> .
+<https://w3id.org/iiot-pmo#usesDataSource> <http://www.w3.org/2000/01/rdf-schema#comment> "Links an LLM extraction task to its source data."@en .
+<https://w3id.org/iiot-pmo#usesDataSource> <http://www.w3.org/2000/01/rdf-schema#label> "uses data source"@en .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Data properties
+# #
+# #################################################################
+# 
+# 
+# https://w3id.org/iiot-pmo#hasBatchWindowEnd
+<https://w3id.org/iiot-pmo#hasBatchWindowEnd> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://w3id.org/iiot-pmo#hasBatchWindowEnd> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/iiot-pmo#TimeSeriesBatch> .
+<https://w3id.org/iiot-pmo#hasBatchWindowEnd> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#dateTime> .
+<https://w3id.org/iiot-pmo#hasBatchWindowEnd> <http://www.w3.org/2000/01/rdf-schema#comment> "End timestamp of the time-series window."@en .
+<https://w3id.org/iiot-pmo#hasBatchWindowEnd> <http://www.w3.org/2000/01/rdf-schema#label> "has batch window end"@en .
+# 
+# https://w3id.org/iiot-pmo#hasBatchWindowStart
+<https://w3id.org/iiot-pmo#hasBatchWindowStart> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://w3id.org/iiot-pmo#hasBatchWindowStart> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/iiot-pmo#TimeSeriesBatch> .
+<https://w3id.org/iiot-pmo#hasBatchWindowStart> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#dateTime> .
+<https://w3id.org/iiot-pmo#hasBatchWindowStart> <http://www.w3.org/2000/01/rdf-schema#comment> "Start timestamp of the time-series window."@en .
+<https://w3id.org/iiot-pmo#hasBatchWindowStart> <http://www.w3.org/2000/01/rdf-schema#label> "has batch window start"@en .
+# 
+# https://w3id.org/iiot-pmo#hasConfidence
+<https://w3id.org/iiot-pmo#hasConfidence> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://w3id.org/iiot-pmo#hasConfidence> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/iiot-pmo#LLMExtractionTask> .
+<https://w3id.org/iiot-pmo#hasConfidence> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#decimal> .
+<https://w3id.org/iiot-pmo#hasConfidence> <http://www.w3.org/2000/01/rdf-schema#comment> "Confidence assigned to an LLM extraction result."@en .
+<https://w3id.org/iiot-pmo#hasConfidence> <http://www.w3.org/2000/01/rdf-schema#label> "has confidence"@en .
+# 
+# https://w3id.org/iiot-pmo#hasFailureProbability
+<https://w3id.org/iiot-pmo#hasFailureProbability> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://w3id.org/iiot-pmo#hasFailureProbability> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/iiot-pmo#PredictedFailure> .
+<https://w3id.org/iiot-pmo#hasFailureProbability> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#decimal> .
+<https://w3id.org/iiot-pmo#hasFailureProbability> <http://www.w3.org/2000/01/rdf-schema#comment> "Probability assigned by a machine learning model to a predicted failure."@en .
+<https://w3id.org/iiot-pmo#hasFailureProbability> <http://www.w3.org/2000/01/rdf-schema#label> "has failure probability"@en .
+# 
+# https://w3id.org/iiot-pmo#hasLogText
+<https://w3id.org/iiot-pmo#hasLogText> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://w3id.org/iiot-pmo#hasLogText> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/iiot-pmo#MaintenanceLog> .
+<https://w3id.org/iiot-pmo#hasLogText> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<https://w3id.org/iiot-pmo#hasLogText> <http://www.w3.org/2000/01/rdf-schema#comment> "Raw or normalized text of a maintenance log."@en .
+<https://w3id.org/iiot-pmo#hasLogText> <http://www.w3.org/2000/01/rdf-schema#label> "has log text"@en .
+# 
+# https://w3id.org/iiot-pmo#hasMaintenanceAction
+<https://w3id.org/iiot-pmo#hasMaintenanceAction> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://w3id.org/iiot-pmo#hasMaintenanceAction> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/iiot-pmo#MaintenanceLog> .
+<https://w3id.org/iiot-pmo#hasMaintenanceAction> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<https://w3id.org/iiot-pmo#hasMaintenanceAction> <http://www.w3.org/2000/01/rdf-schema#comment> "Maintenance action described by a maintenance log."@en .
+<https://w3id.org/iiot-pmo#hasMaintenanceAction> <http://www.w3.org/2000/01/rdf-schema#label> "has maintenance action"@en .
+# 
+# https://w3id.org/iiot-pmo#hasModelName
+<https://w3id.org/iiot-pmo#hasModelName> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://w3id.org/iiot-pmo#hasModelName> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/iiot-pmo#MLModel> .
+<https://w3id.org/iiot-pmo#hasModelName> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<https://w3id.org/iiot-pmo#hasModelName> <http://www.w3.org/2000/01/rdf-schema#comment> "Human-readable model name."@en .
+<https://w3id.org/iiot-pmo#hasModelName> <http://www.w3.org/2000/01/rdf-schema#label> "has model name"@en .
+# 
+# https://w3id.org/iiot-pmo#hasOperatingHours
+<https://w3id.org/iiot-pmo#hasOperatingHours> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://w3id.org/iiot-pmo#hasOperatingHours> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/iiot-pmo#Equipment> .
+<https://w3id.org/iiot-pmo#hasOperatingHours> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#decimal> .
+<https://w3id.org/iiot-pmo#hasOperatingHours> <http://www.w3.org/2000/01/rdf-schema#comment> "Operating hours accumulated by an equipment asset."@en .
+<https://w3id.org/iiot-pmo#hasOperatingHours> <http://www.w3.org/2000/01/rdf-schema#label> "has operating hours"@en .
+# 
+# https://w3id.org/iiot-pmo#hasPredictionHorizonHours
+<https://w3id.org/iiot-pmo#hasPredictionHorizonHours> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://w3id.org/iiot-pmo#hasPredictionHorizonHours> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/iiot-pmo#PredictedFailure> .
+<https://w3id.org/iiot-pmo#hasPredictionHorizonHours> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#decimal> .
+<https://w3id.org/iiot-pmo#hasPredictionHorizonHours> <http://www.w3.org/2000/01/rdf-schema#comment> "Future time horizon, in hours, covered by a predicted failure."@en .
+<https://w3id.org/iiot-pmo#hasPredictionHorizonHours> <http://www.w3.org/2000/01/rdf-schema#label> "has prediction horizon hours"@en .
+# 
+# https://w3id.org/iiot-pmo#hasThreshold
+<https://w3id.org/iiot-pmo#hasThreshold> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://w3id.org/iiot-pmo#hasThreshold> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/iiot-pmo#Sensor> .
+<https://w3id.org/iiot-pmo#hasThreshold> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#decimal> .
+<https://w3id.org/iiot-pmo#hasThreshold> <http://www.w3.org/2000/01/rdf-schema#comment> "Configured threshold value for a sensor."@en .
+<https://w3id.org/iiot-pmo#hasThreshold> <http://www.w3.org/2000/01/rdf-schema#label> "has threshold"@en .
+# 
+# https://w3id.org/iiot-pmo#hasTimestamp
+<https://w3id.org/iiot-pmo#hasTimestamp> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://w3id.org/iiot-pmo#hasTimestamp> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#dateTime> .
+<https://w3id.org/iiot-pmo#hasTimestamp> <http://www.w3.org/2000/01/rdf-schema#comment> "Time associated with an observation, alert, prediction, or maintenance event."@en .
+<https://w3id.org/iiot-pmo#hasTimestamp> <http://www.w3.org/2000/01/rdf-schema#label> "has timestamp"@en .
+# 
+# https://w3id.org/iiot-pmo#hasUnit
+<https://w3id.org/iiot-pmo#hasUnit> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://w3id.org/iiot-pmo#hasUnit> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/iiot-pmo#Measurement> .
+<https://w3id.org/iiot-pmo#hasUnit> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<https://w3id.org/iiot-pmo#hasUnit> <http://www.w3.org/2000/01/rdf-schema#comment> "Unit used for the measurement value."@en .
+<https://w3id.org/iiot-pmo#hasUnit> <http://www.w3.org/2000/01/rdf-schema#label> "has unit"@en .
+# 
+# https://w3id.org/iiot-pmo#hasValue
+<https://w3id.org/iiot-pmo#hasValue> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://w3id.org/iiot-pmo#hasValue> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/iiot-pmo#Measurement> .
+<https://w3id.org/iiot-pmo#hasValue> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#decimal> .
+<https://w3id.org/iiot-pmo#hasValue> <http://www.w3.org/2000/01/rdf-schema#comment> "Numeric value of a measurement."@en .
+<https://w3id.org/iiot-pmo#hasValue> <http://www.w3.org/2000/01/rdf-schema#label> "has value"@en .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Classes
+# #
+# #################################################################
+# 
+# 
+# http://www.w3.org/ns/sosa/FeatureOfInterest
+<http://www.w3.org/ns/sosa/FeatureOfInterest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+# 
+# http://www.w3.org/ns/sosa/Observation
+<http://www.w3.org/ns/sosa/Observation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.w3.org/ns/sosa/Observation> <http://www.w3.org/2002/07/owl#equivalentClass> <https://w3id.org/iiot-pmo#Observation> .
+# 
+# http://www.w3.org/ns/sosa/Result
+<http://www.w3.org/ns/sosa/Result> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+# 
+# http://www.w3.org/ns/sosa/Sensor
+<http://www.w3.org/ns/sosa/Sensor> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.w3.org/ns/sosa/Sensor> <http://www.w3.org/2002/07/owl#equivalentClass> <https://w3id.org/iiot-pmo#Sensor> .
+# 
+# http://www.w3.org/ns/ssn/System
+<http://www.w3.org/ns/ssn/System> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+# 
+# https://w3id.org/iiot-pmo#Alert
+<https://w3id.org/iiot-pmo#Alert> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/iiot-pmo#Alert> <http://www.w3.org/2000/01/rdf-schema#comment> "A semantic notification generated when an observation indicates abnormal or risky operating behavior."@en .
+<https://w3id.org/iiot-pmo#Alert> <http://www.w3.org/2000/01/rdf-schema#label> "Alert"@en .
+# 
+# https://w3id.org/iiot-pmo#Asset
+<https://w3id.org/iiot-pmo#Asset> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/iiot-pmo#Asset> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/ns/sosa/FeatureOfInterest> .
+<https://w3id.org/iiot-pmo#Asset> <http://www.w3.org/2000/01/rdf-schema#comment> "A physical or logical industrial entity that can be monitored, maintained, or identified in a factory knowledge graph."@en .
+<https://w3id.org/iiot-pmo#Asset> <http://www.w3.org/2000/01/rdf-schema#comment> "An industrial asset represents the physical or logical entity whose properties (e.g. temperature, vibration) are observed, making it a subclass of sosa:FeatureOfInterest."@en .
+<https://w3id.org/iiot-pmo#Asset> <http://www.w3.org/2000/01/rdf-schema#label> "Asset"@en .
+# 
+# https://w3id.org/iiot-pmo#CriticalAlert
+<https://w3id.org/iiot-pmo#CriticalAlert> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/iiot-pmo#CriticalAlert> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/iiot-pmo#ThresholdAlert> .
+<https://w3id.org/iiot-pmo#CriticalAlert> <http://www.w3.org/2000/01/rdf-schema#comment> "A threshold alert representing a critical operating condition."@en .
+<https://w3id.org/iiot-pmo#CriticalAlert> <http://www.w3.org/2000/01/rdf-schema#label> "Critical Alert"@en .
+# 
+# https://w3id.org/iiot-pmo#DataSource
+<https://w3id.org/iiot-pmo#DataSource> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/iiot-pmo#DataSource> <http://www.w3.org/2000/01/rdf-schema#comment> "A structured, semi-structured, or unstructured source used to populate the ontology."@en .
+<https://w3id.org/iiot-pmo#DataSource> <http://www.w3.org/2000/01/rdf-schema#label> "Data Source"@en .
+# 
+# https://w3id.org/iiot-pmo#Equipment
+<https://w3id.org/iiot-pmo#Equipment> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/iiot-pmo#Equipment> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/iiot-pmo#Asset> .
+<https://w3id.org/iiot-pmo#Equipment> <http://www.w3.org/2000/01/rdf-schema#comment> "Industrial machinery that performs a production, utility, or support function."@en .
+<https://w3id.org/iiot-pmo#Equipment> <http://www.w3.org/2000/01/rdf-schema#label> "Equipment"@en .
+# 
+# https://w3id.org/iiot-pmo#FailureMode
+<https://w3id.org/iiot-pmo#FailureMode> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/iiot-pmo#FailureMode> <http://www.w3.org/2000/01/rdf-schema#comment> "A potential or observed mechanism of equipment degradation or failure."@en .
+<https://w3id.org/iiot-pmo#FailureMode> <http://www.w3.org/2000/01/rdf-schema#label> "Failure Mode"@en .
+# 
+# https://w3id.org/iiot-pmo#GRURNNModel
+<https://w3id.org/iiot-pmo#GRURNNModel> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/iiot-pmo#GRURNNModel> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/iiot-pmo#MLModel> .
+<https://w3id.org/iiot-pmo#GRURNNModel> <http://www.w3.org/2000/01/rdf-schema#comment> "A recurrent neural network model based on gated recurrent units for time-series failure prediction."@en .
+<https://w3id.org/iiot-pmo#GRURNNModel> <http://www.w3.org/2000/01/rdf-schema#label> "GRU-RNN Model"@en .
+# 
+# https://w3id.org/iiot-pmo#LLMExtractionTask
+<https://w3id.org/iiot-pmo#LLMExtractionTask> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/iiot-pmo#LLMExtractionTask> <http://www.w3.org/2000/01/rdf-schema#comment> "A data ingestion task in which a large language model extracts ontology candidates from unstructured industrial text."@en .
+<https://w3id.org/iiot-pmo#LLMExtractionTask> <http://www.w3.org/2000/01/rdf-schema#label> "LLM Extraction Task"@en .
+# 
+# https://w3id.org/iiot-pmo#MLModel
+<https://w3id.org/iiot-pmo#MLModel> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/iiot-pmo#MLModel> <http://www.w3.org/2000/01/rdf-schema#comment> "A computational model that produces predictions from industrial sensor or maintenance data."@en .
+<https://w3id.org/iiot-pmo#MLModel> <http://www.w3.org/2000/01/rdf-schema#label> "Machine Learning Model"@en .
+# 
+# https://w3id.org/iiot-pmo#MaintenanceEvent
+<https://w3id.org/iiot-pmo#MaintenanceEvent> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/iiot-pmo#MaintenanceEvent> <http://www.w3.org/2000/01/rdf-schema#comment> "A maintenance action or inspection event associated with equipment."@en .
+<https://w3id.org/iiot-pmo#MaintenanceEvent> <http://www.w3.org/2000/01/rdf-schema#label> "Maintenance Event"@en .
+# 
+# https://w3id.org/iiot-pmo#MaintenanceLog
+<https://w3id.org/iiot-pmo#MaintenanceLog> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/iiot-pmo#MaintenanceLog> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/iiot-pmo#MaintenanceEvent> .
+<https://w3id.org/iiot-pmo#MaintenanceLog> <http://www.w3.org/2000/01/rdf-schema#comment> "A textual or semi-structured record describing maintenance actions, operator notes, inspection outcomes, or service events."@en .
+<https://w3id.org/iiot-pmo#MaintenanceLog> <http://www.w3.org/2000/01/rdf-schema#label> "Maintenance Log"@en .
+# 
+# https://w3id.org/iiot-pmo#Measurement
+<https://w3id.org/iiot-pmo#Measurement> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/iiot-pmo#Measurement> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/ns/sosa/Result> .
+<https://w3id.org/iiot-pmo#Measurement> <http://www.w3.org/2000/01/rdf-schema#comment> "A structured representation of a value produced through an observation."@en .
+<https://w3id.org/iiot-pmo#Measurement> <http://www.w3.org/2000/01/rdf-schema#comment> "iiot:Measurement represents the structured value or representation of the observation result, aligning it as a subclass of sosa:Result."@en .
+<https://w3id.org/iiot-pmo#Measurement> <http://www.w3.org/2000/01/rdf-schema#label> "Measurement"@en .
+# 
+# https://w3id.org/iiot-pmo#MeasurementValue
+<https://w3id.org/iiot-pmo#MeasurementValue> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/iiot-pmo#MeasurementValue> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/iiot-pmo#Measurement> .
+<https://w3id.org/iiot-pmo#MeasurementValue> <http://www.w3.org/2000/01/rdf-schema#comment> "A concrete numeric measurement value mapped from a source column such as temp_c, vibration_mm_s, or pressure_bar."@en .
+<https://w3id.org/iiot-pmo#MeasurementValue> <http://www.w3.org/2000/01/rdf-schema#label> "Measurement Value"@en .
+# 
+# https://w3id.org/iiot-pmo#Motor
+<https://w3id.org/iiot-pmo#Motor> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/iiot-pmo#Motor> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/iiot-pmo#RotatingEquipment> .
+<https://w3id.org/iiot-pmo#Motor> <http://www.w3.org/2000/01/rdf-schema#comment> "A rotating equipment asset that converts electrical energy into mechanical motion."@en .
+<https://w3id.org/iiot-pmo#Motor> <http://www.w3.org/2000/01/rdf-schema#label> "Motor"@en .
+# 
+# https://w3id.org/iiot-pmo#Observation
+<https://w3id.org/iiot-pmo#Observation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/iiot-pmo#Observation> <http://www.w3.org/2000/01/rdf-schema#comment> "A time-stamped record generated by a sensor while monitoring equipment."@en .
+<https://w3id.org/iiot-pmo#Observation> <http://www.w3.org/2000/01/rdf-schema#comment> "iiot:Observation represents the act of carrying out an observation, equivalent to sosa:Observation."@en .
+<https://w3id.org/iiot-pmo#Observation> <http://www.w3.org/2000/01/rdf-schema#label> "Observation"@en .
+# 
+# https://w3id.org/iiot-pmo#PredictedFailure
+<https://w3id.org/iiot-pmo#PredictedFailure> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/iiot-pmo#PredictedFailure> <http://www.w3.org/2000/01/rdf-schema#comment> "A machine-learning prediction that an asset may experience a failure mode within a future prediction horizon."@en .
+<https://w3id.org/iiot-pmo#PredictedFailure> <http://www.w3.org/2000/01/rdf-schema#label> "Predicted Failure"@en .
+# 
+# https://w3id.org/iiot-pmo#PressureSensor
+<https://w3id.org/iiot-pmo#PressureSensor> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/iiot-pmo#PressureSensor> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/iiot-pmo#Sensor> .
+<https://w3id.org/iiot-pmo#PressureSensor> <http://www.w3.org/2000/01/rdf-schema#comment> "A sensor that measures pressure in a process or equipment context."@en .
+<https://w3id.org/iiot-pmo#PressureSensor> <http://www.w3.org/2000/01/rdf-schema#label> "Pressure Sensor"@en .
+# 
+# https://w3id.org/iiot-pmo#Pump
+<https://w3id.org/iiot-pmo#Pump> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/iiot-pmo#Pump> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/iiot-pmo#RotatingEquipment> .
+<https://w3id.org/iiot-pmo#Pump> <http://www.w3.org/2000/01/rdf-schema#comment> "A rotating equipment asset used to move fluids through a process system."@en .
+<https://w3id.org/iiot-pmo#Pump> <http://www.w3.org/2000/01/rdf-schema#label> "Pump"@en .
+# 
+# https://w3id.org/iiot-pmo#RotatingEquipment
+<https://w3id.org/iiot-pmo#RotatingEquipment> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/iiot-pmo#RotatingEquipment> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/iiot-pmo#Equipment> .
+<https://w3id.org/iiot-pmo#RotatingEquipment> <http://www.w3.org/2000/01/rdf-schema#comment> "Equipment whose operational behavior is characterized by rotating components such as shafts, bearings, or impellers."@en .
+<https://w3id.org/iiot-pmo#RotatingEquipment> <http://www.w3.org/2000/01/rdf-schema#label> "Rotating Equipment"@en .
+# 
+# https://w3id.org/iiot-pmo#Sensor
+<https://w3id.org/iiot-pmo#Sensor> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/iiot-pmo#Sensor> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/ns/ssn/System> .
+<https://w3id.org/iiot-pmo#Sensor> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/iiot-pmo#Asset> .
+<https://w3id.org/iiot-pmo#Sensor> <http://www.w3.org/2000/01/rdf-schema#comment> "A device that observes a physical property of equipment or its operational context."@en .
+<https://w3id.org/iiot-pmo#Sensor> <http://www.w3.org/2000/01/rdf-schema#comment> "iiot:Sensor is semantically equivalent to sosa:Sensor and, as a physical device, is a subclass of ssn:System."@en .
+<https://w3id.org/iiot-pmo#Sensor> <http://www.w3.org/2000/01/rdf-schema#label> "Sensor"@en .
+# 
+# https://w3id.org/iiot-pmo#TemperatureSensor
+<https://w3id.org/iiot-pmo#TemperatureSensor> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/iiot-pmo#TemperatureSensor> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/iiot-pmo#Sensor> .
+<https://w3id.org/iiot-pmo#TemperatureSensor> <http://www.w3.org/2000/01/rdf-schema#comment> "A sensor that measures temperature of equipment or process environments."@en .
+<https://w3id.org/iiot-pmo#TemperatureSensor> <http://www.w3.org/2000/01/rdf-schema#label> "Temperature Sensor"@en .
+# 
+# https://w3id.org/iiot-pmo#ThresholdAlert
+<https://w3id.org/iiot-pmo#ThresholdAlert> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/iiot-pmo#ThresholdAlert> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/iiot-pmo#Alert> .
+<https://w3id.org/iiot-pmo#ThresholdAlert> <http://www.w3.org/2000/01/rdf-schema#comment> "An alert generated when a measurement exceeds a configured threshold."@en .
+<https://w3id.org/iiot-pmo#ThresholdAlert> <http://www.w3.org/2000/01/rdf-schema#label> "Threshold Alert"@en .
+# 
+# https://w3id.org/iiot-pmo#TimeSeriesBatch
+<https://w3id.org/iiot-pmo#TimeSeriesBatch> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/iiot-pmo#TimeSeriesBatch> <http://www.w3.org/2000/01/rdf-schema#comment> "A temporally bounded collection of sensor observations used as an input window for predictive maintenance models."@en .
+<https://w3id.org/iiot-pmo#TimeSeriesBatch> <http://www.w3.org/2000/01/rdf-schema#label> "Time Series Batch"@en .
+# 
+# https://w3id.org/iiot-pmo#VibrationSensor
+<https://w3id.org/iiot-pmo#VibrationSensor> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/iiot-pmo#VibrationSensor> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/iiot-pmo#Sensor> .
+<https://w3id.org/iiot-pmo#VibrationSensor> <http://www.w3.org/2000/01/rdf-schema#comment> "A sensor that measures vibration behavior of industrial equipment."@en .
+<https://w3id.org/iiot-pmo#VibrationSensor> <http://www.w3.org/2000/01/rdf-schema#label> "Vibration Sensor"@en .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Individuals
+# #
+# #################################################################
+# 
+# 
+# https://w3id.org/iiot-pmo#Alert-CriticalVibration-001
+<https://w3id.org/iiot-pmo#Alert-CriticalVibration-001> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<https://w3id.org/iiot-pmo#Alert-CriticalVibration-001> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/iiot-pmo#CriticalAlert> .
+<https://w3id.org/iiot-pmo#Alert-CriticalVibration-001> <https://w3id.org/iiot-pmo#indicatesFailureMode> <https://w3id.org/iiot-pmo#BearingWear> .
+<https://w3id.org/iiot-pmo#BearingWear> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<https://w3id.org/iiot-pmo#Alert-CriticalVibration-001> <https://w3id.org/iiot-pmo#hasTimestamp> "2026-05-06T09:15:05+03:00"^^<http://www.w3.org/2001/XMLSchema#dateTime> .
+<https://w3id.org/iiot-pmo#Alert-CriticalVibration-001> <http://www.w3.org/2000/01/rdf-schema#label> "Critical vibration alert 001"@en .
+# 
+# https://w3id.org/iiot-pmo#BearingWear
+<https://w3id.org/iiot-pmo#BearingWear> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/iiot-pmo#FailureMode> .
+<https://w3id.org/iiot-pmo#BearingWear> <http://www.w3.org/2000/01/rdf-schema#comment> "A degradation mode in which bearing surfaces lose material or alignment quality, often reflected by abnormal vibration patterns."@en .
+<https://w3id.org/iiot-pmo#BearingWear> <http://www.w3.org/2000/01/rdf-schema#label> "Bearing Wear"@en .
+# 
+# https://w3id.org/iiot-pmo#FactoryLogSimulation
+<https://w3id.org/iiot-pmo#FactoryLogSimulation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<https://w3id.org/iiot-pmo#FactoryLogSimulation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/iiot-pmo#DataSource> .
+<https://w3id.org/iiot-pmo#FactoryLogSimulation> <http://www.w3.org/2000/01/rdf-schema#comment> "Synthetic maintenance and operations log source used to test LLM-assisted ontology population without exposing confidential plant data."@en .
+<https://w3id.org/iiot-pmo#FactoryLogSimulation> <http://www.w3.org/2000/01/rdf-schema#label> "Factory Log Simulation"@en .
+# 
+# https://w3id.org/iiot-pmo#GRU-RNN-Predictor-v1
+<https://w3id.org/iiot-pmo#GRU-RNN-Predictor-v1> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<https://w3id.org/iiot-pmo#GRU-RNN-Predictor-v1> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/iiot-pmo#GRURNNModel> .
+<https://w3id.org/iiot-pmo#GRU-RNN-Predictor-v1> <https://w3id.org/iiot-pmo#hasModelName> "GRU-RNN Predictive Maintenance Model v1" .
+<https://w3id.org/iiot-pmo#GRU-RNN-Predictor-v1> <http://www.w3.org/2000/01/rdf-schema#label> "GRU-RNN predictive maintenance model v1"@en .
+# 
+# https://w3id.org/iiot-pmo#IndustrialSensorDataset-Kaggle
+<https://w3id.org/iiot-pmo#IndustrialSensorDataset-Kaggle> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<https://w3id.org/iiot-pmo#IndustrialSensorDataset-Kaggle> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/iiot-pmo#DataSource> .
+<https://w3id.org/iiot-pmo#IndustrialSensorDataset-Kaggle> <http://www.w3.org/2000/01/rdf-schema#comment> "Structured sensor dataset used for time-series model development and ontology population experiments."@en .
+<https://w3id.org/iiot-pmo#IndustrialSensorDataset-Kaggle> <http://www.w3.org/2000/01/rdf-schema#label> "Industrial Sensor Dataset from Kaggle"@en .
+# 
+# https://w3id.org/iiot-pmo#LLMExtractionTask-LOG-20260506-001
+<https://w3id.org/iiot-pmo#LLMExtractionTask-LOG-20260506-001> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<https://w3id.org/iiot-pmo#LLMExtractionTask-LOG-20260506-001> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/iiot-pmo#LLMExtractionTask> .
+<https://w3id.org/iiot-pmo#LLMExtractionTask-LOG-20260506-001> <https://w3id.org/iiot-pmo#extractsCandidateFor> <https://w3id.org/iiot-pmo#BearingWear> .
+<https://w3id.org/iiot-pmo#LLMExtractionTask-LOG-20260506-001> <https://w3id.org/iiot-pmo#extractsCandidateFor> <https://w3id.org/iiot-pmo#MaintenanceLog-Motor-01-2026-04-01> .
+<https://w3id.org/iiot-pmo#MaintenanceLog-Motor-01-2026-04-01> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<https://w3id.org/iiot-pmo#LLMExtractionTask-LOG-20260506-001> <https://w3id.org/iiot-pmo#extractsCandidateFor> <https://w3id.org/iiot-pmo#Motor-01> .
+<https://w3id.org/iiot-pmo#Motor-01> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<https://w3id.org/iiot-pmo#LLMExtractionTask-LOG-20260506-001> <https://w3id.org/iiot-pmo#usesDataSource> <https://w3id.org/iiot-pmo#FactoryLogSimulation> .
+<https://w3id.org/iiot-pmo#LLMExtractionTask-LOG-20260506-001> <https://w3id.org/iiot-pmo#hasConfidence> "0.91"^^<http://www.w3.org/2001/XMLSchema#decimal> .
+<https://w3id.org/iiot-pmo#LLMExtractionTask-LOG-20260506-001> <http://www.w3.org/2000/01/rdf-schema#label> "LLM extraction task for simulated factory log LOG-20260506-001"@en .
+# 
+# https://w3id.org/iiot-pmo#METHONTOLOGYScopeNote
+<https://w3id.org/iiot-pmo#METHONTOLOGYScopeNote> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<https://w3id.org/iiot-pmo#METHONTOLOGYScopeNote> <http://www.w3.org/2000/01/rdf-schema#comment> "The v2 scope expands the ontology from static asset-sensor-observation modeling to ontology population, maintenance history, and predictive time-series analytics."@en .
+<https://w3id.org/iiot-pmo#METHONTOLOGYScopeNote> <http://www.w3.org/2000/01/rdf-schema#label> "METHONTOLOGY scope note for IIoT-PMO v2"@en .
+# 
+# https://w3id.org/iiot-pmo#MaintenanceLog-Motor-01-2026-04-01
+<https://w3id.org/iiot-pmo#MaintenanceLog-Motor-01-2026-04-01> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/iiot-pmo#MaintenanceLog> .
+<https://w3id.org/iiot-pmo#MaintenanceLog-Motor-01-2026-04-01> <https://w3id.org/iiot-pmo#hasLogText> "Routine bearing inspection completed; no part replacement recorded." .
+<https://w3id.org/iiot-pmo#MaintenanceLog-Motor-01-2026-04-01> <https://w3id.org/iiot-pmo#hasMaintenanceAction> "bearing inspection" .
+<https://w3id.org/iiot-pmo#MaintenanceLog-Motor-01-2026-04-01> <https://w3id.org/iiot-pmo#hasTimestamp> "2026-04-01T10:00:00+03:00"^^<http://www.w3.org/2001/XMLSchema#dateTime> .
+<https://w3id.org/iiot-pmo#MaintenanceLog-Motor-01-2026-04-01> <http://www.w3.org/2000/01/rdf-schema#label> "Maintenance log for Motor-01 on 2026-04-01"@en .
+# 
+# https://w3id.org/iiot-pmo#MeasurementValue-Temp-001
+<https://w3id.org/iiot-pmo#MeasurementValue-Temp-001> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<https://w3id.org/iiot-pmo#MeasurementValue-Temp-001> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/iiot-pmo#MeasurementValue> .
+<https://w3id.org/iiot-pmo#MeasurementValue-Temp-001> <https://w3id.org/iiot-pmo#hasUnit> "degC" .
+<https://w3id.org/iiot-pmo#MeasurementValue-Temp-001> <https://w3id.org/iiot-pmo#hasValue> "82.4"^^<http://www.w3.org/2001/XMLSchema#decimal> .
+<https://w3id.org/iiot-pmo#MeasurementValue-Temp-001> <http://www.w3.org/2000/01/rdf-schema#label> "Temperature measurement value 001"@en .
+# 
+# https://w3id.org/iiot-pmo#MeasurementValue-Vibration-001
+<https://w3id.org/iiot-pmo#MeasurementValue-Vibration-001> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<https://w3id.org/iiot-pmo#MeasurementValue-Vibration-001> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/iiot-pmo#MeasurementValue> .
+<https://w3id.org/iiot-pmo#MeasurementValue-Vibration-001> <https://w3id.org/iiot-pmo#hasUnit> "mm/s RMS" .
+<https://w3id.org/iiot-pmo#MeasurementValue-Vibration-001> <https://w3id.org/iiot-pmo#hasValue> "8.7"^^<http://www.w3.org/2001/XMLSchema#decimal> .
+<https://w3id.org/iiot-pmo#MeasurementValue-Vibration-001> <http://www.w3.org/2000/01/rdf-schema#label> "Vibration measurement value 001"@en .
+# 
+# https://w3id.org/iiot-pmo#Motor-01
+<https://w3id.org/iiot-pmo#Motor-01> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/iiot-pmo#Motor> .
+<https://w3id.org/iiot-pmo#Motor-01> <https://w3id.org/iiot-pmo#hasMaintenanceHistory> <https://w3id.org/iiot-pmo#MaintenanceLog-Motor-01-2026-04-01> .
+<https://w3id.org/iiot-pmo#Motor-01> <https://w3id.org/iiot-pmo#hasPredictedFailure> <https://w3id.org/iiot-pmo#PredictedFailure-Motor-01-BearingWear> .
+<https://w3id.org/iiot-pmo#PredictedFailure-Motor-01-BearingWear> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<https://w3id.org/iiot-pmo#Motor-01> <https://w3id.org/iiot-pmo#hasSensor> <https://w3id.org/iiot-pmo#TemperatureSensor-01> .
+<https://w3id.org/iiot-pmo#TemperatureSensor-01> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<https://w3id.org/iiot-pmo#Motor-01> <https://w3id.org/iiot-pmo#hasSensor> <https://w3id.org/iiot-pmo#VibrationSensor-01> .
+<https://w3id.org/iiot-pmo#VibrationSensor-01> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<https://w3id.org/iiot-pmo#Motor-01> <https://w3id.org/iiot-pmo#hasOperatingHours> "1240.0"^^<http://www.w3.org/2001/XMLSchema#decimal> .
+<https://w3id.org/iiot-pmo#Motor-01> <http://www.w3.org/2000/01/rdf-schema#label> "Motor-01"@en .
+# 
+# https://w3id.org/iiot-pmo#Observation-2026-05-06T09-15-00
+<https://w3id.org/iiot-pmo#Observation-2026-05-06T09-15-00> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<https://w3id.org/iiot-pmo#Observation-2026-05-06T09-15-00> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/iiot-pmo#Observation> .
+<https://w3id.org/iiot-pmo#Observation-2026-05-06T09-15-00> <https://w3id.org/iiot-pmo#generatesAlert> <https://w3id.org/iiot-pmo#Alert-CriticalVibration-001> .
+<https://w3id.org/iiot-pmo#Observation-2026-05-06T09-15-00> <https://w3id.org/iiot-pmo#hasMeasurement> <https://w3id.org/iiot-pmo#MeasurementValue-Vibration-001> .
+<https://w3id.org/iiot-pmo#Observation-2026-05-06T09-15-00> <https://w3id.org/iiot-pmo#hasTimestamp> "2026-05-06T09:15:00+03:00"^^<http://www.w3.org/2001/XMLSchema#dateTime> .
+<https://w3id.org/iiot-pmo#Observation-2026-05-06T09-15-00> <http://www.w3.org/2000/01/rdf-schema#label> "Vibration observation for Motor-01 at 2026-05-06 09:15:00"@en .
+# 
+# https://w3id.org/iiot-pmo#Observation-Temp-2026-05-06T09-15-00
+<https://w3id.org/iiot-pmo#Observation-Temp-2026-05-06T09-15-00> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<https://w3id.org/iiot-pmo#Observation-Temp-2026-05-06T09-15-00> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/iiot-pmo#Observation> .
+<https://w3id.org/iiot-pmo#Observation-Temp-2026-05-06T09-15-00> <https://w3id.org/iiot-pmo#hasMeasurement> <https://w3id.org/iiot-pmo#MeasurementValue-Temp-001> .
+<https://w3id.org/iiot-pmo#Observation-Temp-2026-05-06T09-15-00> <https://w3id.org/iiot-pmo#hasTimestamp> "2026-05-06T09:15:00+03:00"^^<http://www.w3.org/2001/XMLSchema#dateTime> .
+<https://w3id.org/iiot-pmo#Observation-Temp-2026-05-06T09-15-00> <http://www.w3.org/2000/01/rdf-schema#label> "Temperature observation for Motor-01 at 2026-05-06 09:15:00"@en .
+# 
+# https://w3id.org/iiot-pmo#PredictedFailure-Motor-01-BearingWear
+<https://w3id.org/iiot-pmo#PredictedFailure-Motor-01-BearingWear> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/iiot-pmo#PredictedFailure> .
+<https://w3id.org/iiot-pmo#PredictedFailure-Motor-01-BearingWear> <https://w3id.org/iiot-pmo#derivedFromBatch> <https://w3id.org/iiot-pmo#TimeSeriesBatch-Motor-01-2026-05-06> .
+<https://w3id.org/iiot-pmo#TimeSeriesBatch-Motor-01-2026-05-06> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<https://w3id.org/iiot-pmo#PredictedFailure-Motor-01-BearingWear> <https://w3id.org/iiot-pmo#indicatesFailureMode> <https://w3id.org/iiot-pmo#BearingWear> .
+<https://w3id.org/iiot-pmo#PredictedFailure-Motor-01-BearingWear> <https://w3id.org/iiot-pmo#predictedBy> <https://w3id.org/iiot-pmo#GRU-RNN-Predictor-v1> .
+<https://w3id.org/iiot-pmo#PredictedFailure-Motor-01-BearingWear> <https://w3id.org/iiot-pmo#hasFailureProbability> "0.86"^^<http://www.w3.org/2001/XMLSchema#decimal> .
+<https://w3id.org/iiot-pmo#PredictedFailure-Motor-01-BearingWear> <https://w3id.org/iiot-pmo#hasPredictionHorizonHours> "72.0"^^<http://www.w3.org/2001/XMLSchema#decimal> .
+<https://w3id.org/iiot-pmo#PredictedFailure-Motor-01-BearingWear> <https://w3id.org/iiot-pmo#hasTimestamp> "2026-05-06T09:16:00+03:00"^^<http://www.w3.org/2001/XMLSchema#dateTime> .
+<https://w3id.org/iiot-pmo#PredictedFailure-Motor-01-BearingWear> <http://www.w3.org/2000/01/rdf-schema#label> "Predicted bearing wear for Motor-01"@en .
+# 
+# https://w3id.org/iiot-pmo#TemperatureSensor-01
+<https://w3id.org/iiot-pmo#TemperatureSensor-01> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/iiot-pmo#TemperatureSensor> .
+<https://w3id.org/iiot-pmo#TemperatureSensor-01> <https://w3id.org/iiot-pmo#hasObservation> <https://w3id.org/iiot-pmo#Observation-Temp-2026-05-06T09-15-00> .
+<https://w3id.org/iiot-pmo#TemperatureSensor-01> <https://w3id.org/iiot-pmo#monitors> <https://w3id.org/iiot-pmo#Motor-01> .
+<https://w3id.org/iiot-pmo#TemperatureSensor-01> <https://w3id.org/iiot-pmo#hasThreshold> "80.0"^^<http://www.w3.org/2001/XMLSchema#decimal> .
+<https://w3id.org/iiot-pmo#TemperatureSensor-01> <http://www.w3.org/2000/01/rdf-schema#label> "TemperatureSensor-01"@en .
+# 
+# https://w3id.org/iiot-pmo#TimeSeriesBatch-Motor-01-2026-05-06
+<https://w3id.org/iiot-pmo#TimeSeriesBatch-Motor-01-2026-05-06> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/iiot-pmo#TimeSeriesBatch> .
+<https://w3id.org/iiot-pmo#TimeSeriesBatch-Motor-01-2026-05-06> <https://w3id.org/iiot-pmo#containsObservation> <https://w3id.org/iiot-pmo#Observation-2026-05-06T09-15-00> .
+<https://w3id.org/iiot-pmo#TimeSeriesBatch-Motor-01-2026-05-06> <https://w3id.org/iiot-pmo#containsObservation> <https://w3id.org/iiot-pmo#Observation-Temp-2026-05-06T09-15-00> .
+<https://w3id.org/iiot-pmo#TimeSeriesBatch-Motor-01-2026-05-06> <https://w3id.org/iiot-pmo#hasBatchWindowEnd> "2026-05-06T09:15:00+03:00"^^<http://www.w3.org/2001/XMLSchema#dateTime> .
+<https://w3id.org/iiot-pmo#TimeSeriesBatch-Motor-01-2026-05-06> <https://w3id.org/iiot-pmo#hasBatchWindowStart> "2026-05-06T08:15:00+03:00"^^<http://www.w3.org/2001/XMLSchema#dateTime> .
+<https://w3id.org/iiot-pmo#TimeSeriesBatch-Motor-01-2026-05-06> <http://www.w3.org/2000/01/rdf-schema#label> "Time-series batch for Motor-01 on 2026-05-06"@en .
+# 
+# https://w3id.org/iiot-pmo#VibrationSensor-01
+<https://w3id.org/iiot-pmo#VibrationSensor-01> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://w3id.org/iiot-pmo#VibrationSensor> .
+<https://w3id.org/iiot-pmo#VibrationSensor-01> <https://w3id.org/iiot-pmo#hasObservation> <https://w3id.org/iiot-pmo#Observation-2026-05-06T09-15-00> .
+<https://w3id.org/iiot-pmo#VibrationSensor-01> <https://w3id.org/iiot-pmo#monitors> <https://w3id.org/iiot-pmo#Motor-01> .
+<https://w3id.org/iiot-pmo#VibrationSensor-01> <https://w3id.org/iiot-pmo#hasThreshold> "7.5"^^<http://www.w3.org/2001/XMLSchema#decimal> .
+<https://w3id.org/iiot-pmo#VibrationSensor-01> <http://www.w3.org/2000/01/rdf-schema#label> "VibrationSensor-01"@en .
+# 
+# Generated by the OWL API (version 5.1.18) https://github.com/owlcs/owlapi/

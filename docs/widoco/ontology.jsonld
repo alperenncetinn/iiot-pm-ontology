@@ -1,0 +1,1186 @@
+[ {
+  "@id" : "_:genid1",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2002/07/owl#unionOf" : [ {
+    "@list" : [ {
+      "@id" : "https://w3id.org/iiot-pmo#Alert"
+    }, {
+      "@id" : "https://w3id.org/iiot-pmo#PredictedFailure"
+    } ]
+  } ]
+}, {
+  "@id" : "http://purl.org/dc/terms/description",
+  "@type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty" ]
+}, {
+  "@id" : "http://purl.org/dc/terms/references",
+  "@type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty" ]
+}, {
+  "@id" : "http://purl.org/dc/terms/title",
+  "@type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty" ]
+}, {
+  "@id" : "http://www.w3.org/ns/sosa/FeatureOfInterest",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ]
+}, {
+  "@id" : "http://www.w3.org/ns/sosa/Observation",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2002/07/owl#equivalentClass" : [ {
+    "@id" : "https://w3id.org/iiot-pmo#Observation"
+  } ]
+}, {
+  "@id" : "http://www.w3.org/ns/sosa/Result",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ]
+}, {
+  "@id" : "http://www.w3.org/ns/sosa/Sensor",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2002/07/owl#equivalentClass" : [ {
+    "@id" : "https://w3id.org/iiot-pmo#Sensor"
+  } ]
+}, {
+  "@id" : "http://www.w3.org/ns/ssn/System",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ]
+}, {
+  "@id" : "http://www.w3.org/ns/ssn/detects",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ]
+}, {
+  "@id" : "https://w3id.org/iiot-pmo",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Ontology" ],
+  "http://purl.org/dc/terms/description" : [ {
+    "@language" : "en",
+    "@value" : "Version 0.2.0 extends the initial predictive maintenance ontology with LLM-assisted ontology population, maintenance history, time-series batches, and machine-learning-based predicted failures."
+  } ],
+  "http://purl.org/dc/terms/references" : [ {
+    "@id" : "https://doi.org/10.1002/cpe.7420"
+  }, {
+    "@id" : "https://doi.org/10.1007/978-3-031-47240-4_22"
+  }, {
+    "@id" : "https://doi.org/10.1016/j.knosys.2024.112940"
+  } ],
+  "http://purl.org/dc/terms/title" : [ {
+    "@language" : "en",
+    "@value" : "Industrial IoT & Predictive Maintenance Ontology (IIoT-PMO)"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "Developed according to a METHONTOLOGY-inspired lifecycle: specification, conceptualization, formalization, implementation, and evaluation."
+  } ],
+  "http://www.w3.org/2002/07/owl#versionIRI" : [ {
+    "@id" : "https://w3id.org/iiot-pmo/0.2.0"
+  } ],
+  "http://www.w3.org/2002/07/owl#versionInfo" : [ {
+    "@value" : "0.2.0"
+  } ]
+}, {
+  "@id" : "https://w3id.org/iiot-pmo#Alert",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "A semantic notification generated when an observation indicates abnormal or risky operating behavior."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "Alert"
+  } ]
+}, {
+  "@id" : "https://w3id.org/iiot-pmo#Alert-CriticalVibration-001",
+  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual" ],
+  "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" : [ {
+    "@id" : "https://w3id.org/iiot-pmo#CriticalAlert"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "Critical vibration alert 001"
+  } ],
+  "https://w3id.org/iiot-pmo#hasTimestamp" : [ {
+    "@type" : "http://www.w3.org/2001/XMLSchema#dateTime",
+    "@value" : "2026-05-06T09:15:05+03:00"
+  } ],
+  "https://w3id.org/iiot-pmo#indicatesFailureMode" : [ {
+    "@id" : "https://w3id.org/iiot-pmo#BearingWear"
+  } ]
+}, {
+  "@id" : "https://w3id.org/iiot-pmo#Asset",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "A physical or logical industrial entity that can be monitored, maintained, or identified in a factory knowledge graph."
+  }, {
+    "@language" : "en",
+    "@value" : "An industrial asset represents the physical or logical entity whose properties (e.g. temperature, vibration) are observed, making it a subclass of sosa:FeatureOfInterest."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "Asset"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "http://www.w3.org/ns/sosa/FeatureOfInterest"
+  } ]
+}, {
+  "@id" : "https://w3id.org/iiot-pmo#BearingWear",
+  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual" ],
+  "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" : [ {
+    "@id" : "https://w3id.org/iiot-pmo#FailureMode"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "A degradation mode in which bearing surfaces lose material or alignment quality, often reflected by abnormal vibration patterns."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "Bearing Wear"
+  } ]
+}, {
+  "@id" : "https://w3id.org/iiot-pmo#CriticalAlert",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "A threshold alert representing a critical operating condition."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "Critical Alert"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://w3id.org/iiot-pmo#ThresholdAlert"
+  } ]
+}, {
+  "@id" : "https://w3id.org/iiot-pmo#DataSource",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "A structured, semi-structured, or unstructured source used to populate the ontology."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "Data Source"
+  } ]
+}, {
+  "@id" : "https://w3id.org/iiot-pmo#Equipment",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "Industrial machinery that performs a production, utility, or support function."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "Equipment"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://w3id.org/iiot-pmo#Asset"
+  } ]
+}, {
+  "@id" : "https://w3id.org/iiot-pmo#FactoryLogSimulation",
+  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual" ],
+  "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" : [ {
+    "@id" : "https://w3id.org/iiot-pmo#DataSource"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "Synthetic maintenance and operations log source used to test LLM-assisted ontology population without exposing confidential plant data."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "Factory Log Simulation"
+  } ]
+}, {
+  "@id" : "https://w3id.org/iiot-pmo#FailureMode",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "A potential or observed mechanism of equipment degradation or failure."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "Failure Mode"
+  } ]
+}, {
+  "@id" : "https://w3id.org/iiot-pmo#GRU-RNN-Predictor-v1",
+  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual" ],
+  "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" : [ {
+    "@id" : "https://w3id.org/iiot-pmo#GRURNNModel"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "GRU-RNN predictive maintenance model v1"
+  } ],
+  "https://w3id.org/iiot-pmo#hasModelName" : [ {
+    "@value" : "GRU-RNN Predictive Maintenance Model v1"
+  } ]
+}, {
+  "@id" : "https://w3id.org/iiot-pmo#GRURNNModel",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "A recurrent neural network model based on gated recurrent units for time-series failure prediction."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "GRU-RNN Model"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://w3id.org/iiot-pmo#MLModel"
+  } ]
+}, {
+  "@id" : "https://w3id.org/iiot-pmo#IndustrialSensorDataset-Kaggle",
+  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual" ],
+  "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" : [ {
+    "@id" : "https://w3id.org/iiot-pmo#DataSource"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "Structured sensor dataset used for time-series model development and ontology population experiments."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "Industrial Sensor Dataset from Kaggle"
+  } ]
+}, {
+  "@id" : "https://w3id.org/iiot-pmo#LLMExtractionTask",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "A data ingestion task in which a large language model extracts ontology candidates from unstructured industrial text."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "LLM Extraction Task"
+  } ]
+}, {
+  "@id" : "https://w3id.org/iiot-pmo#LLMExtractionTask-LOG-20260506-001",
+  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual" ],
+  "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" : [ {
+    "@id" : "https://w3id.org/iiot-pmo#LLMExtractionTask"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "LLM extraction task for simulated factory log LOG-20260506-001"
+  } ],
+  "https://w3id.org/iiot-pmo#extractsCandidateFor" : [ {
+    "@id" : "https://w3id.org/iiot-pmo#BearingWear"
+  }, {
+    "@id" : "https://w3id.org/iiot-pmo#MaintenanceLog-Motor-01-2026-04-01"
+  }, {
+    "@id" : "https://w3id.org/iiot-pmo#Motor-01"
+  } ],
+  "https://w3id.org/iiot-pmo#hasConfidence" : [ {
+    "@type" : "http://www.w3.org/2001/XMLSchema#decimal",
+    "@value" : "0.91"
+  } ],
+  "https://w3id.org/iiot-pmo#usesDataSource" : [ {
+    "@id" : "https://w3id.org/iiot-pmo#FactoryLogSimulation"
+  } ]
+}, {
+  "@id" : "https://w3id.org/iiot-pmo#METHONTOLOGYScopeNote",
+  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "The v2 scope expands the ontology from static asset-sensor-observation modeling to ontology population, maintenance history, and predictive time-series analytics."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "METHONTOLOGY scope note for IIoT-PMO v2"
+  } ]
+}, {
+  "@id" : "https://w3id.org/iiot-pmo#MLModel",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "A computational model that produces predictions from industrial sensor or maintenance data."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "Machine Learning Model"
+  } ]
+}, {
+  "@id" : "https://w3id.org/iiot-pmo#MaintenanceEvent",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "A maintenance action or inspection event associated with equipment."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "Maintenance Event"
+  } ]
+}, {
+  "@id" : "https://w3id.org/iiot-pmo#MaintenanceLog",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "A textual or semi-structured record describing maintenance actions, operator notes, inspection outcomes, or service events."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "Maintenance Log"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://w3id.org/iiot-pmo#MaintenanceEvent"
+  } ]
+}, {
+  "@id" : "https://w3id.org/iiot-pmo#MaintenanceLog-Motor-01-2026-04-01",
+  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual" ],
+  "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" : [ {
+    "@id" : "https://w3id.org/iiot-pmo#MaintenanceLog"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "Maintenance log for Motor-01 on 2026-04-01"
+  } ],
+  "https://w3id.org/iiot-pmo#hasLogText" : [ {
+    "@value" : "Routine bearing inspection completed; no part replacement recorded."
+  } ],
+  "https://w3id.org/iiot-pmo#hasMaintenanceAction" : [ {
+    "@value" : "bearing inspection"
+  } ],
+  "https://w3id.org/iiot-pmo#hasTimestamp" : [ {
+    "@type" : "http://www.w3.org/2001/XMLSchema#dateTime",
+    "@value" : "2026-04-01T10:00:00+03:00"
+  } ]
+}, {
+  "@id" : "https://w3id.org/iiot-pmo#Measurement",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "A structured representation of a value produced through an observation."
+  }, {
+    "@language" : "en",
+    "@value" : "iiot:Measurement represents the structured value or representation of the observation result, aligning it as a subclass of sosa:Result."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "Measurement"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "http://www.w3.org/ns/sosa/Result"
+  } ]
+}, {
+  "@id" : "https://w3id.org/iiot-pmo#MeasurementValue",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "A concrete numeric measurement value mapped from a source column such as temp_c, vibration_mm_s, or pressure_bar."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "Measurement Value"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://w3id.org/iiot-pmo#Measurement"
+  } ]
+}, {
+  "@id" : "https://w3id.org/iiot-pmo#MeasurementValue-Temp-001",
+  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual" ],
+  "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" : [ {
+    "@id" : "https://w3id.org/iiot-pmo#MeasurementValue"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "Temperature measurement value 001"
+  } ],
+  "https://w3id.org/iiot-pmo#hasUnit" : [ {
+    "@value" : "degC"
+  } ],
+  "https://w3id.org/iiot-pmo#hasValue" : [ {
+    "@type" : "http://www.w3.org/2001/XMLSchema#decimal",
+    "@value" : "82.4"
+  } ]
+}, {
+  "@id" : "https://w3id.org/iiot-pmo#MeasurementValue-Vibration-001",
+  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual" ],
+  "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" : [ {
+    "@id" : "https://w3id.org/iiot-pmo#MeasurementValue"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "Vibration measurement value 001"
+  } ],
+  "https://w3id.org/iiot-pmo#hasUnit" : [ {
+    "@value" : "mm/s RMS"
+  } ],
+  "https://w3id.org/iiot-pmo#hasValue" : [ {
+    "@type" : "http://www.w3.org/2001/XMLSchema#decimal",
+    "@value" : "8.7"
+  } ]
+}, {
+  "@id" : "https://w3id.org/iiot-pmo#Motor",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "A rotating equipment asset that converts electrical energy into mechanical motion."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "Motor"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://w3id.org/iiot-pmo#RotatingEquipment"
+  } ]
+}, {
+  "@id" : "https://w3id.org/iiot-pmo#Motor-01",
+  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual" ],
+  "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" : [ {
+    "@id" : "https://w3id.org/iiot-pmo#Motor"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "Motor-01"
+  } ],
+  "https://w3id.org/iiot-pmo#hasMaintenanceHistory" : [ {
+    "@id" : "https://w3id.org/iiot-pmo#MaintenanceLog-Motor-01-2026-04-01"
+  } ],
+  "https://w3id.org/iiot-pmo#hasOperatingHours" : [ {
+    "@type" : "http://www.w3.org/2001/XMLSchema#decimal",
+    "@value" : "1240.0"
+  } ],
+  "https://w3id.org/iiot-pmo#hasPredictedFailure" : [ {
+    "@id" : "https://w3id.org/iiot-pmo#PredictedFailure-Motor-01-BearingWear"
+  } ],
+  "https://w3id.org/iiot-pmo#hasSensor" : [ {
+    "@id" : "https://w3id.org/iiot-pmo#TemperatureSensor-01"
+  }, {
+    "@id" : "https://w3id.org/iiot-pmo#VibrationSensor-01"
+  } ]
+}, {
+  "@id" : "https://w3id.org/iiot-pmo#Observation",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "A time-stamped record generated by a sensor while monitoring equipment."
+  }, {
+    "@language" : "en",
+    "@value" : "iiot:Observation represents the act of carrying out an observation, equivalent to sosa:Observation."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "Observation"
+  } ]
+}, {
+  "@id" : "https://w3id.org/iiot-pmo#Observation-2026-05-06T09-15-00",
+  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual" ],
+  "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" : [ {
+    "@id" : "https://w3id.org/iiot-pmo#Observation"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "Vibration observation for Motor-01 at 2026-05-06 09:15:00"
+  } ],
+  "https://w3id.org/iiot-pmo#generatesAlert" : [ {
+    "@id" : "https://w3id.org/iiot-pmo#Alert-CriticalVibration-001"
+  } ],
+  "https://w3id.org/iiot-pmo#hasMeasurement" : [ {
+    "@id" : "https://w3id.org/iiot-pmo#MeasurementValue-Vibration-001"
+  } ],
+  "https://w3id.org/iiot-pmo#hasTimestamp" : [ {
+    "@type" : "http://www.w3.org/2001/XMLSchema#dateTime",
+    "@value" : "2026-05-06T09:15:00+03:00"
+  } ]
+}, {
+  "@id" : "https://w3id.org/iiot-pmo#Observation-Temp-2026-05-06T09-15-00",
+  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual" ],
+  "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" : [ {
+    "@id" : "https://w3id.org/iiot-pmo#Observation"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "Temperature observation for Motor-01 at 2026-05-06 09:15:00"
+  } ],
+  "https://w3id.org/iiot-pmo#hasMeasurement" : [ {
+    "@id" : "https://w3id.org/iiot-pmo#MeasurementValue-Temp-001"
+  } ],
+  "https://w3id.org/iiot-pmo#hasTimestamp" : [ {
+    "@type" : "http://www.w3.org/2001/XMLSchema#dateTime",
+    "@value" : "2026-05-06T09:15:00+03:00"
+  } ]
+}, {
+  "@id" : "https://w3id.org/iiot-pmo#PredictedFailure",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "A machine-learning prediction that an asset may experience a failure mode within a future prediction horizon."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "Predicted Failure"
+  } ]
+}, {
+  "@id" : "https://w3id.org/iiot-pmo#PredictedFailure-Motor-01-BearingWear",
+  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual" ],
+  "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" : [ {
+    "@id" : "https://w3id.org/iiot-pmo#PredictedFailure"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "Predicted bearing wear for Motor-01"
+  } ],
+  "https://w3id.org/iiot-pmo#derivedFromBatch" : [ {
+    "@id" : "https://w3id.org/iiot-pmo#TimeSeriesBatch-Motor-01-2026-05-06"
+  } ],
+  "https://w3id.org/iiot-pmo#hasFailureProbability" : [ {
+    "@type" : "http://www.w3.org/2001/XMLSchema#decimal",
+    "@value" : "0.86"
+  } ],
+  "https://w3id.org/iiot-pmo#hasPredictionHorizonHours" : [ {
+    "@type" : "http://www.w3.org/2001/XMLSchema#decimal",
+    "@value" : "72.0"
+  } ],
+  "https://w3id.org/iiot-pmo#hasTimestamp" : [ {
+    "@type" : "http://www.w3.org/2001/XMLSchema#dateTime",
+    "@value" : "2026-05-06T09:16:00+03:00"
+  } ],
+  "https://w3id.org/iiot-pmo#indicatesFailureMode" : [ {
+    "@id" : "https://w3id.org/iiot-pmo#BearingWear"
+  } ],
+  "https://w3id.org/iiot-pmo#predictedBy" : [ {
+    "@id" : "https://w3id.org/iiot-pmo#GRU-RNN-Predictor-v1"
+  } ]
+}, {
+  "@id" : "https://w3id.org/iiot-pmo#PressureSensor",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "A sensor that measures pressure in a process or equipment context."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "Pressure Sensor"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://w3id.org/iiot-pmo#Sensor"
+  } ]
+}, {
+  "@id" : "https://w3id.org/iiot-pmo#Pump",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "A rotating equipment asset used to move fluids through a process system."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "Pump"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://w3id.org/iiot-pmo#RotatingEquipment"
+  } ]
+}, {
+  "@id" : "https://w3id.org/iiot-pmo#RotatingEquipment",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "Equipment whose operational behavior is characterized by rotating components such as shafts, bearings, or impellers."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "Rotating Equipment"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://w3id.org/iiot-pmo#Equipment"
+  } ]
+}, {
+  "@id" : "https://w3id.org/iiot-pmo#Sensor",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "A device that observes a physical property of equipment or its operational context."
+  }, {
+    "@language" : "en",
+    "@value" : "iiot:Sensor is semantically equivalent to sosa:Sensor and, as a physical device, is a subclass of ssn:System."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "Sensor"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "http://www.w3.org/ns/ssn/System"
+  }, {
+    "@id" : "https://w3id.org/iiot-pmo#Asset"
+  } ]
+}, {
+  "@id" : "https://w3id.org/iiot-pmo#TemperatureSensor",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "A sensor that measures temperature of equipment or process environments."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "Temperature Sensor"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://w3id.org/iiot-pmo#Sensor"
+  } ]
+}, {
+  "@id" : "https://w3id.org/iiot-pmo#TemperatureSensor-01",
+  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual" ],
+  "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" : [ {
+    "@id" : "https://w3id.org/iiot-pmo#TemperatureSensor"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "TemperatureSensor-01"
+  } ],
+  "https://w3id.org/iiot-pmo#hasObservation" : [ {
+    "@id" : "https://w3id.org/iiot-pmo#Observation-Temp-2026-05-06T09-15-00"
+  } ],
+  "https://w3id.org/iiot-pmo#hasThreshold" : [ {
+    "@type" : "http://www.w3.org/2001/XMLSchema#decimal",
+    "@value" : "80.0"
+  } ],
+  "https://w3id.org/iiot-pmo#monitors" : [ {
+    "@id" : "https://w3id.org/iiot-pmo#Motor-01"
+  } ]
+}, {
+  "@id" : "https://w3id.org/iiot-pmo#ThresholdAlert",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "An alert generated when a measurement exceeds a configured threshold."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "Threshold Alert"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://w3id.org/iiot-pmo#Alert"
+  } ]
+}, {
+  "@id" : "https://w3id.org/iiot-pmo#TimeSeriesBatch",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "A temporally bounded collection of sensor observations used as an input window for predictive maintenance models."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "Time Series Batch"
+  } ]
+}, {
+  "@id" : "https://w3id.org/iiot-pmo#TimeSeriesBatch-Motor-01-2026-05-06",
+  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual" ],
+  "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" : [ {
+    "@id" : "https://w3id.org/iiot-pmo#TimeSeriesBatch"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "Time-series batch for Motor-01 on 2026-05-06"
+  } ],
+  "https://w3id.org/iiot-pmo#containsObservation" : [ {
+    "@id" : "https://w3id.org/iiot-pmo#Observation-2026-05-06T09-15-00"
+  }, {
+    "@id" : "https://w3id.org/iiot-pmo#Observation-Temp-2026-05-06T09-15-00"
+  } ],
+  "https://w3id.org/iiot-pmo#hasBatchWindowEnd" : [ {
+    "@type" : "http://www.w3.org/2001/XMLSchema#dateTime",
+    "@value" : "2026-05-06T09:15:00+03:00"
+  } ],
+  "https://w3id.org/iiot-pmo#hasBatchWindowStart" : [ {
+    "@type" : "http://www.w3.org/2001/XMLSchema#dateTime",
+    "@value" : "2026-05-06T08:15:00+03:00"
+  } ]
+}, {
+  "@id" : "https://w3id.org/iiot-pmo#VibrationSensor",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "A sensor that measures vibration behavior of industrial equipment."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "Vibration Sensor"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://w3id.org/iiot-pmo#Sensor"
+  } ]
+}, {
+  "@id" : "https://w3id.org/iiot-pmo#VibrationSensor-01",
+  "@type" : [ "http://www.w3.org/2002/07/owl#NamedIndividual" ],
+  "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" : [ {
+    "@id" : "https://w3id.org/iiot-pmo#VibrationSensor"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "VibrationSensor-01"
+  } ],
+  "https://w3id.org/iiot-pmo#hasObservation" : [ {
+    "@id" : "https://w3id.org/iiot-pmo#Observation-2026-05-06T09-15-00"
+  } ],
+  "https://w3id.org/iiot-pmo#hasThreshold" : [ {
+    "@type" : "http://www.w3.org/2001/XMLSchema#decimal",
+    "@value" : "7.5"
+  } ],
+  "https://w3id.org/iiot-pmo#monitors" : [ {
+    "@id" : "https://w3id.org/iiot-pmo#Motor-01"
+  } ]
+}, {
+  "@id" : "https://w3id.org/iiot-pmo#containsObservation",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "Connects a time-series batch to the observations included in its prediction window."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "https://w3id.org/iiot-pmo#TimeSeriesBatch"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "contains observation"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "https://w3id.org/iiot-pmo#Observation"
+  } ]
+}, {
+  "@id" : "https://w3id.org/iiot-pmo#derivedFromBatch",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "Links a predicted failure to the time-series batch used as model input."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "https://w3id.org/iiot-pmo#PredictedFailure"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "derived from batch"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "https://w3id.org/iiot-pmo#TimeSeriesBatch"
+  } ]
+}, {
+  "@id" : "https://w3id.org/iiot-pmo#extractsCandidateFor",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "Links an LLM extraction task to an ontology individual proposed during population."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "https://w3id.org/iiot-pmo#LLMExtractionTask"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "extracts candidate for"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://www.w3.org/2002/07/owl#Thing"
+  } ]
+}, {
+  "@id" : "https://w3id.org/iiot-pmo#generatesAlert",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "Indicates that an observation generated an alert."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "https://w3id.org/iiot-pmo#Observation"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "generates alert"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "https://w3id.org/iiot-pmo#Alert"
+  } ]
+}, {
+  "@id" : "https://w3id.org/iiot-pmo#hasBatchWindowEnd",
+  "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "End timestamp of the time-series window."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "https://w3id.org/iiot-pmo#TimeSeriesBatch"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "has batch window end"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://www.w3.org/2001/XMLSchema#dateTime"
+  } ]
+}, {
+  "@id" : "https://w3id.org/iiot-pmo#hasBatchWindowStart",
+  "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "Start timestamp of the time-series window."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "https://w3id.org/iiot-pmo#TimeSeriesBatch"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "has batch window start"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://www.w3.org/2001/XMLSchema#dateTime"
+  } ]
+}, {
+  "@id" : "https://w3id.org/iiot-pmo#hasConfidence",
+  "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "Confidence assigned to an LLM extraction result."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "https://w3id.org/iiot-pmo#LLMExtractionTask"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "has confidence"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://www.w3.org/2001/XMLSchema#decimal"
+  } ]
+}, {
+  "@id" : "https://w3id.org/iiot-pmo#hasFailureProbability",
+  "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "Probability assigned by a machine learning model to a predicted failure."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "https://w3id.org/iiot-pmo#PredictedFailure"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "has failure probability"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://www.w3.org/2001/XMLSchema#decimal"
+  } ]
+}, {
+  "@id" : "https://w3id.org/iiot-pmo#hasLogText",
+  "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "Raw or normalized text of a maintenance log."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "https://w3id.org/iiot-pmo#MaintenanceLog"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "has log text"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://www.w3.org/2001/XMLSchema#string"
+  } ]
+}, {
+  "@id" : "https://w3id.org/iiot-pmo#hasMaintenanceAction",
+  "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "Maintenance action described by a maintenance log."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "https://w3id.org/iiot-pmo#MaintenanceLog"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "has maintenance action"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://www.w3.org/2001/XMLSchema#string"
+  } ]
+}, {
+  "@id" : "https://w3id.org/iiot-pmo#hasMaintenanceEvent",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "Associates equipment with a maintenance action or inspection."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "https://w3id.org/iiot-pmo#Equipment"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "has maintenance event"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "https://w3id.org/iiot-pmo#MaintenanceEvent"
+  } ]
+}, {
+  "@id" : "https://w3id.org/iiot-pmo#hasMaintenanceHistory",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "Associates equipment with historical maintenance logs."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "https://w3id.org/iiot-pmo#Equipment"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "has maintenance history"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "https://w3id.org/iiot-pmo#MaintenanceLog"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subPropertyOf" : [ {
+    "@id" : "https://w3id.org/iiot-pmo#hasMaintenanceEvent"
+  } ]
+}, {
+  "@id" : "https://w3id.org/iiot-pmo#hasMeasurement",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "Connects an observation to its measurement value object."
+  }, {
+    "@language" : "en",
+    "@value" : "Links an observation to its result, equivalent to sosa:hasResult."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "https://w3id.org/iiot-pmo#Observation"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "has measurement"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "https://w3id.org/iiot-pmo#Measurement"
+  } ]
+}, {
+  "@id" : "https://w3id.org/iiot-pmo#hasModelName",
+  "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "Human-readable model name."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "https://w3id.org/iiot-pmo#MLModel"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "has model name"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://www.w3.org/2001/XMLSchema#string"
+  } ]
+}, {
+  "@id" : "https://w3id.org/iiot-pmo#hasObservation",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "Links a sensor to an observation it produced."
+  }, {
+    "@language" : "en",
+    "@value" : "Links a sensor to the observations it has made, equivalent to ssn:madeObservation."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "https://w3id.org/iiot-pmo#Sensor"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "has observation"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "https://w3id.org/iiot-pmo#Observation"
+  } ]
+}, {
+  "@id" : "https://w3id.org/iiot-pmo#hasOperatingHours",
+  "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "Operating hours accumulated by an equipment asset."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "https://w3id.org/iiot-pmo#Equipment"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "has operating hours"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://www.w3.org/2001/XMLSchema#decimal"
+  } ]
+}, {
+  "@id" : "https://w3id.org/iiot-pmo#hasPredictedFailure",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "Links equipment to a failure prediction generated from sensor or maintenance evidence."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "https://w3id.org/iiot-pmo#Equipment"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "has predicted failure"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "https://w3id.org/iiot-pmo#PredictedFailure"
+  } ]
+}, {
+  "@id" : "https://w3id.org/iiot-pmo#hasPredictionHorizonHours",
+  "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "Future time horizon, in hours, covered by a predicted failure."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "https://w3id.org/iiot-pmo#PredictedFailure"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "has prediction horizon hours"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://www.w3.org/2001/XMLSchema#decimal"
+  } ]
+}, {
+  "@id" : "https://w3id.org/iiot-pmo#hasSensor",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "Connects equipment to an installed or associated sensor."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "https://w3id.org/iiot-pmo#Equipment"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "has sensor"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "https://w3id.org/iiot-pmo#Sensor"
+  } ],
+  "http://www.w3.org/2002/07/owl#inverseOf" : [ {
+    "@id" : "https://w3id.org/iiot-pmo#monitors"
+  } ]
+}, {
+  "@id" : "https://w3id.org/iiot-pmo#hasThreshold",
+  "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "Configured threshold value for a sensor."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "https://w3id.org/iiot-pmo#Sensor"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "has threshold"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://www.w3.org/2001/XMLSchema#decimal"
+  } ]
+}, {
+  "@id" : "https://w3id.org/iiot-pmo#hasTimestamp",
+  "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "Time associated with an observation, alert, prediction, or maintenance event."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "has timestamp"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://www.w3.org/2001/XMLSchema#dateTime"
+  } ]
+}, {
+  "@id" : "https://w3id.org/iiot-pmo#hasUnit",
+  "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "Unit used for the measurement value."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "https://w3id.org/iiot-pmo#Measurement"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "has unit"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://www.w3.org/2001/XMLSchema#string"
+  } ]
+}, {
+  "@id" : "https://w3id.org/iiot-pmo#hasValue",
+  "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "Numeric value of a measurement."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "https://w3id.org/iiot-pmo#Measurement"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "has value"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://www.w3.org/2001/XMLSchema#decimal"
+  } ]
+}, {
+  "@id" : "https://w3id.org/iiot-pmo#indicatesFailureMode",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "Links an alert or predicted failure to a suspected or known failure mode."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "_:genid1"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "indicates failure mode"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "https://w3id.org/iiot-pmo#FailureMode"
+  } ]
+}, {
+  "@id" : "https://w3id.org/iiot-pmo#monitors",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "Indicates which equipment is monitored by a sensor."
+  }, {
+    "@language" : "en",
+    "@value" : "iiot:monitors is a domain-specific specialization of ssn:detects, linking a sensor to the equipment it monitors."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "https://w3id.org/iiot-pmo#Sensor"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "monitors"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "https://w3id.org/iiot-pmo#Equipment"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subPropertyOf" : [ {
+    "@id" : "http://www.w3.org/ns/ssn/detects"
+  } ]
+}, {
+  "@id" : "https://w3id.org/iiot-pmo#predictedBy",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "Links a predicted failure to the machine learning model that produced it."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "https://w3id.org/iiot-pmo#PredictedFailure"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "predicted by"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "https://w3id.org/iiot-pmo#MLModel"
+  } ]
+}, {
+  "@id" : "https://w3id.org/iiot-pmo#usesDataSource",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "Links an LLM extraction task to its source data."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "https://w3id.org/iiot-pmo#LLMExtractionTask"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "uses data source"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "https://w3id.org/iiot-pmo#DataSource"
+  } ]
+} ]
