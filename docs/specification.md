@@ -56,7 +56,7 @@ The v2 development follows a METHONTOLOGY-inspired process:
 | Conceptualization | Core concepts were expanded with `MaintenanceLog`, `PredictedFailure`, `TimeSeriesBatch`, `MeasurementValue`, and `MLModel` |
 | Formalization | Concepts were translated into OWL classes, object properties, datatype properties, and individuals |
 | Implementation | The v2 ontology was serialized as Turtle in `ontology/iiot-pmo-v2.ttl` |
-| Evaluation | Validation is planned through Protege loading, RDF syntax checks, SPARQL competency-question tests, and sample ingestion scenarios |
+| Evaluation | Completed: SPARQL competency-question tests in `ontology/validation_queries.rq`, SHACL validation in `ontology/shacl_rules.ttl`, and model-in-the-loop ingestion in `scripts/populate_ontology.py` |
 | Maintenance | Version history and modular supporting documents are maintained for future extension |
 
 ## 6. Research Integration: Ontology Population Using LLMs
@@ -267,7 +267,11 @@ Validation will be performed by:
 | Artifact | Purpose |
 | --- | --- |
 | `ontology/iiot-pmo.ttl` | v1 baseline ontology |
-| `ontology/iiot-pmo-v2.ttl` | v2 ontology with Phase 2 extensions |
+| `ontology/iiot-pmo-v2.ttl` | v2 ontology with Phase 2 extensions & SOSA/SSN alignment mappings |
+| `ontology/sample_individuals.ttl` | Sample instantiated industrial assets, sensors, observations, and predictions |
+| `ontology/validation_queries.rq` | Library of 4 advanced SPARQL competency-question verification queries |
+| `ontology/shacl_rules.ttl` | SHACL constraints enforcing datatype, cardinality, and boundary validation |
+| `scripts/populate_ontology.py` | Python LLM pipeline running local Ollama gemma4:e2b and rdflib graph merging |
 | `docs/specification.md` | v2 ORSD source document |
 | `docs/orsd.docx` | Word-compatible ORSD rendering |
 | `docs/research_review.md` | Literature review, LLM ontology population plan, and GRU-RNN adaptation |

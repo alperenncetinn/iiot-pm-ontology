@@ -71,26 +71,26 @@ IIoT-PMO currently focuses on the core concepts needed for predictive maintenanc
 | Core ontology classes | Complete | Asset, Equipment, Sensor, Measurement, Observation, Alert, FailureMode |
 | Object properties | Complete | `hasSensor`, `monitors`, `hasObservation`, `generatesAlert` |
 | Data properties | Complete | `hasValue`, `hasTimestamp`, `hasThreshold` |
-| Example individuals | Complete | `Motor-01` and `VibrationSensor-01` included |
+| Example individuals | Complete | CNC_Machine_1, Conveyor_Belt_2, and baseline individuals populated in `ontology/sample_individuals.ttl` |
 | Phase 2 ontology | Complete | `MaintenanceLog`, `PredictedFailure`, `TimeSeriesBatch`, `MLModel`, `MeasurementValue` |
 | Research review | Complete | LLM ontology population and GRU-RNN article adaptation documented |
 | Data acquisition mapping | Complete | Kaggle sensor data and factory log simulation mapping documented |
-| LLM ingestion backend | Designed | FastAPI/Ollama/GPT integration plan specified |
-| SPARQL query library | Planned | Future validation queries for v2 competency questions |
-| Reasoner validation | Planned | Protege/HermiT or Pellet consistency checks |
-| External ontology alignment | Planned | SOSA/SSN and maintenance standards alignment |
+| LLM ingestion backend | Complete | Python pipeline `scripts/populate_ontology.py` uses local Ollama `gemma4:e2b` and `rdflib` graph merging |
+| SPARQL query library | Complete | 4 advanced queries for monitoring, prediction, risk assessment, and avg metrics in `ontology/validation_queries.rq` |
+| SHACL validation rules | Complete | Data quality, cardinality, and confidence constraints implemented in `ontology/shacl_rules.ttl` |
+| External ontology alignment | Complete | SOSA/SSN ontology mappings (equivalentClass, subClassOf) added to `ontology/iiot-pmo-v2.ttl` |
 
 ## Getting Started
 
-Open [ontology/iiot-pmo-v2.ttl](ontology/iiot-pmo-v2.ttl) in Protege to inspect the current ontology. The v1 baseline remains available at [ontology/iiot-pmo.ttl](ontology/iiot-pmo.ttl).
-
-Recommended next validation steps:
-
-1. Load the ontology in Protege.
-2. Run a reasoner to check class consistency.
-3. Create SPARQL queries from the competency questions in [docs/specification.md](docs/specification.md).
-4. Test the data mappings in [docs/data_acquisition.md](docs/data_acquisition.md).
-5. Use [docs/research_review.md](docs/research_review.md) as the research basis for LLM ontology population and GRU-RNN adaptation.
+1. Open [ontology/iiot-pmo-v2.ttl](ontology/iiot-pmo-v2.ttl) in Protege to inspect the current ontology.
+2. Load [ontology/sample_individuals.ttl](ontology/sample_individuals.ttl) to see instantiated CNC/conveyor machinery, sensors, observations, and prediction individuals.
+3. Apply SHACL constraints in [ontology/shacl_rules.ttl](ontology/shacl_rules.ttl) to check data quality.
+4. Run the validation queries in [ontology/validation_queries.rq](ontology/validation_queries.rq) using a SPARQL engine.
+5. Ingest simulated logs and automatically populate the graph by running the Python LLM pipeline:
+   ```bash
+   pip install openai rdflib
+   python3 scripts/populate_ontology.py
+   ```
 
 ## Academic Context
 
