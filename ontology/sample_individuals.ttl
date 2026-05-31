@@ -1,0 +1,300 @@
+@prefix iiotpmo: <http://example.org/iiot-pm-ontology#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# =================================================================
+# Classes & Properties Schema Definitions (aligned with iiot-pmo-v2)
+# =================================================================
+
+# Classes
+iiotpmo:Asset a owl:Class ;
+    rdfs:label "Asset"@en ;
+    rdfs:comment "A physical or logical industrial entity."@en .
+
+iiotpmo:Equipment rdfs:subClassOf iiotpmo:Asset ;
+    rdfs:label "Equipment"@en .
+
+iiotpmo:Sensor rdfs:subClassOf iiotpmo:Asset ;
+    rdfs:label "Sensor"@en .
+
+iiotpmo:VibrationSensor rdfs:subClassOf iiotpmo:Sensor ;
+    rdfs:label "Vibration Sensor"@en .
+
+iiotpmo:TemperatureSensor rdfs:subClassOf iiotpmo:Sensor ;
+    rdfs:label "Temperature Sensor"@en .
+
+iiotpmo:Measurement a owl:Class ;
+    rdfs:label "Measurement"@en .
+
+iiotpmo:Observation a owl:Class ;
+    rdfs:label "Observation"@en .
+
+iiotpmo:Alert a owl:Class ;
+    rdfs:label "Alert"@en .
+
+iiotpmo:CriticalAlert rdfs:subClassOf iiotpmo:Alert ;
+    rdfs:label "Critical Alert"@en .
+
+iiotpmo:ThresholdAlert rdfs:subClassOf iiotpmo:Alert ;
+    rdfs:label "Threshold Alert"@en .
+
+iiotpmo:MachineLearningModel a owl:Class ;
+    rdfs:label "Machine Learning Model"@en .
+
+iiotpmo:PredictedFailure a owl:Class ;
+    rdfs:label "Predicted Failure"@en .
+
+iiotpmo:MaintenanceAction a owl:Class ;
+    rdfs:label "Maintenance Action"@en .
+
+iiotpmo:FailureMode a owl:Class ;
+    rdfs:label "Failure Mode"@en .
+
+# Object Properties
+iiotpmo:hasSensor a owl:ObjectProperty ;
+    rdfs:domain iiotpmo:Equipment ;
+    rdfs:range iiotpmo:Sensor ;
+    rdfs:label "has sensor"@en .
+
+iiotpmo:monitors a owl:ObjectProperty ;
+    rdfs:domain iiotpmo:Sensor ;
+    rdfs:range iiotpmo:Equipment ;
+    rdfs:label "monitors"@en .
+
+iiotpmo:hasObservation a owl:ObjectProperty ;
+    rdfs:domain iiotpmo:Sensor ;
+    rdfs:range iiotpmo:Observation ;
+    rdfs:label "has observation"@en .
+
+iiotpmo:hasMeasurement a owl:ObjectProperty ;
+    rdfs:domain iiotpmo:Observation ;
+    rdfs:range iiotpmo:Measurement ;
+    rdfs:label "has measurement"@en .
+
+iiotpmo:generatesAlert a owl:ObjectProperty ;
+    rdfs:domain iiotpmo:Observation ;
+    rdfs:range iiotpmo:Alert ;
+    rdfs:label "generates alert"@en .
+
+iiotpmo:indicatesFailureMode a owl:ObjectProperty ;
+    rdfs:range iiotpmo:FailureMode ;
+    rdfs:label "indicates failure mode"@en .
+
+iiotpmo:hasMaintenanceEvent a owl:ObjectProperty ;
+    rdfs:domain iiotpmo:Equipment ;
+    rdfs:range iiotpmo:MaintenanceAction ;
+    rdfs:label "has maintenance event"@en .
+
+iiotpmo:predictedBy a owl:ObjectProperty ;
+    rdfs:domain iiotpmo:PredictedFailure ;
+    rdfs:range iiotpmo:MachineLearningModel ;
+    rdfs:label "predicted by"@en .
+
+iiotpmo:hasPredictedFailure a owl:ObjectProperty ;
+    rdfs:domain iiotpmo:Equipment ;
+    rdfs:range iiotpmo:PredictedFailure ;
+    rdfs:label "has predicted failure"@en .
+
+# Data Properties
+iiotpmo:hasValue a owl:DatatypeProperty ;
+    rdfs:domain iiotpmo:Measurement ;
+    rdfs:range xsd:decimal ;
+    rdfs:label "has value"@en .
+
+iiotpmo:hasUnit a owl:DatatypeProperty ;
+    rdfs:domain iiotpmo:Measurement ;
+    rdfs:range xsd:string ;
+    rdfs:label "has unit"@en .
+
+iiotpmo:hasTimestamp a owl:DatatypeProperty ;
+    rdfs:range xsd:dateTime ;
+    rdfs:label "has timestamp"@en .
+
+iiotpmo:hasThreshold a owl:DatatypeProperty ;
+    rdfs:domain iiotpmo:Sensor ;
+    rdfs:range xsd:decimal ;
+    rdfs:label "has threshold"@en .
+
+iiotpmo:hasOperatingHours a owl:DatatypeProperty ;
+    rdfs:domain iiotpmo:Equipment ;
+    rdfs:range xsd:decimal ;
+    rdfs:label "has operating hours"@en .
+
+iiotpmo:hasLogText a owl:DatatypeProperty ;
+    rdfs:domain iiotpmo:MaintenanceAction ;
+    rdfs:range xsd:string ;
+    rdfs:label "has log text"@en .
+
+iiotpmo:hasMaintenanceAction a owl:DatatypeProperty ;
+    rdfs:domain iiotpmo:MaintenanceAction ;
+    rdfs:range xsd:string ;
+    rdfs:label "has maintenance action"@en .
+
+iiotpmo:hasFailureProbability a owl:DatatypeProperty ;
+    rdfs:domain iiotpmo:PredictedFailure ;
+    rdfs:range xsd:decimal ;
+    rdfs:label "has failure probability"@en .
+
+iiotpmo:hasPredictionHorizonHours a owl:DatatypeProperty ;
+    rdfs:domain iiotpmo:PredictedFailure ;
+    rdfs:range xsd:decimal ;
+    rdfs:label "has prediction horizon hours"@en .
+
+iiotpmo:hasModelName a owl:DatatypeProperty ;
+    rdfs:domain iiotpmo:MachineLearningModel ;
+    rdfs:range xsd:string ;
+    rdfs:label "has model name"@en .
+
+
+# =================================================================
+# Individuals (Sample Data)
+# =================================================================
+
+# 1. Assets (Equipment)
+iiotpmo:CNC_Machine_1 a iiotpmo:Equipment ;
+    rdfs:label "CNC Machine 1"@en ;
+    iiotpmo:hasOperatingHours "1450.0"^^xsd:decimal ;
+    iiotpmo:hasSensor iiotpmo:CNC_Vib_Sensor_01 ;
+    iiotpmo:hasSensor iiotpmo:CNC_Temp_Sensor_01 ;
+    iiotpmo:hasPredictedFailure iiotpmo:PredictedFailure_CNC_BearingWear ;
+    iiotpmo:hasMaintenanceEvent iiotpmo:MaintenanceAction_CNC_1 .
+
+iiotpmo:Conveyor_Belt_2 a iiotpmo:Equipment ;
+    rdfs:label "Conveyor Belt 2"@en ;
+    iiotpmo:hasOperatingHours "980.0"^^xsd:decimal ;
+    iiotpmo:hasSensor iiotpmo:Conveyor_Vib_Sensor_02 ;
+    iiotpmo:hasSensor iiotpmo:Conveyor_Temp_Sensor_02 ;
+    iiotpmo:hasPredictedFailure iiotpmo:PredictedFailure_Conveyor_MotorOverheat ;
+    iiotpmo:hasMaintenanceEvent iiotpmo:MaintenanceAction_Conveyor_2 .
+
+
+# 2. Sensors
+iiotpmo:CNC_Vib_Sensor_01 a iiotpmo:VibrationSensor ;
+    rdfs:label "CNC Vibration Sensor 01"@en ;
+    iiotpmo:monitors iiotpmo:CNC_Machine_1 ;
+    iiotpmo:hasThreshold "6.0"^^xsd:decimal ;
+    iiotpmo:hasObservation iiotpmo:Obs_CNC_Vib_1 .
+
+iiotpmo:CNC_Temp_Sensor_01 a iiotpmo:TemperatureSensor ;
+    rdfs:label "CNC Temperature Sensor 01"@en ;
+    iiotpmo:monitors iiotpmo:CNC_Machine_1 ;
+    iiotpmo:hasThreshold "75.0"^^xsd:decimal ;
+    iiotpmo:hasObservation iiotpmo:Obs_CNC_Temp_1 .
+
+iiotpmo:Conveyor_Vib_Sensor_02 a iiotpmo:VibrationSensor ;
+    rdfs:label "Conveyor Vibration Sensor 02"@en ;
+    iiotpmo:monitors iiotpmo:Conveyor_Belt_2 ;
+    iiotpmo:hasThreshold "8.0"^^xsd:decimal ;
+    iiotpmo:hasObservation iiotpmo:Obs_Conveyor_Vib_2 .
+
+iiotpmo:Conveyor_Temp_Sensor_02 a iiotpmo:TemperatureSensor ;
+    rdfs:label "Conveyor Temperature Sensor 02"@en ;
+    iiotpmo:monitors iiotpmo:Conveyor_Belt_2 ;
+    iiotpmo:hasThreshold "65.0"^^xsd:decimal ;
+    iiotpmo:hasObservation iiotpmo:Obs_Conveyor_Temp_2 .
+
+
+# 3. Observations
+iiotpmo:Obs_CNC_Vib_1 a iiotpmo:Observation ;
+    rdfs:label "CNC Vibration Observation at 10:00"@en ;
+    iiotpmo:hasTimestamp "2026-05-31T10:00:00+03:00"^^xsd:dateTime ;
+    iiotpmo:hasMeasurement iiotpmo:Meas_CNC_Vib_1 ;
+    iiotpmo:generatesAlert iiotpmo:Alert_CNC_CriticalVib .
+
+iiotpmo:Obs_CNC_Temp_1 a iiotpmo:Observation ;
+    rdfs:label "CNC Temperature Observation at 10:00"@en ;
+    iiotpmo:hasTimestamp "2026-05-31T10:00:00+03:00"^^xsd:dateTime ;
+    iiotpmo:hasMeasurement iiotpmo:Meas_CNC_Temp_1 .
+
+iiotpmo:Obs_Conveyor_Vib_2 a iiotpmo:Observation ;
+    rdfs:label "Conveyor Vibration Observation at 10:05"@en ;
+    iiotpmo:hasTimestamp "2026-05-31T10:05:00+03:00"^^xsd:dateTime ;
+    iiotpmo:hasMeasurement iiotpmo:Meas_Conveyor_Vib_2 .
+
+iiotpmo:Obs_Conveyor_Temp_2 a iiotpmo:Observation ;
+    rdfs:label "Conveyor Temperature Observation at 10:05"@en ;
+    iiotpmo:hasTimestamp "2026-05-31T10:05:00+03:00"^^xsd:dateTime ;
+    iiotpmo:hasMeasurement iiotpmo:Meas_Conveyor_Temp_2 ;
+    iiotpmo:generatesAlert iiotpmo:Alert_Conveyor_HighTemp .
+
+
+# 4. Measurements
+iiotpmo:Meas_CNC_Vib_1 a iiotpmo:Measurement ;
+    rdfs:label "Vibration measurement for CNC 1"@en ;
+    iiotpmo:hasValue "7.2"^^xsd:decimal ; # Exceeds threshold (6.0)
+    iiotpmo:hasUnit "mm/s RMS" .
+
+iiotpmo:Meas_CNC_Temp_1 a iiotpmo:Measurement ;
+    rdfs:label "Temperature measurement for CNC 1"@en ;
+    iiotpmo:hasValue "72.0"^^xsd:decimal ; # Below threshold (75.0)
+    iiotpmo:hasUnit "degC" .
+
+iiotpmo:Meas_Conveyor_Vib_2 a iiotpmo:Measurement ;
+    rdfs:label "Vibration measurement for Conveyor 2"@en ;
+    iiotpmo:hasValue "5.5"^^xsd:decimal ; # Below threshold (8.0)
+    iiotpmo:hasUnit "mm/s RMS" .
+
+iiotpmo:Meas_Conveyor_Temp_2 a iiotpmo:Measurement ;
+    rdfs:label "Temperature measurement for Conveyor 2"@en ;
+    iiotpmo:hasValue "68.5"^^xsd:decimal ; # Exceeds threshold (65.0)
+    iiotpmo:hasUnit "degC" .
+
+
+# 5. Alerts
+iiotpmo:Alert_CNC_CriticalVib a iiotpmo:CriticalAlert ;
+    rdfs:label "Critical Vibration Alert on CNC 1"@en ;
+    iiotpmo:hasTimestamp "2026-05-31T10:00:05+03:00"^^xsd:dateTime ;
+    iiotpmo:indicatesFailureMode iiotpmo:BearingWear .
+
+iiotpmo:Alert_Conveyor_HighTemp a iiotpmo:ThresholdAlert ;
+    rdfs:label "High Temperature Alert on Conveyor 2"@en ;
+    iiotpmo:hasTimestamp "2026-05-31T10:05:05+03:00"^^xsd:dateTime ;
+    iiotpmo:indicatesFailureMode iiotpmo:MotorOverheating .
+
+
+# 6. Failure Modes
+iiotpmo:BearingWear a iiotpmo:FailureMode ;
+    rdfs:label "Bearing Wear"@en .
+
+iiotpmo:MotorOverheating a iiotpmo:FailureMode ;
+    rdfs:label "Motor Overheating"@en .
+
+
+# 7. Machine Learning Model (GRU-RNN)
+iiotpmo:GRU_RNN_Model_v2 a iiotpmo:MachineLearningModel ;
+    rdfs:label "GRU-RNN Predictive Maintenance Model v2"@en ;
+    iiotpmo:hasModelName "GRU-RNN Predictive Maintenance Model v2" .
+
+
+# 8. Predicted Failures
+iiotpmo:PredictedFailure_CNC_BearingWear a iiotpmo:PredictedFailure ;
+    rdfs:label "Predicted Bearing Wear for CNC 1"@en ;
+    iiotpmo:hasTimestamp "2026-05-31T10:02:00+03:00"^^xsd:dateTime ;
+    iiotpmo:hasFailureProbability "0.94"^^xsd:decimal ; # High confidence/probability
+    iiotpmo:hasPredictionHorizonHours "48.0"^^xsd:decimal ;
+    iiotpmo:predictedBy iiotpmo:GRU_RNN_Model_v2 ;
+    iiotpmo:indicatesFailureMode iiotpmo:BearingWear .
+
+iiotpmo:PredictedFailure_Conveyor_MotorOverheat a iiotpmo:PredictedFailure ;
+    rdfs:label "Predicted Motor Overheating for Conveyor 2"@en ;
+    iiotpmo:hasTimestamp "2026-05-31T10:07:00+03:00"^^xsd:dateTime ;
+    iiotpmo:hasFailureProbability "0.78"^^xsd:decimal ; # Medium confidence/probability
+    iiotpmo:hasPredictionHorizonHours "24.0"^^xsd:decimal ;
+    iiotpmo:predictedBy iiotpmo:GRU_RNN_Model_v2 ;
+    iiotpmo:indicatesFailureMode iiotpmo:MotorOverheating .
+
+
+# 9. Maintenance Actions
+iiotpmo:MaintenanceAction_CNC_1 a iiotpmo:MaintenanceAction ;
+    rdfs:label "Spindle Lubrication for CNC 1"@en ;
+    iiotpmo:hasTimestamp "2026-05-15T09:00:00+03:00"^^xsd:dateTime ;
+    iiotpmo:hasMaintenanceAction "Spindle Lubrication" ;
+    iiotpmo:hasLogText "Routine spindle lubrication and bearing check completed." .
+
+iiotpmo:MaintenanceAction_Conveyor_2 a iiotpmo:MaintenanceAction ;
+    rdfs:label "Belt Tension Adjustment for Conveyor 2"@en ;
+    iiotpmo:hasTimestamp "2026-05-20T14:00:00+03:00"^^xsd:dateTime ;
+    iiotpmo:hasMaintenanceAction "Belt Tension Adjustment" ;
+    iiotpmo:hasLogText "Adjusted tension of Conveyor Belt 2 due to minor slippage." .

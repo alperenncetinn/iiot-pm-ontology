@@ -1,0 +1,136 @@
+# =================================================================
+# Industrial IoT & Predictive Maintenance Ontology (IIoT-PMO)
+# Advanced SPARQL Queries
+# =================================================================
+
+# -----------------------------------------------------------------
+# 1. KRİTİK EŞİĞİ AŞAN SENSÖRLER VE ALARM ÜRETEN CİHAZLAR
+# Senaryo: Son ölçüm değerlerine göre kritik eşiği aşan, alarm üreten
+# sensörleri, bağlı oldukları cihazları, ölçüm değerini ve eşiği listeler.
+# -----------------------------------------------------------------
+PREFIX iiotpmo: <http://example.org/iiot-pm-ontology#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+SELECT ?cihaz ?sensor ?olcumDegeri ?esikDegeri ?birim ?alert ?zamanDamgasi
+WHERE {
+    # Sensörün izlediği cihazı ve tanımlı kritik eşik değerini al
+    ?sensor iiotpmo:monitors ?cihaz ;
+            iiotpmo:hasThreshold ?esikDegeri .
+    
+    # Sensöre bağlı gözlemleri ve bu gözlemlerden üretilen alarmları al
+    ?sensor iiotpmo:hasObservation ?obs .
+    ?obs iiotpmo:generatesAlert ?alert ;
+         iiotpmo:hasTimestamp ?zamanDamgasi ;
+         iiotpmo:hasMeasurement ?meas .
+         
+    # Ölçümün sayısal değerini ve birimini al
+    ?meas iiotpmo:hasValue ?olcumDegeri ;
+          iiotpmo:hasUnit ?birim .
+          
+    # Ölçüm değerinin sensör eşik değerini aşıp aşmadığını doğrula
+    FILTER (?olcumDegeri > ?esikDegeri)
+}
+ORDER BY DESC(?zamanDamgasi)
+
+
+# -----------------------------------------------------------------
+# 2. MODEL BAZLI EN YÜKSEK DOĞRULUKLU (CONFIDENCE) ARIZA TAHMİNLERİ
+# Senaryo: Belirli bir yapay zeka modelinin (MLModel) ürettiği, en yüksek
+# olasılığa/doğruluk oranına sahip arıza tahminlerini azalan sırada getirir.
+# -----------------------------------------------------------------
+PREFIX iiotpmo: <http://example.org/iiot-pm-ontology#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT ?modelAdi ?tahmin ?cihaz ?arizaModu ?hataOlasiligi ?tahminUfkuSaat
+WHERE {
+    # Model adını al ve filtreleme yap
+    ?model a iiotpmo:MachineLearningModel ;
+           iiotpmo:hasModelName ?modelName .
+    
+    # Tahmin, hata olasılığı, ufku ve ilişkili arıza modunu al
+    ?tahmin iiotpmo:predictedBy ?model ;
+            iiotpmo:hasFailureProbability ?hataOlasiligi ;
+            iiotpmo:hasPredictionHorizonHours ?tahminUfkuSaat ;
+            iiotpmo:indicatesFailureMode ?arizaModu .
+            
+    # Tahminin hangi cihaza ait olduğunu bul
+    ?cihaz iiotpmo:hasPredictedFailure ?tahmin .
+    
+    # Model adına göre filtreleme yap (Örn: GRU-RNN modelleri)
+    FILTER (CONTAINS(LCASE(?modelName), "gru-rnn"))
+    
+    # Model adını string'e çevirip bind et
+    BIND(STR(?modelName) AS ?modelAdi)
+}
+ORDER BY DESC(?hataOlasiligi)
+
+
+# -----------------------------------------------------------------
+# 3. BAKIM PLANLAMASI GEREKEN RİSKLİ/ARIZALI CİHAZLAR
+# Senaryo: Aktif alarm üreten veya ML modeline göre yüksek arıza olasılığı
+# (> 0.70) olan cihazları, risk sebebini ve son bakım bilgilerini listeler.
+# -----------------------------------------------------------------
+PREFIX iiotpmo: <http://example.org/iiot-pm-ontology#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT DISTINCT ?cihaz ?riskTipi ?riskDetayi ?degerOlasilikAlert ?sonBakimTarihi ?sonBakimAksiyonu
+WHERE {
+    {
+        # Durum A: Yüksek olasılıklı makine öğrenmesi arıza tahmini
+        ?cihaz iiotpmo:hasPredictedFailure ?tahmin .
+        ?tahmin iiotpmo:indicatesFailureMode ?arizaModu ;
+                iiotpmo:hasFailureProbability ?degerOlasilikAlert .
+        BIND("Yuksek Riskli Ariza Tahmini" AS ?riskTipi)
+        BIND(CONCAT("Tahmini Ariza Modu: ", STRREPLACE(STR(?arizaModu), "^.*#", "")) AS ?riskDetayi)
+        FILTER (?degerOlasilikAlert > 0.70)
+    }
+    UNION
+    {
+        # Durum B: Aktif olarak eşik aşımından kaynaklı sensör alarmı
+        ?sensor iiotpmo:monitors ?cihaz ;
+                iiotpmo:hasObservation ?obs .
+        ?obs iiotpmo:generatesAlert ?alert .
+        ?alert rdfs:label ?degerOlasilikAlert .
+        BIND("Aktif Sensor Alarmi" AS ?riskTipi)
+        BIND(CONCAT("Alarm Veren Sensor: ", STRREPLACE(STR(?sensor), "^.*#", "")) AS ?riskDetayi)
+    }
+    
+    # Cihaza yapılan en son bakım aksiyonunu ve tarihini opsiyonel olarak bağla
+    OPTIONAL {
+        ?cihaz iiotpmo:hasMaintenanceEvent ?bakim .
+        ?bakim iiotpmo:hasTimestamp ?sonBakimTarihi ;
+               iiotpmo:hasMaintenanceAction ?sonBakimAksiyonu .
+    }
+}
+ORDER BY DESC(?degerOlasilikAlert)
+
+
+# -----------------------------------------------------------------
+# 4. CİHAZ BAZINDA ORTALAMA SENSÖR ÖLÇÜM DEĞERLERİ (AGGREGATION)
+# Senaryo: Her cihazın her bir sensör türü (Sıcaklık, Titreşim vb.) için
+# ölçülen ortalama değerini ve toplam gözlem sayısını hesaplar.
+# -----------------------------------------------------------------
+PREFIX iiotpmo: <http://example.org/iiot-pm-ontology#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT ?cihaz ?sensorTuru (AVG(?deger) AS ?ortalamaDeger) ?birim (COUNT(?obs) AS ?toplamOlcumSayisi)
+WHERE {
+    # Sensörün izlediği cihazı ve sensörün sınıf tipini al
+    ?sensor iiotpmo:monitors ?cihaz ;
+            a ?sensorSinifi .
+            
+    # Sensöre ait gözlemleri ve ölçüm değerlerini al
+    ?sensor iiotpmo:hasObservation ?obs .
+    ?obs iiotpmo:hasMeasurement ?meas .
+    ?meas iiotpmo:hasValue ?deger ;
+          iiotpmo:hasUnit ?birim .
+          
+    # Üst sınıflar (Sensor, Asset vb.) yerine spesifik alt sınıfları (TemperatureSensor, VibrationSensor) filtrele
+    FILTER (?sensorSinifi != iiotpmo:Sensor && ?sensorSinifi != iiotpmo:Asset)
+    
+    # URI'den sınıf adını çıkartarak temiz bir çıktı sağla
+    BIND(STRREPLACE(STR(?sensorSinifi), "^.*#", "") AS ?sensorTuru)
+}
+GROUP BY ?cihaz ?sensorTuru ?birim
+ORDER BY ?cihaz ?sensorTuru
