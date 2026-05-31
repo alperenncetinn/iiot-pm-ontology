@@ -824,6 +824,7 @@ g.serialize("populated_data.ttl", format="turtle")<span class="terminal-cursor">
         let scrollInterval = null;
         let isConfiguring = false;
         let currentPlayingElement = null;
+        let lastProcessedSlide = null;
 
         const timerFill = document.getElementById("progress-fill");
         const toggleBtn = document.getElementById("toggle-flow");
@@ -882,6 +883,8 @@ g.serialize("populated_data.ttl", format="turtle")<span class="terminal-cursor">
 
         function handleTransition(currentSlide) {
             if (!hasStarted) return;
+            if (lastProcessedSlide === currentSlide) return;
+            lastProcessedSlide = currentSlide;
 
             // Reset active styles
             document.querySelectorAll(".active-highlight").forEach(el => el.classList.remove("active-highlight"));
