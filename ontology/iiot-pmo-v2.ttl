@@ -1,10 +1,11 @@
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix iiot: <https://w3id.org/iiot-pmo#> .
-@prefix ns1: <http://example.org/iiot-pm-ontology#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix sosa: <http://www.w3.org/ns/sosa/> .
+@prefix ssn: <http://www.w3.org/ns/ssn/> .
 
 <https://w3id.org/iiot-pmo> a owl:Ontology ;
     dcterms:description "Version 0.2.0 extends the initial predictive maintenance ontology with LLM-assisted ontology population, maintenance history, time-series batches, and machine-learning-based predicted failures."@en ;
@@ -414,4 +415,40 @@ iiot:Sensor a owl:Class ;
     rdfs:label "Sensor"@en ;
     rdfs:comment "A device that observes a physical property of equipment or its operational context."@en ;
     rdfs:subClassOf iiot:Asset .
+
+#################################################################
+# SOSA/SSN Alignment Axioms
+# This section aligns IIoT-PMO v2 classes and properties with W3C
+# Semantic Sensor Network (SSN) and Sensor, Observation, Sample,
+# and Actuation (SOSA) ontologies.
+#################################################################
+
+iiot:Asset
+    rdfs:subClassOf sosa:FeatureOfInterest ;
+    rdfs:comment "An industrial asset represents the physical or logical entity whose properties (e.g. temperature, vibration) are observed, making it a subclass of sosa:FeatureOfInterest."@en .
+
+iiot:Sensor
+    owl:equivalentClass sosa:Sensor ;
+    rdfs:subClassOf ssn:System ;
+    rdfs:comment "iiot:Sensor is semantically equivalent to sosa:Sensor and, as a physical device, is a subclass of ssn:System."@en .
+
+iiot:Observation
+    owl:equivalentClass sosa:Observation ;
+    rdfs:comment "iiot:Observation represents the act of carrying out an observation, equivalent to sosa:Observation."@en .
+
+iiot:Measurement
+    rdfs:subClassOf sosa:Result ;
+    rdfs:comment "iiot:Measurement represents the structured value or representation of the observation result, aligning it as a subclass of sosa:Result."@en .
+
+iiot:monitors
+    rdfs:subPropertyOf ssn:detects ;
+    rdfs:comment "iiot:monitors is a domain-specific specialization of ssn:detects, linking a sensor to the equipment it monitors."@en .
+
+iiot:hasObservation
+    owl:equivalentProperty ssn:madeObservation ;
+    rdfs:comment "Links a sensor to the observations it has made, equivalent to ssn:madeObservation."@en .
+
+iiot:hasMeasurement
+    owl:equivalentProperty sosa:hasResult ;
+    rdfs:comment "Links an observation to its result, equivalent to sosa:hasResult."@en .
 
