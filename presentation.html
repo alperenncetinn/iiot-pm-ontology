@@ -11,9 +11,9 @@
     
     <style>
         :root {
-            --bg: #0e0c0a;
-            --panel: #1a1714;
-            --panel-2: #231f1b;
+            --bg: #1c1915;
+            --panel: #242019;
+            --panel-2: #2d2820;
             --line: #3d3529;
             --text: #f5efe6;
             --muted: #a89e8f;
@@ -28,8 +28,9 @@
         body {
             background-color: var(--bg) !important;
             background-image:
-                radial-gradient(ellipse 600px 400px at 15% 20%, rgba(200,169,110,0.06), transparent),
-                radial-gradient(ellipse 500px 500px at 85% 70%, rgba(155,126,200,0.05), transparent);
+                radial-gradient(ellipse 800px 600px at 10% 15%, rgba(200,169,110,0.08), transparent),
+                radial-gradient(ellipse 600px 500px at 90% 80%, rgba(155,126,200,0.06), transparent),
+                radial-gradient(ellipse 400px 300px at 50% 50%, rgba(139,184,196,0.04), transparent);
             font-family: 'Inter', sans-serif !important;
         }
 
@@ -209,7 +210,7 @@
             50% { color: var(--green) }
         }
 
-        /* Slide 3 deep visual pan */
+        /* Slide 3 iframe container - JS handles internal scrolling */
         .auto-pan-container {
             position: relative;
             width: 100%;
@@ -218,19 +219,12 @@
             border-radius: 12px;
             border: 1px solid rgba(200,169,110,0.2);
             background: var(--panel);
-            box-shadow: 0 4px 30px rgba(0,0,0,0.4);
+            box-shadow: 0 4px 30px rgba(0,0,0,0.3);
         }
         .auto-pan-iframe {
             width: 100%;
-            height: 300%;
+            height: 100%;
             border: none;
-            transform-origin: top center;
-            animation: panIframe 25s ease-in-out infinite alternate;
-        }
-        @keyframes panIframe {
-            0%   { transform: translateY(0) scale(1.02); }
-            50%  { transform: translateY(-35%) scale(1.04); }
-            100% { transform: translateY(-60%) scale(1.02); }
         }
         .ghost-cursor {
             position: absolute;
@@ -257,6 +251,14 @@
             92%  { opacity: 1; }
             100% { top: 15%; left: 25%; opacity: 0; }
         }
+
+        /* Inline SVG animation helpers */
+        .svg-float { animation: svgFloat 6s ease-in-out infinite alternate; }
+        @keyframes svgFloat { 0%{transform:translateY(0)} 100%{transform:translateY(-12px)} }
+        .svg-rotate { animation: svgRotate 20s linear infinite; }
+        @keyframes svgRotate { to { transform: rotate(360deg); } }
+        .svg-pulse { animation: svgPulse 2s ease-in-out infinite alternate; }
+        @keyframes svgPulse { 0%{opacity:0.4;transform:scale(0.95)} 100%{opacity:1;transform:scale(1.05)} }
 
         /* Slide 2 SOSA bridge animation */
         .bridge-anim {
@@ -341,8 +343,10 @@
 
     <div class="reveal">
         <div class="slides">
-            <section data-audio-src="audio/01_intro.mp3">
-                <div class="pulse-glow" style="border: 1px solid rgba(200,169,110,0.2); background: rgba(26, 23, 20, 0.8); padding: 44px; border-radius: 20px; backdrop-filter: blur(8px);">
+            <section data-audio-src="audio/01_intro.mp3" style="position:relative;">
+                <!-- SVG: Decorative rotating cog -->
+                <svg class="svg-rotate" style="position:absolute;top:-30px;right:-20px;opacity:0.06;" width="200" height="200" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.5"><path d="M12 15a3 3 0 100-6 3 3 0 000 6z"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 01-2.83 2.83l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg>
+                <div class="pulse-glow" style="border: 1px solid rgba(200,169,110,0.2); background: rgba(44, 40, 32, 0.85); padding: 44px; border-radius: 20px; backdrop-filter: blur(8px); position:relative; z-index:2;">
                     <div style="color: var(--green); text-transform: uppercase; letter-spacing: 0.15em; font-size: 0.85rem; margin-bottom: 20px; font-family: 'Inter', sans-serif;">
                         <i class="fa-solid fa-wave-square"></i> Bilgi Mühendisliği ve Ontolojiler
                     </div>
@@ -356,7 +360,9 @@
             </section>
 
             <!-- Slide 2: Architecture -->
-            <section>
+            <section style="position:relative;">
+                <!-- SVG: Floating network nodes -->
+                <svg class="svg-float" style="position:absolute;top:10px;right:30px;opacity:0.08;" width="140" height="140" viewBox="0 0 100 100"><circle cx="20" cy="20" r="6" fill="currentColor"/><circle cx="80" cy="30" r="6" fill="currentColor"/><circle cx="50" cy="75" r="6" fill="currentColor"/><line x1="20" y1="20" x2="80" y2="30" stroke="currentColor" stroke-width="1" stroke-dasharray="4"/><line x1="80" y1="30" x2="50" y2="75" stroke="currentColor" stroke-width="1" stroke-dasharray="4"/><line x1="50" y1="75" x2="20" y2="20" stroke="currentColor" stroke-width="1" stroke-dasharray="4"/></svg>
                 <h2>Sistem Mimarisi ve SOSA/SSN Hizalaması</h2>
                 <ul>
                     <li class="fragment" data-audio-src="audio/02_architecture_1.mp3">
@@ -386,10 +392,12 @@
             </section>
 
             <!-- Slide 4: LLM Pipeline -->
-            <section data-audio-src="audio/04_llm_pipeline.mp3">
+            <section data-audio-src="audio/04_llm_pipeline.mp3" style="position:relative;">
+                <!-- SVG: AI Brain circuit -->
+                <svg class="svg-pulse" style="position:absolute;bottom:20px;right:20px;opacity:0.07;" width="160" height="160" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.6"><path d="M12 2a7 7 0 017 7c0 2.38-1.19 4.47-3 5.74V17a2 2 0 01-2 2h-4a2 2 0 01-2-2v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 017-7z"/><path d="M9 21h6M10 17v4M14 17v4"/><circle cx="10" cy="9" r="1" fill="currentColor"/><circle cx="14" cy="9" r="1" fill="currentColor"/></svg>
                 <h2>Otonom Veri Popülasyon Pipeline Hattı</h2>
-                <div style="font-size: 0.7em; border: 1px solid rgba(255,255,255,0.12); border-radius: 12px; background: #11130f; padding: 15px; text-align: left; max-height: 450px; overflow-y: auto;">
-                    <pre><code style="color: #5ee083; font-family: monospace;"># Extract triples using Ollama (gemma4:e2b)
+                <div style="font-size: 0.7em; border: 1px solid rgba(200,169,110,0.15); border-radius: 12px; background: rgba(28,25,21,0.9); padding: 15px; text-align: left; max-height: 450px; overflow-y: auto;">
+                    <pre><code style="color: var(--green); font-family: monospace;"># Extract triples using Ollama (gemma4:e2b)
 response = client.chat.completions.create(
     model="gemma4:e2b",
     messages=[
@@ -407,7 +415,9 @@ g.serialize("populated_data.ttl", format="turtle")<span class="terminal-cursor">
             </section>
 
             <!-- Slide 5: SHACL Validation -->
-            <section>
+            <section style="position:relative;">
+                <!-- SVG: Shield check -->
+                <svg class="svg-float" style="position:absolute;top:0;left:30px;opacity:0.06;" width="120" height="120" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.6"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4" stroke-width="1"/></svg>
                 <h2>Veri Kalitesi ve Semantik Doğrulama</h2>
                 <ul class="scanner-container">
                     <div class="scanner-line"></div>
@@ -535,6 +545,7 @@ g.serialize("populated_data.ttl", format="turtle")<span class="terminal-cursor">
         const DEFAULT_TIMEOUT = 5000; // 5 seconds fallback if audio is not found
         let isAutoSlide = true;
         let hasStarted = false;
+        let scrollInterval = null;
 
         const timerFill = document.getElementById("progress-fill");
         const toggleBtn = document.getElementById("toggle-flow");
@@ -585,18 +596,25 @@ g.serialize("populated_data.ttl", format="turtle")<span class="terminal-cursor">
         });
 
         function handleTransition(currentSlide) {
-            if (!hasStarted) return; // Wait for user to click Start
+            if (!hasStarted) return;
 
             // Reset active styles
             document.querySelectorAll(".active-highlight").forEach(el => el.classList.remove("active-highlight"));
             const existingLaser = document.getElementById("laser-pointer");
             if (existingLaser) existingLaser.remove();
 
+            // Slide 3 (index 2) iframe real internal scroll
+            const idx = Reveal.getIndices();
+            if (idx.h === 2) {
+                startIframeScroll();
+            } else {
+                stopIframeScroll();
+            }
+
             const fragments = currentSlide.querySelectorAll('.fragment');
             const hasSlideAudio = currentSlide.hasAttribute('data-audio-src');
 
             if (fragments.length > 0 && !hasSlideAudio) {
-                // Instantly advance to reveal the first fragment and play its audio
                 setTimeout(() => {
                     Reveal.next();
                 }, 150);
@@ -697,6 +715,30 @@ g.serialize("populated_data.ttl", format="turtle")<span class="terminal-cursor">
             const laser = document.createElement("div");
             laser.id = "laser-pointer";
             element.appendChild(laser);
+        }
+
+        // Slide 3: real iframe internal content scrolling
+        function startIframeScroll() {
+            stopIframeScroll();
+            setTimeout(() => {
+                const iframe = document.querySelector('.auto-pan-iframe');
+                if (!iframe) return;
+                let direction = 1;
+                scrollInterval = setInterval(() => {
+                    try {
+                        const win = iframe.contentWindow;
+                        const doc = iframe.contentDocument || win.document;
+                        const cur = win.pageYOffset || doc.documentElement.scrollTop;
+                        const max = doc.documentElement.scrollHeight - doc.documentElement.clientHeight;
+                        if (cur >= max - 2) direction = -1;
+                        if (cur <= 2) direction = 1;
+                        win.scrollBy(0, direction * 1.5);
+                    } catch(e) {}
+                }, 30);
+            }, 800);
+        }
+        function stopIframeScroll() {
+            if (scrollInterval) { clearInterval(scrollInterval); scrollInterval = null; }
         }
     </script>
 </body>
