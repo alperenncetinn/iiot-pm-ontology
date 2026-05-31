@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IIoT-PMO v2 | Interactive Presentation</title>
+    <!-- Reveal.js styles -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.1.0/reveal.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.1.0/theme/black.min.css">
+    <!-- FontAwesome icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    
+    <style>
+        :root {
+            --bg: #11110f;
+            --panel: #191a17;
+            --panel-2: #20211d;
+            --line: #3a3d34;
+            --text: #f3f0e8;
+            --muted: #b7b2a3;
+            --green: #5ee083;
+            --amber: #f4b74a;
+            --red: #ff6b5c;
+            --cyan: #6ad7d8;
+        }
+
+        body {
+            background-color: var(--bg) !important;
+            font-family: Inter, sans-serif !important;
+        }
+
+        .reveal {
+            color: var(--text) !important;
+        }
+
+        .reveal h1, .reveal h2, .reveal h3, .reveal h4 {
+            color: var(--text) !important;
+            font-weight: 700 !important;
+            letter-spacing: -0.02em !important;
+            text-transform: none !important;
+        }
+
+        .reveal h1 {
+            font-size: 2.8em !important;
+            line-height: 1.1 !important;
+            margin-bottom: 20px !important;
+        }
+
+        .reveal h2 {
+            font-size: 1.8em !important;
+            margin-bottom: 30px !important;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.08);
+            padding-bottom: 12px;
+            display: inline-block;
+        }
+
+        .reveal ul {
+            list-style: none !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            width: 100%;
+        }
+
+        .reveal ul li.fragment {
+            border: 1px solid transparent;
+            padding: 16px 20px;
+            margin-bottom: 16px;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.02);
+            transition: all 0.5s ease;
+            text-align: left;
+            opacity: 0;
+            display: flex;
+            align-items: center;
+        }
+
+        /* Active high-tech glowing state */
+        .active-highlight {
+            border: 1px solid var(--green) !important;
+            background: rgba(94, 224, 131, 0.08) !important;
+            box-shadow: 0 0 20px rgba(94, 224, 131, 0.15) !important;
+            transform: translateX(10px);
+            transition: all 0.5s ease;
+        }
+
+        /* Laser pointer target dot */
+        #laser-pointer {
+            position: fixed;
+            width: 12px;
+            height: 12px;
+            background: var(--green);
+            border-radius: 50%;
+            box-shadow: 0 0 16px 6px var(--green), 0 0 28px 12px rgba(94, 224, 131, 0.5);
+            pointer-events: none;
+            z-index: 9999;
+            transition: all 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+            opacity: 0;
+        }
+
+        /* Audio HUD Bar */
+        .audio-hud {
+            position: fixed;
+            bottom: 24px;
+            left: 24px;
+            right: 24px;
+            z-index: 1000;
+            background: rgba(25, 26, 23, 0.85);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(12px);
+            border-radius: 12px;
+            padding: 14px 20px;
+            box-shadow: 0 12px 40px rgba(0,0,0,0.5);
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .progress-track {
+            height: 4px;
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 2px;
+            overflow: hidden;
+        }
+
+        #progress-fill {
+            height: 100%;
+            width: 0%;
+            background: var(--green);
+        }
+
+        .hud-details {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .hud-track-info {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .hud-status {
+            font-size: 0.75rem;
+            color: var(--muted);
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+
+        @keyframes progressBar {
+            from { width: 0%; }
+            to { width: 100%; }
+        }
+
+        .fa-spin-slow {
+            animation: fa-spin 3s linear infinite;
+        }
+    </style>
+</head>
+<body>
+    <div id="laser-pointer"></div>
+
+    <div class="reveal">
+        <div class="slides">
+            <!-- Slide 1: Intro -->
+            <section data-audio-src="audio/01_intro.mp3">
+                <div style="border: 1px solid rgba(255,255,255,0.08); background: rgba(255,255,255,0.02); padding: 40px; border-radius: 16px;">
+                    <div style="color: var(--green); text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.9rem; margin-bottom: 20px;">
+                        <i class="fa-solid fa-wave-square"></i> Knowledge Engineering & Ontologies
+                    </div>
+                    <h1>Industrial IoT & Predictive Maintenance</h1>
+                    <p style="color: var(--muted); font-size: 1.2rem; margin-bottom: 40px;">Semantic Knowledge Graph Framework (IIoT-PMO v2)</p>
+                    <div style="font-size: 0.95rem; color: var(--text);">
+                        <strong>Prepared by:</strong> Alperen Çetin <br>
+                        <span style="color: var(--muted);">Final Presentation & Demonstration</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Slide 2: Architecture -->
+            <section>
+                <h2>System Architecture</h2>
+                <ul>
+                    <li class="fragment" data-audio-src="audio/02_architecture_1.mp3">
+                        <i class="fa-solid fa-robot" style="font-size: 1.5rem; color: var(--green); margin-right: 20px; width: 30px;"></i>
+                        <div>
+                            <strong>Dynamic Log Ingestion:</strong> Ingests unstructured factory text using local LLM pipeline.
+                        </div>
+                    </li>
+                    <li class="fragment" data-audio-src="audio/02_architecture_2.mp3">
+                        <i class="fa-solid fa-database" style="font-size: 1.5rem; color: var(--cyan); margin-right: 20px; width: 30px;"></i>
+                        <div>
+                            <strong>RDFLib Graph Persistence:</strong> Incremental graph merging into `populated_data.ttl`.
+                        </div>
+                    </li>
+                </ul>
+            </section>
+
+            <!-- Slide 3: Visualization -->
+            <section data-audio-src="audio/03_webvowl.mp3">
+                <h2 style="margin-bottom: 15px;">Interactive Ontology Console</h2>
+                <div style="height: 480px; border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; overflow: hidden; background: var(--panel);">
+                    <iframe src="console.html" style="width:100%; height:100%; border:none;" title="Ontology Console"></iframe>
+                </div>
+            </section>
+
+            <!-- Slide 4: LLM Pipeline -->
+            <section data-audio-src="audio/04_llm_pipeline.mp3">
+                <h2>Local LLM Ingestion Pipeline</h2>
+                <div style="font-size: 0.7em; border: 1px solid rgba(255,255,255,0.12); border-radius: 12px; background: #11130f; padding: 20px; text-align: left; max-height: 450px; overflow-y: auto;">
+                    <pre><code style="color: #5ee083; font-family: monospace;"># Extract triples using Ollama (gemma4:e2b)
+response = client.chat.completions.create(
+    model="gemma4:e2b",
+    messages=[
+        {"role": "system", "content": system_message},
+        {"role": "user", "content": log_text}
+    ]
+)
+# Safe extraction inside regex block
+match = re.search(r"```(?:turtle)?\s*(.*?)\s*```", content, re.DOTALL)
+# Incremental merging to populated_data.ttl
+g.parse("populated_data.ttl", format="turtle")
+g += temp_g
+g.serialize("populated_data.ttl", format="turtle")</code></pre>
+                </div>
+            </section>
+
+            <!-- Slide 5: SHACL Validation -->
+            <section>
+                <h2>Data Quality & Semantic Validation</h2>
+                <ul>
+                    <li class="fragment" data-audio-src="audio/05_shacl_1.mp3">
+                        <i class="fa-solid fa-shield-halved" style="font-size: 1.5rem; color: var(--green); margin-right: 20px; width: 30px;"></i>
+                        <div>
+                            <strong>SHACL Constraints:</strong> Checks cardinalities on value/timestamp and ranges for predicted failures.
+                        </div>
+                    </li>
+                    <li class="fragment" data-audio-src="audio/05_shacl_2.mp3">
+                        <i class="fa-solid fa-circle-exclamation" style="font-size: 1.5rem; color: var(--amber); margin-right: 20px; width: 30px;"></i>
+                        <div>
+                            <strong>OOPS! Pitfall Report:</strong> Automated structural diagnosis included in WIDOCO builds.
+                        </div>
+                    </li>
+                </ul>
+            </section>
+
+            <!-- Slide 6: SPARQL -->
+            <section>
+                <h2>SPARQL Analytics</h2>
+                <ul>
+                    <li class="fragment" data-audio-src="audio/06_sparql_1.mp3">
+                        <i class="fa-solid fa-circle-notch fa-spin-slow" style="font-size: 1.2rem; color: var(--red); margin-right: 20px; width: 24px;"></i>
+                        <div>
+                            <strong>Query 1: Critical Threshold Breach:</strong> Varlıkların 80Hz limitini aşan sensör ölçümleri.
+                        </div>
+                    </li>
+                    <li class="fragment" data-audio-src="audio/06_sparql_2.mp3">
+                        <i class="fa-solid fa-chart-line" style="font-size: 1.2rem; color: var(--green); margin-right: 20px; width: 24px;"></i>
+                        <div>
+                            <strong>Query 2: Failure Track:</strong> ML modelleri ile tahminlerin izlenebilirliği.
+                        </div>
+                    </li>
+                    <li class="fragment" data-audio-src="audio/06_sparql_3.mp3">
+                        <i class="fa-solid fa-triangle-exclamation" style="font-size: 1.2rem; color: var(--amber); margin-right: 20px; width: 24px;"></i>
+                        <div>
+                            <strong>Query 3: Risk Assessment:</strong> Varlıkların hata tahmin olasılıklarına göre sıralanması.
+                        </div>
+                    </li>
+                    <li class="fragment" data-audio-src="audio/06_sparql_4.mp3">
+                        <i class="fa-solid fa-calculator" style="font-size: 1.2rem; color: var(--cyan); margin-right: 20px; width: 24px;"></i>
+                        <div>
+                            <strong>Query 4: Avg Metrics:</strong> Sensör tiplerine göre ortalama değer analizleri.
+                        </div>
+                    </li>
+                </ul>
+            </section>
+
+            <!-- Slide 7: Future Work -->
+            <section data-audio-src="audio/07_future_work.mp3">
+                <h2>Future Work & Roadmap</h2>
+                <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:16px; margin-top:30px;">
+                    <div style="border: 1px solid rgba(255,255,255,0.08); background:var(--panel-2); padding: 24px; border-radius: 12px; text-align: left;">
+                        <i class="fa-solid fa-bolt" style="font-size:2rem; color:var(--green); margin-bottom:12px;"></i>
+                        <h3 style="font-size:1.15rem; margin-top:0;">Real-Time Streams</h3>
+                        <p style="font-size:0.8rem; color:var(--muted); margin:0;">FastAPI backend with MQTT/Kafka streams for continuous ingestion.</p>
+                    </div>
+                    <div style="border: 1px solid rgba(255,255,255,0.08); background:var(--panel-2); padding: 24px; border-radius: 12px; text-align: left;">
+                        <i class="fa-solid fa-brain" style="font-size:2rem; color:var(--cyan); margin-bottom:12px;"></i>
+                        <h3 style="font-size:1.15rem; margin-top:0;">Semantic Reasoner</h3>
+                        <p style="font-size:0.8rem; color:var(--muted); margin:0;">Deploy Pellet/HermiT to verify consistency of alignment axioms.</p>
+                    </div>
+                    <div style="border: 1px solid rgba(255,255,255,0.08); background:var(--panel-2); padding: 24px; border-radius: 12px; text-align: left;">
+                        <i class="fa-solid fa-network-wired" style="font-size:2rem; color:var(--amber); margin-bottom:12px;"></i>
+                        <h3 style="font-size:1.15rem; margin-top:0;">Advanced Visuals</h3>
+                        <p style="font-size:0.8rem; color:var(--muted); margin:0;">Cytoscape graph layouts directly inside live user applications.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Slide 8: Deliverables -->
+            <section data-audio-src="audio/08_conclusion.mp3">
+                <h2>Project Portal & Deliverables</h2>
+                <div style="max-width: 600px; margin: 0 auto; display:grid; gap:16px; margin-top:20px;">
+                    <a href="console.html" style="display:flex; align-items:center; gap:16px; border:1px solid rgba(255,255,255,0.1); background:var(--panel-2); padding:20px; border-radius:12px; text-decoration:none; color:inherit; transition: all 200ms ease;" class="link-card">
+                        <i class="fa-solid fa-chart-line" style="font-size:1.8rem; color:var(--green);"></i>
+                        <div style="text-align:left;">
+                            <strong>Interactive Ontology Console</strong>
+                            <p style="font-size:0.8rem; color:var(--muted); margin:4px 0 0;">Custom dashboard node explorer</p>
+                        </div>
+                    </a>
+                    <a href="docs/widoco/index.html" style="display:flex; align-items:center; gap:16px; border:1px solid rgba(255,255,255,0.1); background:var(--panel-2); padding:20px; border-radius:12px; text-decoration:none; color:inherit; transition: all 200ms ease;" class="link-card">
+                        <i class="fa-solid fa-file-invoice" style="font-size:1.8rem; color:var(--cyan);"></i>
+                        <div style="text-align:left;">
+                            <strong>WIDOCO HTML Documentation</strong>
+                            <p style="font-size:0.8rem; color:var(--muted); margin:4px 0 0;">Standard W3C alignment specifications</p>
+                        </div>
+                    </a>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <!-- HUD Controller UI -->
+    <div class="audio-hud">
+        <div class="progress-track">
+            <div id="progress-fill"></div>
+        </div>
+        <div class="hud-details">
+            <div class="hud-track-info">
+                <i id="play-state" class="fa-solid fa-circle-notch fa-spin"></i>
+                <span id="track-name">Loading...</span>
+            </div>
+            <div class="hud-status">
+                Auto-Slide Active
+            </div>
+        </div>
+    </div>
+
+    <!-- Reveal.js scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.1.0/reveal.js"></script>
+    
+    <script>
+        // Init Reveal.js
+        Reveal.initialize({
+            controls: true,
+            progress: true,
+            center: true,
+            hash: true,
+            transition: 'slide'
+        });
+
+        // Custom Audio Management State
+        const audioPlayer = new Audio();
+        let audioTimeout;
+        const DEFAULT_TIMEOUT = 5000; // 5 seconds fallback if audio is not found
+
+        const timerFill = document.getElementById("progress-fill");
+
+        // Reveal ready
+        Reveal.on('ready', event => {
+            handleTransition(event.currentSlide);
+        });
+
+        // Slide change
+        Reveal.on('slidechanged', event => {
+            handleTransition(event.currentSlide);
+        });
+
+        // Fragment reveal
+        Reveal.on('fragmentshown', event => {
+            playAudioForElement(event.fragment);
+        });
+
+        function handleTransition(currentSlide) {
+            // Reset active styles
+            document.querySelectorAll(".active-highlight").forEach(el => el.classList.remove("active-highlight"));
+            document.getElementById("laser-pointer").style.opacity = "0";
+
+            const fragments = currentSlide.querySelectorAll('.fragment');
+            const hasSlideAudio = currentSlide.hasAttribute('data-audio-src');
+
+            if (fragments.length > 0 && !hasSlideAudio) {
+                // Instantly advance to reveal the first fragment and play its audio
+                setTimeout(() => {
+                    Reveal.next();
+                }, 150);
+            } else {
+                playAudioForElement(currentSlide);
+            }
+        }
+
+        function playAudioForElement(element) {
+            clearTimeout(audioTimeout);
+            audioPlayer.pause();
+            audioPlayer.src = "";
+
+            const audioSrc = element.getAttribute("data-audio-src");
+            const trackName = audioSrc ? audioSrc.split("/").pop() : "Demo Playback (5s timer)";
+            document.getElementById("track-name").textContent = trackName;
+
+            // Apply high-tech highlight styling to active slide component
+            document.querySelectorAll(".active-highlight").forEach(el => el.classList.remove("active-highlight"));
+            if (element.tagName.toLowerCase() !== "section") {
+                element.classList.add("active-highlight");
+            }
+            positionLaserPointer(element);
+
+            if (audioSrc) {
+                audioPlayer.src = audioSrc;
+                audioPlayer.play()
+                    .then(() => {
+                        document.getElementById("play-state").className = "fa-solid fa-play";
+                        timerFill.style.animation = "none";
+                        timerFill.offsetHeight; // trigger reflow
+                        timerFill.style.animation = `progressBar ${audioPlayer.duration || 5}s linear forwards`;
+                    })
+                    .catch(err => {
+                        console.warn("Audio file missing or blocked, starting fallback timer.", err);
+                        startFallbackTimer(element);
+                    });
+
+                audioPlayer.onloadedmetadata = () => {
+                    timerFill.style.animation = `progressBar ${audioPlayer.duration}s linear forwards`;
+                };
+
+                audioPlayer.onended = () => {
+                    handleNextStep();
+                };
+
+                audioPlayer.onerror = () => {
+                    startFallbackTimer(element);
+                };
+            } else {
+                startFallbackTimer(element);
+            }
+        }
+
+        function startFallbackTimer(element) {
+            document.getElementById("play-state").className = "fa-solid fa-clock";
+            timerFill.style.animation = "none";
+            timerFill.offsetHeight;
+            timerFill.style.animation = `progressBar ${DEFAULT_TIMEOUT / 1000}s linear forwards`;
+
+            audioTimeout = setTimeout(() => {
+                handleNextStep();
+            }, DEFAULT_TIMEOUT);
+        }
+
+        function handleNextStep() {
+            Reveal.next();
+        }
+
+        function positionLaserPointer(element) {
+            const laser = document.getElementById("laser-pointer");
+            if (!laser) return;
+
+            if (element.tagName.toLowerCase() === "section") {
+                laser.style.opacity = "0";
+                return;
+            }
+
+            const rect = element.getBoundingClientRect();
+            laser.style.opacity = "1";
+            laser.style.top = `${rect.top + rect.height / 2}px`;
+            laser.style.left = `${rect.left - 24}px`;
+        }
+
+        // Keep laser aligned on window resizing
+        window.addEventListener('resize', () => {
+            const active = document.querySelector('.active-highlight');
+            if (active) positionLaserPointer(active);
+        });
+    </script>
+</body>
+</html>

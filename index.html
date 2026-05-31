@@ -37,7 +37,7 @@
         }
 
         .portal-card {
-            max-width: 640px;
+            max-width: 800px;
             width: 100%;
             background: var(--panel);
             border: 1px solid rgba(255, 255, 255, 0.08);
@@ -86,7 +86,7 @@
 
         .choices {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: repeat(3, 1fr);
             gap: 16px;
             margin-bottom: 32px;
         }
@@ -124,6 +124,15 @@
         .choice-btn:hover.secondary {
             border-color: var(--cyan);
             background: rgba(106, 215, 216, 0.05);
+        }
+
+        .choice-btn.tertiary i {
+            color: var(--amber);
+        }
+
+        .choice-btn:hover.tertiary {
+            border-color: var(--amber);
+            background: rgba(244, 183, 74, 0.05);
         }
 
         .choice-btn strong {
@@ -171,7 +180,7 @@
             to { transform: scaleX(0); }
         }
 
-        @media (max-width: 480px) {
+        @media (max-width: 768px) {
             .choices {
                 grid-template-columns: 1fr;
             }
@@ -194,6 +203,11 @@
                 <i class="fa-solid fa-chart-line"></i>
                 <strong>Ontology Console</strong>
                 <span>Interactive SVG visualization dashboard</span>
+            </a>
+            <a href="presentation.html" class="choice-btn tertiary" id="presentationLink">
+                <i class="fa-solid fa-play"></i>
+                <strong>Presentation</strong>
+                <span>Interactive audio presentation</span>
             </a>
         </div>
 
