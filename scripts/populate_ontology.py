@@ -17,8 +17,8 @@ base_url = os.getenv("OPENAI_API_BASE", "http://localhost:11434/v1")
 model_name = os.getenv("LLM_MODEL", "gemma4:e2b")
 
 # Dosya yolları
-ONTOLOGY_PATH = "../ontology/iiot-pmo-v2.ttl"
-OUTPUT_PATH = "../ontology/iiot-pmo-v2.ttl" # Doğrudan üzerine yazmak/güncellemek için
+ONTOLOGY_PATH = "../ontology/sample_individuals.ttl"
+OUTPUT_PATH = "../ontology/populated_data.ttl" # Dinamik üretilen veriler için
 
 # =================================================================
 # 2. LLM PIPELINE & FEW-SHOT SYSTEM PROMPT
@@ -105,15 +105,22 @@ def merge_and_save_ontology(llm_ttl_data: str, base_ontology_file: str, save_pat
     """
     LLM'den gelen Turtle verisini mevcut ontoloji dosyasıyla birleştirip kaydeder.
     """
-    # 1. Mevcut ana ontolojiyi yükle
-    print(f"-> Ana ontoloji yükleniyor: {base_ontology_file}")
+    # 1. Mevcut grafı yükle (Varsa save_path, yoksa base_ontology_file)
     g = Graph()
+    
+    if os.path.exists(save_path):
+        print(f"-> Mevcut birikimli veri dosyası yükleniyor: {save_path}")
+        load_file = save_path
+    else:
+        print(f"-> Başlangıç örnek veri dosyası yükleniyor: {base_ontology_file}")
+        load_file = base_ontology_file
+
     try:
         # ttl formatında yükle
-        g.parse(base_ontology_file, format="turtle")
+        g.parse(load_file, format="turtle")
         print(f"   [Başarılı] Mevcut graf {len(g)} üçlü (triples) içeriyor.")
     except Exception as e:
-        print(f"   [Uyarı] Ana ontoloji dosyası yüklenemedi. Yeni bir graf oluşturuluyor. Hata: {e}")
+        print(f"   [Uyarı] Dosya yüklenemedi. Yeni bir graf oluşturuluyor. Hata: {e}")
         # Dosya yoksa veya okunamadıysa boş bir graph ile başlar.
     
     # 2. LLM çıktısını geçici bir grafa parse et

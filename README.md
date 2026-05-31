@@ -27,24 +27,30 @@ The long-term goal is to support:
 | Turtle | Human-readable ontology serialization |
 | SPARQL | Competency-question validation and querying |
 | Protege | Ontology editing, inspection, and reasoning |
-| RDFLib | Optional Python-based parsing and validation |
-| FastAPI | Planned backend layer for data ingestion and LLM extraction |
-| Ollama/GPT | Planned LLM providers for ontology population |
-| GRU-RNN | Planned time-series model for predicted failure generation |
+| RDFLib | Python-based ontology parsing, merging, and serialization |
+| Python / Ollama | Local LLM extraction (e.g. gemma4:e2b) for log ingestion |
+| GRU-RNN | Time-series prediction framework adapted from academic review |
 
 ## Repository Structure
 
 ```text
 .
 ├── README.md
+├── index.html
 ├── docs
 │   ├── data_acquisition.md
 │   ├── orsd.docx
 │   ├── research_review.md
 │   └── specification.md
-└── ontology
-    ├── iiot-pmo.ttl
-    └── iiot-pmo-v2.ttl
+├── ontology
+│   ├── iiot-pmo.ttl
+│   ├── iiot-pmo-v2.ttl
+│   ├── sample_individuals.ttl
+│   ├── shacl_rules.ttl
+│   ├── validation_queries.rq
+│   └── populated_data.ttl
+└── scripts
+    └── populate_ontology.py
 ```
 
 ## Current Scope

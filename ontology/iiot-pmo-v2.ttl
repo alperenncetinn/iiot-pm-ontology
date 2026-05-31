@@ -195,36 +195,6 @@ iiot:usesDataSource a owl:ObjectProperty ;
     rdfs:domain iiot:LLMExtractionTask ;
     rdfs:range iiot:DataSource .
 
-ns1:Alert_Motor_A_Vibration_20260531_101530 a ns1:CriticalAlert ;
-    rdfs:label "Acil Bakım Uyarısı for Motor A Vibration"@en ;
-    ns1:hasTimestamp "2026-05-31T10:15:30"^^xsd:dateTime .
-
-ns1:Meas_Vibrasyon_Sensörü_1_20260531_101530 a ns1:Measurement ;
-    ns1:hasTimestamp "2026-05-31T10:15:30"^^xsd:dateTime ;
-    ns1:hasUnit "Hz" ;
-    ns1:hasValue "85.4"^^xsd:float .
-
-ns1:Motor_A a ns1:Asset ;
-    rdfs:label "Motor A"@en ;
-    ns1:hasPredictedFailure ns1:PredictedFailure_Motor_A_Vibration ;
-    ns1:hasSensor ns1:Vibrasyon_Sensörü_1 .
-
-ns1:Obs_Vibrasyon_Sensörü_1_20260531_101530 a ns1:Observation ;
-    ns1:generatesAlert ns1:Alert_Motor_A_Vibration_20260531_101530 ;
-    ns1:hasMeasurement ns1:Meas_Vibrasyon_Sensörü_1_20260531_101530 ;
-    ns1:hasTimestamp "2026-05-31T10:15:30"^^xsd:dateTime .
-
-ns1:PredictedFailure_Motor_A_Vibration a ns1:PredictedFailure ;
-    ns1:hasConfidence "0.92"^^xsd:float ;
-    ns1:hasTimestamp "2026-05-31T10:15:30"^^xsd:dateTime ;
-    ns1:predictedBy ns1:ML_Model_Alpha .
-
-ns1:Vibrasyon_Sensörü_1 a ns1:Sensor ;
-    rdfs:label "Vibrasyon Sensörü 1"@en ;
-    ns1:hasObservation ns1:Obs_Vibrasyon_Sensörü_1_20260531_101530 ;
-    ns1:hasThreshold "80.0"^^xsd:float ;
-    ns1:monitors ns1:Motor_A .
-
 iiot:Alert-CriticalVibration-001 a iiot:CriticalAlert ;
     rdfs:label "Critical vibration alert 001"@en ;
     iiot:hasTimestamp "2026-05-06T09:15:05+03:00"^^xsd:dateTime ;

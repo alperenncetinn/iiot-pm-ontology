@@ -922,22 +922,32 @@
                     <article class="status-card">
                         <i class="fa-solid fa-industry" aria-hidden="true"></i>
                         <h3>Asset Semantics</h3>
-                        <p>Motor · Pump · RotatingEquipment</p>
+                        <p>Motor · Pump · SOSA FeatureOfInterest</p>
                     </article>
                     <article class="status-card">
                         <i class="fa-solid fa-satellite-dish" aria-hidden="true"></i>
-                        <h3>Sensor Evidence</h3>
-                        <p>Vibration · Temperature · Pressure</p>
+                        <h3>Sensor & SOSA</h3>
+                        <p>SOSA Sensor & Observation Alignment</p>
                     </article>
                     <article class="status-card">
-                        <i class="fa-solid fa-brain" aria-hidden="true"></i>
-                        <h3>Predictive Layer</h3>
-                        <p>TimeSeriesBatch -> PredictedFailure</p>
+                        <i class="fa-solid fa-shield-halved" aria-hidden="true"></i>
+                        <h3>SHACL Validation</h3>
+                        <p>Data types, Cardinality & Confidence limits</p>
+                    </article>
+                    <article class="status-card">
+                        <i class="fa-solid fa-magnifying-glass-chart" aria-hidden="true"></i>
+                        <h3>SPARQL Analytics</h3>
+                        <p>Threshold alerts & ML model queries</p>
                     </article>
                     <article class="status-card">
                         <i class="fa-solid fa-wand-magic-sparkles" aria-hidden="true"></i>
-                        <h3>LLM Population</h3>
-                        <p>FactoryLog -> LLMExtractionTask</p>
+                        <h3>LLM Pipeline</h3>
+                        <p>Ollama Ingestion -> populated_data.ttl</p>
+                    </article>
+                    <article class="status-card">
+                        <i class="fa-solid fa-database" aria-hidden="true"></i>
+                        <h3>Graph Merging</h3>
+                        <p>RDFLib incremental population & merge</p>
                     </article>
                 </div>
 
@@ -1114,18 +1124,22 @@
                 </section>
 
                 <section class="code-panel" aria-label="Ontology snippet">
-                    <div class="code-head">
-                        <strong>ontology/iiot-pmo-v2.ttl</strong>
-                        <span class="lang-tr">seçili örnek</span>
-                        <span class="lang-en">selected excerpt</span>
+                    <div class="code-head" style="flex-wrap: wrap; gap: 12px;">
+                        <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+                            <button class="tab-btn active" data-tab="ontology" style="background:transparent; border:1px solid var(--green); color:var(--green); padding:6px 12px; border-radius:6px; cursor:pointer; font-size:0.8rem; transition: all 180ms ease;">Ontology (SOSA)</button>
+                            <button class="tab-btn" data-tab="shacl" style="background:transparent; border:1px solid rgba(255, 255, 255, 0.12); color:var(--muted); padding:6px 12px; border-radius:6px; cursor:pointer; font-size:0.8rem; transition: all 180ms ease;">SHACL Rules</button>
+                            <button class="tab-btn" data-tab="sparql" style="background:transparent; border:1px solid rgba(255, 255, 255, 0.12); color:var(--muted); padding:6px 12px; border-radius:6px; cursor:pointer; font-size:0.8rem; transition: all 180ms ease;">SPARQL Query</button>
+                            <button class="tab-btn" data-tab="python" style="background:transparent; border:1px solid rgba(255, 255, 255, 0.12); color:var(--muted); padding:6px 12px; border-radius:6px; cursor:pointer; font-size:0.8rem; transition: all 180ms ease;">LLM Pipeline</button>
+                        </div>
+                        <div>
+                            <strong id="fileLabel">ontology/iiot-pmo-v2.ttl (SOSA/SSN)</strong>
+                        </div>
                     </div>
-                    <pre><code>iiot:PredictedFailure-Motor-01-BearingWear
-    a iiot:PredictedFailure ;
-    iiot:hasFailureProbability "0.86"^^xsd:decimal ;
-    iiot:hasPredictionHorizonHours "72.0"^^xsd:decimal ;
-    iiot:indicatesFailureMode iiot:BearingWear ;
-    iiot:predictedBy iiot:GRU-RNN-Predictor-v1 ;
-    iiot:derivedFromBatch iiot:TimeSeriesBatch-Motor-01-2026-05-06 .</code></pre>
+                    <pre><code id="codeSnippet">iiot:Sensor owl:equivalentClass sosa:Sensor ;
+    rdfs:subClassOf ssn:System ;
+    rdfs:comment "iiot:Sensor is semantically equivalent to sosa:Sensor and, as a physical device, is a subclass of ssn:System."@en .
+
+iiot:Asset rdfs:subClassOf sosa:FeatureOfInterest .</code></pre>
                 </section>
             </section>
         </main>
@@ -1298,6 +1312,65 @@
         document.getElementById("resetGraph").addEventListener("click", () => {
             setFilter("all");
             renderDetail("Equipment");
+        });
+
+        const snippets = {
+            ontology: `iiot:Sensor owl:equivalentClass sosa:Sensor ;
+    rdfs:subClassOf ssn:System ;
+    rdfs:comment "iiot:Sensor is semantically equivalent to sosa:Sensor and, as a physical device, is a subclass of ssn:System."@en .
+
+iiot:Asset rdfs:subClassOf sosa:FeatureOfInterest .`,
+            shacl: `# MeasurementShape checks that every Measurement has exactly 1 hasValue and 1 hasTimestamp
+iiotpmo:MeasurementShape a sh:NodeShape ;
+    sh:targetClass iiotpmo:Measurement ;
+    sh:property [
+        sh:path iiotpmo:hasValue ;
+        sh:datatype xsd:float ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] .`,
+            sparql: `# Query 1: Detect assets exceeding critical vibration threshold (80Hz)
+SELECT ?asset ?sensor ?val ?time
+WHERE {
+    ?sensor iiotpmo:monitors ?asset ;
+            iiotpmo:hasObservation ?obs .
+    ?obs iiotpmo:hasMeasurement ?meas .
+    ?meas iiotpmo:hasValue ?val ;
+          iiotpmo:hasTimestamp ?time .
+    FILTER(?val > 80.0)
+}`,
+            python: `# Local LLM populating pipeline with Ollama (gemma4:e2b) & RDFLib
+temp_g = Graph()
+temp_g.parse(data=llm_ttl_data, format="turtle")
+g = Graph()
+if os.path.exists("../ontology/populated_data.ttl"):
+    g.parse("../ontology/populated_data.ttl", format="turtle")
+g += temp_g
+g.serialize("../ontology/populated_data.ttl", format="turtle")`
+        };
+
+        const tabButtons = Array.from(document.querySelectorAll(".tab-btn"));
+        const codeElement = document.getElementById("codeSnippet");
+        const fileLabel = document.getElementById("fileLabel");
+
+        const tabFiles = {
+            ontology: "ontology/iiot-pmo-v2.ttl (SOSA/SSN)",
+            shacl: "ontology/shacl_rules.ttl",
+            sparql: "ontology/validation_queries.rq",
+            python: "scripts/populate_ontology.py"
+        };
+
+        tabButtons.forEach(btn => {
+            btn.addEventListener("click", () => {
+                tabButtons.forEach(b => {
+                    b.classList.toggle("active", b === btn);
+                    b.style.borderColor = b === btn ? "var(--green)" : "rgba(255, 255, 255, 0.12)";
+                    b.style.color = b === btn ? "var(--green)" : "var(--muted)";
+                });
+                const tab = btn.dataset.tab;
+                codeElement.textContent = snippets[tab];
+                fileLabel.textContent = tabFiles[tab];
+            });
         });
 
         renderDetail("Equipment");
