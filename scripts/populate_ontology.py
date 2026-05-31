@@ -90,10 +90,13 @@ def extract_ontology_with_llm(log_text: str) -> str:
     
     ttl_content = response.choices[0].message.content.strip()
     
-    # LLM markdown kod bloğu içinde döndüyse temizle
-    if ttl_content.startswith("```"):
-        ttl_content = re.sub(r"^```[a-zA-Z]*\n", "", ttl_content)
-        ttl_content = re.sub(r"\n```$", "", ttl_content)
+    # LLM markdown kod bloğu (```turtle ... ``` vb.) içinde döndüyse içeriği güvenli bir şekilde ayıkla
+    match = re.search(r"```(?:turtle|ttl|rdf|n3|nt)?\s*(.*?)\s*```", ttl_content, re.DOTALL | re.IGNORECASE)
+    if match:
+        ttl_content = match.group(1).strip()
+    else:
+        # Kod bloğu eşleşmediyse ama başlarda/sonlarda üçlü tırnak kaldıysa temizle
+        ttl_content = ttl_content.replace("```turtle", "").replace("```ttl", "").replace("```rdf", "").replace("```", "").strip()
         
     return ttl_content
 
