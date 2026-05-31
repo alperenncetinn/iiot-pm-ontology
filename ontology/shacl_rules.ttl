@@ -1,0 +1,80 @@
+@prefix iiotpmo: <http://example.org/iiot-pm-ontology#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# =================================================================
+# Industrial IoT & Predictive Maintenance Ontology (IIoT-PMO)
+# SHACL (Shapes Constraint Language) Validation Rules
+# =================================================================
+
+# -----------------------------------------------------------------
+# 1. MEASUREMENT (ÖLÇÜM) NESNELERİ İÇİN DOĞRULAMA KURALLARI
+# Kural: Her ölçüm nesnesi tam olarak bir adet sayısal değere (xsd:float)
+# ve tam olarak bir adet zaman damgasına (xsd:dateTime) sahip olmalıdır.
+# -----------------------------------------------------------------
+iiotpmo:MeasurementShape
+    a sh:NodeShape ;
+    sh:targetClass iiotpmo:Measurement ;
+    rdfs:label "Measurement Validation Shape"@en ;
+    rdfs:comment "Measurement sınıfına ait bireylerin veri bütünlüğünü doğrular."@tr ;
+    
+    # Kural 1.1: Tam olarak 1 adet 'iiotpmo:hasValue' (xsd:float)
+    sh:property [
+        sh:path iiotpmo:hasValue ;
+        sh:datatype xsd:float ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:message "Bir ölçüm (Measurement) nesnesi tam olarak 1 adet xsd:float tipinde 'iiotpmo:hasValue' değerine sahip olmalıdır."@tr
+    ] ;
+    
+    # Kural 1.2: Tam olarak 1 adet 'iiotpmo:hasTimestamp' (xsd:dateTime)
+    sh:property [
+        sh:path iiotpmo:hasTimestamp ;
+        sh:datatype xsd:dateTime ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:message "Bir ölçüm (Measurement) nesnesi tam olarak 1 adet xsd:dateTime tipinde 'iiotpmo:hasTimestamp' değerine sahip olmalıdır."@tr
+    ] .
+
+
+# -----------------------------------------------------------------
+# 2. SENSOR (SENSÖR) NESNELERİ İÇİN DOĞRULAMA KURALLARI
+# Kural: Her sensör nesnesi en az bir adet 'iiotpmo:isAttachedTo' nesne
+# özelliği ilişkisi ile bir 'iiotpmo:Asset' sınıfı nesnesine bağlanmalıdır.
+# -----------------------------------------------------------------
+iiotpmo:SensorShape
+    a sh:NodeShape ;
+    sh:targetClass iiotpmo:Sensor ;
+    rdfs:label "Sensor Validation Shape"@en ;
+    rdfs:comment "Sensörlerin bir fiziksel varlığa/cihaza bağlı olup olmadığını doğrular."@tr ;
+    
+    # Kural 2.1: En az bir 'iiotpmo:isAttachedTo' ilişkisi (hedef: iiotpmo:Asset)
+    sh:property [
+        sh:path iiotpmo:isAttachedTo ;
+        sh:class iiotpmo:Asset ;
+        sh:minCount 1 ;
+        sh:message "Bir sensör (Sensor) nesnesi 'iiotpmo:isAttachedTo' ilişkisi ile en az bir adet 'iiotpmo:Asset' nesnesine bağlanmalıdır."@tr
+    ] .
+
+
+# -----------------------------------------------------------------
+# 3. PREDICTED FAILURE (TAHMİNİ ARIZA) NESNELERİ İÇİN DOĞRULAMA KURALLARI
+# Kural: Her tahmin nesnesinin doğruluk/güven oranı ('iiotpmo:hasConfidence')
+# değeri 0.0 ile 1.0 (dahil) arasında bir xsd:float değeri olmalıdır.
+# -----------------------------------------------------------------
+iiotpmo:PredictedFailureShape
+    a sh:NodeShape ;
+    sh:targetClass iiotpmo:PredictedFailure ;
+    rdfs:label "Predicted Failure Validation Shape"@en ;
+    rdfs:comment "Yapay zeka modelleri tarafından üretilen tahminlerin güven olasılık aralığını doğrular."@tr ;
+    
+    # Kural 3.1: 'iiotpmo:hasConfidence' değeri 0.0 ile 1.0 arasında xsd:float olmalıdır.
+    sh:property [
+        sh:path iiotpmo:hasConfidence ;
+        sh:datatype xsd:float ;
+        sh:minInclusive 0.0 ;
+        sh:maxInclusive 1.0 ;
+        sh:message "Bir tahmini arıza (PredictedFailure) nesnesinin 'iiotpmo:hasConfidence' güven değeri 0.0 ile 1.0 arasında bir xsd:float olmalıdır."@tr
+    ] .
