@@ -26,6 +26,9 @@
 
         body {
             background-color: var(--bg) !important;
+            background-image: radial-gradient(rgba(94, 224, 131, 0.05) 1px, transparent 0), radial-gradient(rgba(106, 215, 216, 0.05) 1px, transparent 0);
+            background-size: 40px 40px;
+            background-position: 0 0, 20px 20px;
             font-family: Inter, sans-serif !important;
         }
 
@@ -165,6 +168,44 @@
         .fa-spin-slow {
             animation: fa-spin 3s linear infinite;
         }
+
+        /* High-end hover and connection card styles */
+        .reveal .grid-card {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+        .reveal .grid-card::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; height: 3px;
+            background: linear-gradient(90deg, var(--green), var(--cyan));
+            opacity: 0.4;
+            transition: opacity 0.3s;
+        }
+        .reveal .grid-card:hover {
+            border-color: var(--green) !important;
+            box-shadow: 0 8px 24px rgba(94, 224, 131, 0.12) !important;
+            transform: translateY(-4px);
+        }
+
+        /* Pulse animations for specific page components */
+        .pulse-glow {
+            animation: pulse-ring 2s infinite alternate;
+        }
+        @keyframes pulse-ring {
+            0% { box-shadow: 0 0 8px rgba(94, 224, 131, 0.1); }
+            100% { box-shadow: 0 0 20px rgba(94, 224, 131, 0.3); }
+        }
+
+        /* Terminal cursor animation */
+        .terminal-cursor {
+            animation: blink-cursor 1s step-end infinite;
+        }
+        @keyframes blink-cursor {
+            from, to { color: transparent }
+            50% { color: var(--green) }
+        }
     </style>
 </head>
 <body>
@@ -172,13 +213,12 @@
 
     <div class="reveal">
         <div class="slides">
-            <!-- Slide 1: Intro -->
             <section data-audio-src="audio/01_intro.mp3">
-                <div style="border: 1px solid rgba(255,255,255,0.08); background: rgba(255,255,255,0.02); padding: 40px; border-radius: 16px;">
+                <div class="pulse-glow" style="border: 1px solid rgba(94, 224, 131, 0.2); background: rgba(25, 26, 23, 0.7); padding: 40px; border-radius: 16px; backdrop-filter: blur(8px);">
                     <div style="color: var(--green); text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.9rem; margin-bottom: 20px;">
                         <i class="fa-solid fa-wave-square"></i> Bilgi Mühendisliği ve Ontolojiler
                     </div>
-                    <h1>Industrial IoT ve Kestirimci Bakım</h1>
+                    <h1 class="gradient-text" style="background: linear-gradient(135deg, var(--text) 30%, var(--green) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Industrial IoT ve Kestirimci Bakım</h1>
                     <p style="color: var(--muted); font-size: 1.2rem; margin-bottom: 40px;">Semantik Bilgi Grafiği Altyapısı (IIoT-PMO v2)</p>
                     <div style="font-size: 0.95rem; color: var(--text);">
                         <strong>Sunan:</strong> Alperen Çetin <br>
@@ -231,7 +271,7 @@ match = re.search(r"```(?:turtle)?\s*(.*?)\s*```", content, re.DOTALL)
 # Incremental merging to populated_data.ttl
 g.parse("populated_data.ttl", format="turtle")
 g += temp_g
-g.serialize("populated_data.ttl", format="turtle")</code></pre>
+g.serialize("populated_data.ttl", format="turtle")<span class="terminal-cursor">_</span></code></pre>
                 </div>
             </section>
 
@@ -277,17 +317,17 @@ g.serialize("populated_data.ttl", format="turtle")</code></pre>
             <section data-audio-src="audio/07_future_work.mp3">
                 <h2>Sistem Entegrasyonu ve Canlı Akış Başarısı</h2>
                 <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:16px; margin-top:20px;">
-                    <div style="border: 1px solid rgba(255,255,255,0.08); background:var(--panel-2); padding: 20px; border-radius: 12px; text-align: left;">
+                    <div class="grid-card" style="border: 1px solid rgba(255,255,255,0.08); background:var(--panel-2); padding: 20px; border-radius: 12px; text-align: left;">
                         <i class="fa-solid fa-bolt" style="font-size:1.8rem; color:var(--green); margin-bottom:12px;"></i>
                         <h3 style="font-size:1.1rem; margin-top:0;">Zaman Serisi Entegrasyonu</h3>
                         <p style="font-size:0.75rem; color:var(--muted); margin:0;">Derin öğrenme tabanlı GRU-RNN modellerinden gelen tahminleri ve IoT metriklerini anlık işler.</p>
                     </div>
-                    <div style="border: 1px solid rgba(255,255,255,0.08); background:var(--panel-2); padding: 20px; border-radius: 12px; text-align: left;">
+                    <div class="grid-card" style="border: 1px solid rgba(255,255,255,0.08); background:var(--panel-2); padding: 20px; border-radius: 12px; text-align: left;">
                         <i class="fa-solid fa-brain" style="font-size:1.8rem; color:var(--cyan); margin-bottom:12px;"></i>
                         <h3 style="font-size:1.1rem; margin-top:0;">Otonom Veri Akışı</h3>
                         <p style="font-size:0.75rem; color:var(--muted); margin:0;">Zaman serisi analizlerinin ve kestirimci tahminlerin bilgi grafiğine akışı otonom çalışmaktadır.</p>
                     </div>
-                    <div style="border: 1px solid rgba(255,255,255,0.08); background:var(--panel-2); padding: 20px; border-radius: 12px; text-align: left;">
+                    <div class="grid-card" style="border: 1px solid rgba(255,255,255,0.08); background:var(--panel-2); padding: 20px; border-radius: 12px; text-align: left;">
                         <i class="fa-solid fa-check-double" style="font-size:1.8rem; color:var(--amber); margin-bottom:12px;"></i>
                         <h3 style="font-size:1.1rem; margin-top:0;">Bütünleşik Bilgi Grafiği</h3>
                         <p style="font-size:0.75rem; color:var(--muted); margin:0;">SOSA/SSN hizalı şemamıza akan tüm veriler `populated_data.ttl` grafında birleşir.</p>
@@ -358,6 +398,7 @@ g.serialize("populated_data.ttl", format="turtle")</code></pre>
         let audioTimeout;
         const DEFAULT_TIMEOUT = 5000; // 5 seconds fallback if audio is not found
         let isAutoSlide = true;
+        let scrollInterval;
 
         const timerFill = document.getElementById("progress-fill");
         const toggleBtn = document.getElementById("toggle-flow");
@@ -373,24 +414,15 @@ g.serialize("populated_data.ttl", format="turtle")</code></pre>
                 toggleBtn.style.borderColor = "var(--green)";
                 toggleBtn.style.color = "var(--green)";
                 
-                // Resume audio if it was paused
-                if (audioPlayer.paused && audioPlayer.src) {
-                    audioPlayer.play().catch(() => {});
-                    timerFill.style.animationPlayState = "running";
-                } else {
-                    const active = document.querySelector('.active-highlight') || Reveal.getCurrentSlide();
-                    playAudioForElement(active);
+                // If audio has ended, automatically go next
+                if (audioPlayer.ended || (audioPlayer.src === "" && !audioTimeout)) {
+                    Reveal.next();
                 }
             } else {
                 flowText.textContent = "MANUAL MODE";
                 flowIcon.className = "fa-solid fa-play";
                 toggleBtn.style.borderColor = "rgba(255, 255, 255, 0.12)";
                 toggleBtn.style.color = "var(--muted)";
-                
-                // Pause active audio and fallback timer
-                audioPlayer.pause();
-                clearTimeout(audioTimeout);
-                timerFill.style.animationPlayState = "paused";
             }
         });
 
@@ -414,6 +446,14 @@ g.serialize("populated_data.ttl", format="turtle")</code></pre>
             document.querySelectorAll(".active-highlight").forEach(el => el.classList.remove("active-highlight"));
             const existingLaser = document.getElementById("laser-pointer");
             if (existingLaser) existingLaser.remove();
+
+            // Slide 3 iframe auto scroll trigger
+            const indices = Reveal.getIndices();
+            if (indices.h === 2) {
+                startIframeScroll();
+            } else {
+                stopIframeScroll();
+            }
 
             const fragments = currentSlide.querySelectorAll('.fragment');
             const hasSlideAudio = currentSlide.hasAttribute('data-audio-src');
@@ -444,6 +484,9 @@ g.serialize("populated_data.ttl", format="turtle")</code></pre>
             }
             positionLaserPointer(element);
 
+            // Lock Reveal navigation while audio is playing (in both auto and manual modes)
+            Reveal.configure({ controls: false, keyboard: false });
+
             // Reset progress bar animation
             timerFill.style.animation = "none";
             timerFill.offsetHeight; // trigger reflow
@@ -455,37 +498,27 @@ g.serialize("populated_data.ttl", format="turtle")</code></pre>
                 audioPlayer.play()
                     .then(() => {
                         document.getElementById("play-state").className = "fa-solid fa-play";
-                        if (!isAutoSlide) {
-                            audioPlayer.pause();
-                        }
                     })
                     .catch(err => {
                         console.warn("Audio file missing or blocked, starting fallback timer.", err);
-                        if (isAutoSlide) {
-                            startFallbackTimer(element);
-                        }
+                        startFallbackTimer(element);
                     });
 
                 audioPlayer.onloadedmetadata = () => {
                     timerFill.style.animation = `progressBar ${audioPlayer.duration}s linear forwards`;
-                    if (!isAutoSlide) {
-                        timerFill.style.animationPlayState = "paused";
-                    }
                 };
 
                 audioPlayer.onended = () => {
+                    unlockNavigation();
                     handleNextStep();
                 };
 
                 audioPlayer.onerror = () => {
-                    if (isAutoSlide) {
-                        startFallbackTimer(element);
-                    }
+                    unlockNavigation();
+                    startFallbackTimer(element);
                 };
             } else {
-                if (isAutoSlide) {
-                    startFallbackTimer(element);
-                }
+                startFallbackTimer(element);
             }
         }
 
@@ -495,9 +528,17 @@ g.serialize("populated_data.ttl", format="turtle")</code></pre>
             timerFill.offsetHeight;
             timerFill.style.animation = `progressBar ${DEFAULT_TIMEOUT / 1000}s linear forwards`;
 
+            // Lock navigation during fallback
+            Reveal.configure({ controls: false, keyboard: false });
+
             audioTimeout = setTimeout(() => {
+                unlockNavigation();
                 handleNextStep();
             }, DEFAULT_TIMEOUT);
+        }
+
+        function unlockNavigation() {
+            Reveal.configure({ controls: true, keyboard: true });
         }
 
         function handleNextStep() {
@@ -519,6 +560,43 @@ g.serialize("populated_data.ttl", format="turtle")</code></pre>
             const laser = document.createElement("div");
             laser.id = "laser-pointer";
             element.appendChild(laser);
+        }
+
+        // Slide 3 iframe auto scroll routines
+        function startIframeScroll() {
+            stopIframeScroll();
+            // Let the iframe render and load before starting scroll loop
+            setTimeout(() => {
+                const iframe = document.querySelector('iframe');
+                if (!iframe) return;
+
+                scrollInterval = setInterval(() => {
+                    try {
+                        const win = iframe.contentWindow;
+                        const doc = iframe.contentDocument || win.document;
+                        if (win && doc) {
+                            win.scrollBy(0, 1);
+                            
+                            const currentScroll = win.pageYOffset || doc.documentElement.scrollTop;
+                            const maxScroll = doc.documentElement.scrollHeight - doc.documentElement.clientHeight;
+                            
+                            // If reached near bottom, wrap scroll back to top
+                            if (currentScroll >= maxScroll - 3) {
+                                win.scrollTo(0, 0);
+                            }
+                        }
+                    } catch (e) {
+                        // Suppress cross-origin warnings if console runs on separate subdomain (unlikely here)
+                        console.debug("Iframe auto scroll locked/prevented:", e);
+                    }
+                }, 35); // Smooth scrolling step rate
+            }, 1000);
+        }
+
+        function stopIframeScroll() {
+            if (scrollInterval) {
+                clearInterval(scrollInterval);
+            }
         }
     </script>
 </body>
