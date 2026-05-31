@@ -47,8 +47,8 @@
         }
 
         .reveal h2 {
-            font-size: 1.8em !important;
-            margin-bottom: 30px !important;
+            font-size: 1.4em !important;
+            margin-bottom: 20px !important;
             border-bottom: 2px solid rgba(255, 255, 255, 0.08);
             padding-bottom: 12px;
             display: inline-block;
@@ -63,15 +63,16 @@
 
         .reveal ul li.fragment {
             border: 1px solid transparent;
-            padding: 16px 20px;
-            margin-bottom: 16px;
-            border-radius: 10px;
+            padding: 10px 16px;
+            margin-bottom: 10px;
+            border-radius: 6px;
             background: rgba(255, 255, 255, 0.02);
             transition: all 0.5s ease;
             text-align: left;
             opacity: 0;
             display: flex;
             align-items: center;
+            font-size: 0.85em !important;
         }
 
         /* Active high-tech glowing state */
@@ -107,19 +108,19 @@
         /* Audio HUD Bar */
         .audio-hud {
             position: fixed;
-            bottom: 24px;
-            left: 24px;
-            right: 24px;
+            bottom: 20px;
+            right: 20px;
+            width: 240px;
             z-index: 1000;
-            background: rgba(25, 26, 23, 0.85);
+            background: rgba(25, 26, 23, 0.92);
             border: 1px solid rgba(255, 255, 255, 0.08);
             backdrop-filter: blur(12px);
-            border-radius: 12px;
-            padding: 14px 20px;
-            box-shadow: 0 12px 40px rgba(0,0,0,0.5);
+            border-radius: 8px;
+            padding: 10px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.5);
             display: flex;
             flex-direction: column;
-            gap: 8px;
+            gap: 6px;
         }
 
         .progress-track {
@@ -175,31 +176,31 @@
             <section data-audio-src="audio/01_intro.mp3">
                 <div style="border: 1px solid rgba(255,255,255,0.08); background: rgba(255,255,255,0.02); padding: 40px; border-radius: 16px;">
                     <div style="color: var(--green); text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.9rem; margin-bottom: 20px;">
-                        <i class="fa-solid fa-wave-square"></i> Knowledge Engineering & Ontologies
+                        <i class="fa-solid fa-wave-square"></i> Bilgi Mühendisliği ve Ontolojiler
                     </div>
-                    <h1>Industrial IoT & Predictive Maintenance</h1>
-                    <p style="color: var(--muted); font-size: 1.2rem; margin-bottom: 40px;">Semantic Knowledge Graph Framework (IIoT-PMO v2)</p>
+                    <h1>Industrial IoT ve Kestirimci Bakım</h1>
+                    <p style="color: var(--muted); font-size: 1.2rem; margin-bottom: 40px;">Semantik Bilgi Grafiği Altyapısı (IIoT-PMO v2)</p>
                     <div style="font-size: 0.95rem; color: var(--text);">
-                        <strong>Prepared by:</strong> Alperen Çetin <br>
-                        <span style="color: var(--muted);">Final Presentation & Demonstration</span>
+                        <strong>Sunan:</strong> Alperen Çetin <br>
+                        <span style="color: var(--muted);">Proje Final Sunumu ve Canlı Gösterimi</span>
                     </div>
                 </div>
             </section>
 
             <!-- Slide 2: Architecture -->
             <section>
-                <h2>System Architecture</h2>
+                <h2>Sistem Mimarisi ve SOSA/SSN Hizalaması</h2>
                 <ul>
                     <li class="fragment" data-audio-src="audio/02_architecture_1.mp3">
                         <i class="fa-solid fa-robot" style="font-size: 1.5rem; color: var(--green); margin-right: 20px; width: 30px;"></i>
                         <div>
-                            <strong>Dynamic Log Ingestion:</strong> Ingests unstructured factory text using local LLM pipeline.
+                            <strong>W3C Standartlarına Uyum (SOSA & SSN):</strong> Ontolojimizi endüstriyel birlikte çalışabilirlik için SOSA ve SSN standartları ile hizaladık.
                         </div>
                     </li>
                     <li class="fragment" data-audio-src="audio/02_architecture_2.mp3">
                         <i class="fa-solid fa-database" style="font-size: 1.5rem; color: var(--cyan); margin-right: 20px; width: 30px;"></i>
                         <div>
-                            <strong>RDFLib Graph Persistence:</strong> Incremental graph merging into `populated_data.ttl`.
+                            <strong>OWL/RDFS Semantik Köprüleri:</strong> Geliştirdiğimiz Sensor, Measurement ve Asset sınıflarını equivalentClass ve subClassOf ile bağladık.
                         </div>
                     </li>
                 </ul>
@@ -207,7 +208,7 @@
 
             <!-- Slide 3: Visualization -->
             <section data-audio-src="audio/03_webvowl.mp3">
-                <h2 style="margin-bottom: 15px;">Interactive Ontology Console</h2>
+                <h2 style="margin-bottom: 15px;">Etkileşimli WebVOWL Graf Arayüzü</h2>
                 <div style="height: 400px; border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; overflow: hidden; background: var(--panel);">
                     <iframe src="console.html" style="width:100%; height:100%; border:none;" title="Ontology Console"></iframe>
                 </div>
@@ -215,8 +216,8 @@
 
             <!-- Slide 4: LLM Pipeline -->
             <section data-audio-src="audio/04_llm_pipeline.mp3">
-                <h2>Local LLM Ingestion Pipeline</h2>
-                <div style="font-size: 0.7em; border: 1px solid rgba(255,255,255,0.12); border-radius: 12px; background: #11130f; padding: 20px; text-align: left; max-height: 450px; overflow-y: auto;">
+                <h2>Otonom Veri Popülasyon Pipeline Hattı</h2>
+                <div style="font-size: 0.7em; border: 1px solid rgba(255,255,255,0.12); border-radius: 12px; background: #11130f; padding: 15px; text-align: left; max-height: 450px; overflow-y: auto;">
                     <pre><code style="color: #5ee083; font-family: monospace;"># Extract triples using Ollama (gemma4:e2b)
 response = client.chat.completions.create(
     model="gemma4:e2b",
@@ -236,18 +237,18 @@ g.serialize("populated_data.ttl", format="turtle")</code></pre>
 
             <!-- Slide 5: SHACL Validation -->
             <section>
-                <h2>Data Quality & Semantic Validation</h2>
+                <h2>Veri Kalitesi ve Semantik Doğrulama</h2>
                 <ul>
                     <li class="fragment" data-audio-src="audio/05_shacl_1.mp3">
                         <i class="fa-solid fa-shield-halved" style="font-size: 1.5rem; color: var(--green); margin-right: 20px; width: 30px;"></i>
                         <div>
-                            <strong>SHACL Constraints:</strong> Checks cardinalities on value/timestamp and ranges for predicted failures.
+                            <strong>SHACL Kısıtlamaları (shacl_rules.ttl):</strong> Ölçüm nesnelerinin veri tipi kısıtlamalarını ve tahmin doğruluk oranlarını shape'ler ile zorunlu kıldık.
                         </div>
                     </li>
                     <li class="fragment" data-audio-src="audio/05_shacl_2.mp3">
                         <i class="fa-solid fa-circle-exclamation" style="font-size: 1.5rem; color: var(--amber); margin-right: 20px; width: 30px;"></i>
                         <div>
-                            <strong>OOPS! Pitfall Report:</strong> Automated structural diagnosis included in WIDOCO builds.
+                            <strong>OOPS! Pitfall Entegrasyonu:</strong> Tasarım hatalarından kaçınmak ve model kalitesini korumak için otomatik taramayı pipeline'a ekledik.
                         </div>
                     </li>
                 </ul>
@@ -255,73 +256,61 @@ g.serialize("populated_data.ttl", format="turtle")</code></pre>
 
             <!-- Slide 6: SPARQL -->
             <section>
-                <h2>SPARQL Analytics</h2>
+                <h2>SPARQL Analitik Sorguları</h2>
                 <ul>
                     <li class="fragment" data-audio-src="audio/06_sparql_1.mp3">
-                        <i class="fa-solid fa-circle-notch fa-spin-slow" style="font-size: 1.2rem; color: var(--red); margin-right: 20px; width: 24px;"></i>
+                        <i class="fa-solid fa-circle-exclamation" style="font-size: 1.2rem; color: var(--red); margin-right: 20px; width: 24px;"></i>
                         <div>
-                            <strong>Query 1: Critical Threshold Breach:</strong> Varlıkların 80Hz limitini aşan sensör ölçümleri.
+                            <strong>Sorgu 1 & 2 (Eşik & Arıza Takibi):</strong> Kritik sınırları aşan sensörleri ve bağlı oldukları endüstriyel cihazları anlık olarak filtreliyoruz.
                         </div>
                     </li>
                     <li class="fragment" data-audio-src="audio/06_sparql_2.mp3">
                         <i class="fa-solid fa-chart-line" style="font-size: 1.2rem; color: var(--green); margin-right: 20px; width: 24px;"></i>
                         <div>
-                            <strong>Query 2: Failure Track:</strong> ML modelleri ile tahminlerin izlenebilirliği.
-                        </div>
-                    </li>
-                    <li class="fragment" data-audio-src="audio/06_sparql_3.mp3">
-                        <i class="fa-solid fa-triangle-exclamation" style="font-size: 1.2rem; color: var(--amber); margin-right: 20px; width: 24px;"></i>
-                        <div>
-                            <strong>Query 3: Risk Assessment:</strong> Varlıkların hata tahmin olasılıklarına göre sıralanması.
-                        </div>
-                    </li>
-                    <li class="fragment" data-audio-src="audio/06_sparql_4.mp3">
-                        <i class="fa-solid fa-calculator" style="font-size: 1.2rem; color: var(--cyan); margin-right: 20px; width: 24px;"></i>
-                        <div>
-                            <strong>Query 4: Avg Metrics:</strong> Sensör tiplerine göre ortalama değer analizleri.
+                            <strong>Sorgu 3 & 4 (Risk Sıralama & Ortalama Metrikler):</strong> En yüksek riskli tahminleri sıralayıp, geçmişe dönük ortalama metrikleri AVG ile çekebiliyoruz.
                         </div>
                     </li>
                 </ul>
             </section>
 
-            <!-- Slide 7: Future Work -->
+            <!-- Slide 7: Integration Success -->
             <section data-audio-src="audio/07_future_work.mp3">
-                <h2>Future Work & Roadmap</h2>
-                <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:16px; margin-top:30px;">
-                    <div style="border: 1px solid rgba(255,255,255,0.08); background:var(--panel-2); padding: 24px; border-radius: 12px; text-align: left;">
-                        <i class="fa-solid fa-bolt" style="font-size:2rem; color:var(--green); margin-bottom:12px;"></i>
-                        <h3 style="font-size:1.15rem; margin-top:0;">Real-Time Streams</h3>
-                        <p style="font-size:0.8rem; color:var(--muted); margin:0;">FastAPI backend with MQTT/Kafka streams for continuous ingestion.</p>
+                <h2>Sistem Entegrasyonu ve Canlı Akış Başarısı</h2>
+                <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:16px; margin-top:20px;">
+                    <div style="border: 1px solid rgba(255,255,255,0.08); background:var(--panel-2); padding: 20px; border-radius: 12px; text-align: left;">
+                        <i class="fa-solid fa-bolt" style="font-size:1.8rem; color:var(--green); margin-bottom:12px;"></i>
+                        <h3 style="font-size:1.1rem; margin-top:0;">Zaman Serisi Entegrasyonu</h3>
+                        <p style="font-size:0.75rem; color:var(--muted); margin:0;">Derin öğrenme tabanlı GRU-RNN modellerinden gelen tahminleri ve IoT metriklerini anlık işler.</p>
                     </div>
-                    <div style="border: 1px solid rgba(255,255,255,0.08); background:var(--panel-2); padding: 24px; border-radius: 12px; text-align: left;">
-                        <i class="fa-solid fa-brain" style="font-size:2rem; color:var(--cyan); margin-bottom:12px;"></i>
-                        <h3 style="font-size:1.15rem; margin-top:0;">Semantic Reasoner</h3>
-                        <p style="font-size:0.8rem; color:var(--muted); margin:0;">Deploy Pellet/HermiT to verify consistency of alignment axioms.</p>
+                    <div style="border: 1px solid rgba(255,255,255,0.08); background:var(--panel-2); padding: 20px; border-radius: 12px; text-align: left;">
+                        <i class="fa-solid fa-brain" style="font-size:1.8rem; color:var(--cyan); margin-bottom:12px;"></i>
+                        <h3 style="font-size:1.1rem; margin-top:0;">Otonom Veri Akışı</h3>
+                        <p style="font-size:0.75rem; color:var(--muted); margin:0;">Zaman serisi analizlerinin ve kestirimci tahminlerin bilgi grafiğine akışı otonom çalışmaktadır.</p>
                     </div>
-                    <div style="border: 1px solid rgba(255,255,255,0.08); background:var(--panel-2); padding: 24px; border-radius: 12px; text-align: left;">
-                        <i class="fa-solid fa-network-wired" style="font-size:2rem; color:var(--amber); margin-bottom:12px;"></i>
-                        <h3 style="font-size:1.15rem; margin-top:0;">Advanced Visuals</h3>
-                        <p style="font-size:0.8rem; color:var(--muted); margin:0;">Cytoscape graph layouts directly inside live user applications.</p>
+                    <div style="border: 1px solid rgba(255,255,255,0.08); background:var(--panel-2); padding: 20px; border-radius: 12px; text-align: left;">
+                        <i class="fa-solid fa-check-double" style="font-size:1.8rem; color:var(--amber); margin-bottom:12px;"></i>
+                        <h3 style="font-size:1.1rem; margin-top:0;">Bütünleşik Bilgi Grafiği</h3>
+                        <p style="font-size:0.75rem; color:var(--muted); margin:0;">SOSA/SSN hizalı şemamıza akan tüm veriler `populated_data.ttl` grafında birleşir.</p>
                     </div>
                 </div>
             </section>
 
             <!-- Slide 8: Deliverables -->
             <section data-audio-src="audio/08_conclusion.mp3">
-                <h2>Project Portal & Deliverables</h2>
-                <div style="max-width: 600px; margin: 0 auto; display:grid; gap:16px; margin-top:20px;">
-                    <a href="console.html" style="display:flex; align-items:center; gap:16px; border:1px solid rgba(255,255,255,0.1); background:var(--panel-2); padding:20px; border-radius:12px; text-decoration:none; color:inherit; transition: all 200ms ease;" class="link-card">
-                        <i class="fa-solid fa-chart-line" style="font-size:1.8rem; color:var(--green);"></i>
+                <h2>Proje Çıktıları ve Teslim Kalemi Portalı</h2>
+                <div style="max-width: 600px; margin: 0 auto; display:grid; gap:12px; margin-top:10px;">
+                    <a href="console.html" style="display:flex; align-items:center; gap:16px; border:1px solid rgba(255,255,255,0.1); background:var(--panel-2); padding:16px; border-radius:12px; text-decoration:none; color:inherit; transition: all 200ms ease;" class="link-card">
+                        <i class="fa-solid fa-chart-line" style="font-size:1.5rem; color:var(--green);"></i>
                         <div style="text-align:left;">
-                            <strong>Interactive Ontology Console</strong>
-                            <p style="font-size:0.8rem; color:var(--muted); margin:4px 0 0;">Custom dashboard node explorer</p>
+                            <strong>İnteraktif Ontoloji Konsolu</strong>
+                            <p style="font-size:0.75rem; color:var(--muted); margin:4px 0 0;">Özel dashboard grafik ve düğüm gezgini</p>
                         </div>
                     </a>
-                    <a href="docs/widoco/index.html" style="display:flex; align-items:center; gap:16px; border:1px solid rgba(255,255,255,0.1); background:var(--panel-2); padding:20px; border-radius:12px; text-decoration:none; color:inherit; transition: all 200ms ease;" class="link-card">
-                        <i class="fa-solid fa-file-invoice" style="font-size:1.8rem; color:var(--cyan);"></i>
+                    <a href="docs/widoco/index.html" style="display:flex; align-items:center; gap:16px; border:1px solid rgba(255,255,255,0.1); background:var(--panel-2); padding:16px; border-radius:12px; text-decoration:none; color:inherit; transition: all 200ms ease;" class="link-card">
+                        <i class="fa-solid fa-file-invoice" style="font-size:1.5rem; color:var(--cyan);"></i>
                         <div style="text-align:left;">
-                            <strong>WIDOCO HTML Documentation</strong>
-                            <p style="font-size:0.8rem; color:var(--muted); margin:4px 0 0;">Standard W3C alignment specifications</p>
+                            <strong>WIDOCO HTML Standart Dokümantasyonu</strong>
+                            <p style="font-size:0.75rem; color:var(--muted); margin:4px 0 0;">W3C / SOSA uyumluluk şartnameleri</p>
                         </div>
                     </a>
                 </div>
@@ -331,20 +320,18 @@ g.serialize("populated_data.ttl", format="turtle")</code></pre>
 
     <!-- HUD Controller UI -->
     <div class="audio-hud">
-        <div class="progress-track">
-            <div id="progress-fill"></div>
-        </div>
-        <div class="hud-details">
-            <div class="hud-track-info">
-                <i id="play-state" class="fa-solid fa-circle-notch fa-spin"></i>
-                <span id="track-name">Loading...</span>
+        <div class="hud-details" style="display: flex; flex-direction: column; gap: 8px; align-items: stretch;">
+            <div class="hud-track-info" style="display: flex; align-items: center; justify-content: space-between; font-size: 0.8rem; font-weight: 600;">
+                <span id="track-name" style="text-overflow: ellipsis; overflow: hidden; white-space: nowrap; max-width: 180px;">Loading...</span>
+                <i id="play-state" class="fa-solid fa-circle-notch fa-spin" style="color: var(--green);"></i>
             </div>
-            <div>
-                <button id="toggle-flow" style="background: rgba(255,255,255,0.08); border: 1px solid var(--green); color: var(--green); padding: 6px 12px; border-radius: 6px; font-size: 0.75rem; cursor: pointer; display: flex; align-items: center; gap: 8px; transition: all 180ms ease;">
-                    <i class="fa-solid fa-pause" id="flow-icon"></i>
-                    <span id="flow-text">AUTO-SLIDE ACTIVE</span>
-                </button>
+            <div class="progress-track" style="height: 3px; background: rgba(255,255,255,0.08); border-radius: 1.5px; overflow: hidden;">
+                <div id="progress-fill" style="height: 100%; width: 0%; background: var(--green);"></div>
             </div>
+            <button id="toggle-flow" style="background: rgba(255,255,255,0.05); border: 1px solid var(--green); color: var(--green); padding: 4px 8px; border-radius: 4px; font-size: 0.7rem; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 6px; transition: all 180ms ease; width: 100%;">
+                <i class="fa-solid fa-pause" id="flow-icon"></i>
+                <span id="flow-text">AUTO-SLIDE ACTIVE</span>
+            </button>
         </div>
     </div>
 
@@ -457,21 +444,18 @@ g.serialize("populated_data.ttl", format="turtle")</code></pre>
             }
             positionLaserPointer(element);
 
-            // Ensure timer fill is running
+            // Reset progress bar animation
+            timerFill.style.animation = "none";
+            timerFill.offsetHeight; // trigger reflow
             timerFill.style.animationPlayState = "running";
 
             if (audioSrc) {
                 audioPlayer.src = audioSrc;
                 
-                // Only trigger play if we are in auto-slide mode or if we manually advanced
                 audioPlayer.play()
                     .then(() => {
                         document.getElementById("play-state").className = "fa-solid fa-play";
-                        timerFill.style.animation = "none";
-                        timerFill.offsetHeight; // trigger reflow
-                        timerFill.style.animation = `progressBar ${audioPlayer.duration || 5}s linear forwards`;
                         if (!isAutoSlide) {
-                            timerFill.style.animationPlayState = "paused";
                             audioPlayer.pause();
                         }
                     })
@@ -483,8 +467,9 @@ g.serialize("populated_data.ttl", format="turtle")</code></pre>
                     });
 
                 audioPlayer.onloadedmetadata = () => {
-                    if (isAutoSlide) {
-                        timerFill.style.animation = `progressBar ${audioPlayer.duration}s linear forwards`;
+                    timerFill.style.animation = `progressBar ${audioPlayer.duration}s linear forwards`;
+                    if (!isAutoSlide) {
+                        timerFill.style.animationPlayState = "paused";
                     }
                 };
 
